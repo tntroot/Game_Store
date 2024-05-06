@@ -11,9 +11,16 @@ import './assets/SASS/_setting.scss'
 import 'bootstrap'
 import './assets/SASS/_all.scss'
 
+// import function to register Swiper custom elements
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+// register();
+
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
+
+app.use(register)
 
 app.mount('#app')

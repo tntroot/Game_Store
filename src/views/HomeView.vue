@@ -22,9 +22,12 @@
                 mySwiper: {
                     direction: "vertical", // 方向
                     loop: true,  // 循環,
-                    slidesPerView: 1,
-                    navigation: true,
-                    breakpoints: {
+                    slidesPerView: 1,  // 顯示個數，一組要顯示幾個
+                    navigation: {
+                        prev: ".swiper-button-prev",
+                        next: ".swiper-button-next"
+                    }, // 控制按鈕
+                    breakpoints: {  // 響應式
                         510: { slidesPerView: 2,},
                         750: { slidesPerView: 3,},
                         1024: { slidesPerView: 4,},
@@ -56,10 +59,9 @@
                 <swiper-slide v-for="(item, index) in list" :key="item.id">
                     <CardDiv :thisCard="item" />
                 </swiper-slide>
-
-                <swiper-button-prev></swiper-button-prev>
-                <swiper-button-next></swiper-button-next>
             </swiper-container>
+            <div class="swiper-button-prev" style="background-color: red;"></div>
+                <div class="swiper-button-next"></div>
         </div>
         <div class="row my-4">
             <h3 class="tw-border-b-4 rounded-3 border-danger mb-4">
@@ -71,8 +73,8 @@
                     <CardDiv :thisCard="item" />
                 </swiper-slide>
 
-                <swiper-button-prev></swiper-button-prev>
-                <swiper-button-next></swiper-button-next>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </swiper-container>
         </div>
         <div class="row my-4">
@@ -85,8 +87,8 @@
                     <CardDiv :thisCard="item" />
                 </swiper-slide>
 
-                <swiper-button-prev></swiper-button-prev>
-                <swiper-button-next></swiper-button-next>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </swiper-container>
         </div>
     </div>
@@ -98,5 +100,9 @@
         background-position: 0 40%;
         background-size: 100%;
         text-shadow: 4px 3px 1px purple, -3px -1px 1px purple;
+    }
+
+    .swiper-button-prev::part(bullet-active), .swiper-button-next::part(bullet-active){
+        --swiper-navigation-color: red;
     }
 </style>

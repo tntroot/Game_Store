@@ -28,11 +28,11 @@ export default {
             </div>  
             <div class="collapse navbar-collapse order-5 order-lg-1" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">首頁</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">關於</a></li>
                     <li class="nav-item dropdown pb-lg-0 pb-3">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                            data-bs-toggle="dropdown" aria-expanded="false">商店</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#!">Popular Items</a></li>
                             <li><a class="dropdown-item" href="#!">New Arrivals</a></li>

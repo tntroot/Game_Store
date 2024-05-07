@@ -46,7 +46,7 @@
 
 <template>
     <header class="bg-dark px-5 tw-py-[3rem] sm:tw-py-[6rem] text-center">
-        <h1 class="tw-text-6xl fw-bolder tw-text-[#1efce6]">遊戲商店</h1>
+        <h1 class="tw-text-6xl fw-bolder tw-text-[#1efce6]">夢幻宇宙網</h1>
         <p class="display-6 lead fw-bolder tw-text-white mb-0">你想玩的遊戲都在這裡</p>
     </header>
     <div class="container">

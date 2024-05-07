@@ -17,7 +17,7 @@ export default {
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <a class="navbar-brand" href="#!">Start Bootstrap</a>
+            <a class="navbar-brand" href="#!">夢幻宇宙網</a>
             <div class=" order-1 order-lg-5">
                 <button class=" btn-shop-account">
                     <Icon icon="ic:round-account-circle" />

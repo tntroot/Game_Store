@@ -30,7 +30,7 @@
         <div class="card-body">
             <h5 class="card-title fw-bolder fs-5 tw-text-[#3640ac]">{{ thisCard.name }}</h5>
             <div class="d-flex align-items-center">
-                <h5 class="card-text text-danger fw-bolder fs-5 me-2">$ {{ thisCard.sale_price }}</h5>
+                <h5 class="card-text text-danger fw-bolder fs-5 me-2"> {{ thisCard.sale_price ? `$ ${thisCard.sale_price}` : '免費' }}</h5>
                 <h5 v-if="salePrice" class="text-decoration-line-through">${{ thisCard.price }}</h5>
             </div>
             
@@ -83,4 +83,13 @@
             /*前景星星顏色*/
         }
     }
+
+    // .hoverImg{
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     transform: scale(2);
+    // }
 </style>

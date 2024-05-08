@@ -34,6 +34,6 @@ app.use(router)
 
 app.use(swiper)
 
-app.use(register)
+register();
 
 app.mount('#app')

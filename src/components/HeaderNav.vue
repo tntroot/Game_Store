@@ -42,8 +42,8 @@ export default {
                     <li class="nav-item ms-4">
                         <form class="d-flex border-1 tw-border-gray-600 rounded-pill">
                             <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">
-                                <Icon icon="icon-park:search" />
+                            <button class="btn btn-outline-success btn-secondary" type="submit">
+                                <Icon icon="icon-park:search" class="fs-5" />
                             </button>
                         </form>
                     </li>

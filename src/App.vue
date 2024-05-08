@@ -1,9 +1,10 @@
 <script>
 import { RouterView, RouterLink } from 'vue-router';
 import HeaderNav from './components/HeaderNav.vue';
+import FooterDiv from './components/FooterDiv.vue';
 export default {
 	components: {
-		HeaderNav,
+		HeaderNav, FooterDiv,
 	},
 	data() {
 		return {
@@ -17,6 +18,7 @@ export default {
 	<div>
 		<RouterView></RouterView>
 	</div>
+	<FooterDiv />
 </template>
 
 <style lang="">

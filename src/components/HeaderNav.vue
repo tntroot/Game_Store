@@ -33,15 +33,18 @@ export default {
                     <li class="nav-item dropdown pb-lg-0 pb-3">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">商店</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                            <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                        <ul class="dropdown-menu py-0" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#!">新遊戲</a></li>
+                            <li><a class="dropdown-item" href="#!">排行</a></li>
+                            <li><a class="dropdown-item" href="#!">免費遊戲</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                    <li class="nav-item ms-4">
+                        <form class="d-flex border-1 tw-border-gray-600 rounded-pill">
+                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">
+                                <Icon icon="icon-park:search" />
+                            </button>
                         </form>
                     </li>
                 </ul>
@@ -61,6 +64,27 @@ export default {
         }
         &:active{
             transform: scale(0.9);
+        }
+    }
+    .form-control{
+        border-radius:50rem 0 0 50rem;
+        &:focus{
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+    }
+    .btn-outline-success{
+        border: none;
+        border-radius: 0 50rem 50rem 0;
+        padding: 0.5rem 1rem;
+    }
+
+    .dropdown-item{
+        padding: 0.5rem 0 0.5rem 1rem;
+        &:hover{
+            background-color: rgb(218, 218, 218);
+            font-weight: bolder;
         }
     }
 </style>

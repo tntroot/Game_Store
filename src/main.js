@@ -13,27 +13,23 @@ import './assets/SASS/_all.scss'
 
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+register();
 
-import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
-// import Swiper and modules styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+// import styles bundle
+// import 'swiper/css/bundle';
+// import Swiper from 'swiper'
 
-// init Swiper:
-const swiper = new Swiper('swiper-container', {
-    // configure Swiper to use modules
-    modules: [Navigation, Pagination],
-});
+import '../node_modules/swiper/swiper-element-bundle.min'
+import '../node_modules/swiper/swiper-bundle.min.css'
+
+
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
 
-app.use(swiper)
-
-register();
-
 app.mount('#app')
+
+

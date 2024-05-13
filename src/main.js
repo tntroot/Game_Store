@@ -12,12 +12,12 @@ import 'bootstrap'
 import './assets/SASS/_all.scss'
 
 // swiper
-import '../node_modules/swiper/swiper-bundle'
-import '../node_modules/swiper/swiper-bundle.min'
-import '../node_modules/swiper/swiper.min'
+// import '../node_modules/swiper/swiper-bundle'
+// import '../node_modules/swiper/swiper-bundle.min'
+// import '../node_modules/swiper/swiper.min'
 
-import '../node_modules/swiper/swiper-bundle.css'
-import '../node_modules/swiper/swiper-bundle.min.css'
+// import '../node_modules/swiper/swiper-bundle.css'
+// import '../node_modules/swiper/swiper-bundle.min.css'
 
 import { Swiper, SwiperSlide } from 'swiper/vue'
 

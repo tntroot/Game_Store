@@ -12,8 +12,13 @@ export default {
       const swiper_container = document.querySelectorAll('swiper-container')[index]
       const prevBtn = swiper_container.shadowRoot.querySelector('.swiper-button-prev')
       const nextBtn = swiper_container.shadowRoot.querySelector('.swiper-button-next')
+
       prevBtn.innerHTML = `<img src='../../src/assets/img/emojione--right-arrow.png' style='transform: rotate(180deg);' width='60'>`
       nextBtn.innerHTML = `<img src='../../src/assets/img/emojione--right-arrow.png' width='60'>`
+
+      const swiper = swiper_container.shadowRoot.querySelector('.swiper');
+      swiper.style = "";
+
     },
     setSwiper(index) {
       const swiperEl = document.querySelectorAll('swiper-container')[index];

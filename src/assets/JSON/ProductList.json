@@ -7,7 +7,7 @@
             "price": 1000,
             "sale_price": 1000,
             "rating": 3.7,
-            "sales": 100000,
+            "sales": 123564,
             "message": 123
         },
         {
@@ -66,8 +66,8 @@
             "id": 7,
             "name": "Monster Hunter: World",
             "img": "../assets/img/Monster_Hunter_World.jpg",
-            "price": 1000,
-            "sale_price": 1000,
+            "price": 1230,
+            "sale_price": 1100,
             "rating": 3.7,
             "sales": 100000,
             "message": 123

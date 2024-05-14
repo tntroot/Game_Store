@@ -1,14 +1,22 @@
 <script>
 import { Icon } from '@iconify/vue';
+import { RouterLink } from 'vue-router';
 export default {
     components:{
         Icon, 
     },
     data() {
         return {
-
+            search: "",
         }
     },
+    methods:{
+        searchFu(){
+            if(!this.search.trim()){
+                this.$router.push({ path: '/search', query: { search: this.search } });
+            }
+        }
+    }
 }
 </script>
 <template>
@@ -40,12 +48,12 @@ export default {
                         </ul>
                     </li>
                     <li class="nav-item ms-4">
-                        <form class="d-flex border-1 tw-border-gray-600 rounded-pill">
-                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success btn-secondary" type="submit">
+                        <div class="d-flex border-1 tw-border-gray-600 rounded-pill">
+                            <input class="form-control" type="text" placeholder="遊戲名稱" v-model.trim="search" @keyup.enter="searchFu">
+                            <button class="btn btn-outline-success btn-secondary" type="button" @click="searchFu">
                                 <Icon icon="icon-park:search" class="fs-5" />
                             </button>
-                        </form>
+                        </div>
                     </li>
                 </ul>
             </div>   

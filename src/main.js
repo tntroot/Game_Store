@@ -36,8 +36,6 @@ app.component('swiper', Swiper).component('SwiperSlide', SwiperSlide)
 
 app.mount('#app')
 
-console.log(document.querySelector('.swiper-button-next'));
-
 
 
 

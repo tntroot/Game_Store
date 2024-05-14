@@ -23,14 +23,14 @@ export default {
 </script>
 <template>
     <div class="card p-0 border-0 mx-2">
-        <div v-if="salePrice" class="badge sales" style="top: 0.5rem; right: 0.5rem">
+        <div v-if="salePrice" class="badge sales">
             特價
         </div>
-        <img :src="thisCard.img" class="card-img-top w-100 tw-h-48 thisCard" :alt="thisCard.name">
+        <img :src="thisCard.img" class="card-img-top w-100 tw-h-48 tw-cursor-pointer" :alt="thisCard.name">
         <div class="card-body">
-            <h5 class="card-title fw-bolder fs-5 tw-text-[#3640ac]">{{ thisCard.name }}</h5>
+            <h5 class="card-title fw-bolder fs-5 tw-text-[#3640ac] tw-cursor-pointer">{{ thisCard.name }}</h5>
             <div class="d-flex align-items-center">
-                <h5 class="card-text text-danger fw-bolder fs-5 me-2"> {{ thisCard.sale_price ? `$ ${thisCard.sale_price}` :
+                <h5 class="card-text text-danger fw-bolder fs-5 me-2"> {{ thisCard.sale_price!=0 ? `$ ${thisCard.sale_price}` :
                     '免費' }}</h5>
                 <h5 v-if="salePrice" class="text-decoration-line-through">${{ thisCard.price }}</h5>
             </div>
@@ -46,27 +46,26 @@ export default {
                     <span>{{ " " + thisCard.message }}</span>
                 </div>
             </div>
-            <div class="text-center">
-                <a class="btn btn-outline-dark mt-3" href="#">加入購物車</a>
+            <div class="text-center">  
+                <div class="btn btn-outline-dark mt-3 fw-bolder">
+                    <Icon icon="typcn:shopping-cart" class=" d-inline-block me-2" />
+                    <span>加入購物車</span>
+                </div>
             </div>
         </div>
     </div>
 </template>
 <style lang="scss" scoped>
-.sales {
+ .sales {
     background-color: rgb(255, 50, 50);
     position: absolute;
-    top: 0.5rem
-        /* 8px */
-    ;
-    right: 0.5rem
-        /* 8px */
-    ;
+    top: 0.5rem;
+    right: 0.5rem;
     color: white;
     font-size: 1rem;
     padding: 0.5rem 1rem;
     font-weight: bolder;
-}
+} 
 
 .ratings {
     position: relative;

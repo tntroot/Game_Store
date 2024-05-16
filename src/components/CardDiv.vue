@@ -23,12 +23,16 @@ export default {
 </script>
 <template>
     <div class="card p-0 border-0 mx-2">
-        <div v-if="salePrice" class="badge sales">
-            特價
-        </div>
-        <img :src="thisCard.img" class="card-img-top w-100 tw-h-48 tw-cursor-pointer" :alt="thisCard.name">
+        <RouterLink to="/item">
+            <div v-if="salePrice" class="badge sales">
+                特價
+            </div>
+            <img :src="thisCard.img" class="card-img-top w-100 tw-h-48" :alt="thisCard.name">
+        </RouterLink> 
         <div class="card-body">
-            <h5 class="card-title fw-bolder fs-5 tw-text-[#3640ac] tw-cursor-pointer">{{ thisCard.name }}</h5>
+            <RouterLink to="/item">
+                <h5 class="card-title fs-5 tw-text-[#3640ac] hover:tw-text-red-600">{{ thisCard.name }}</h5>
+            </RouterLink>
             <div class="d-flex align-items-center">
                 <h5 class="card-text text-danger fw-bolder fs-5 me-2"> {{ thisCard.sale_price!=0 ? `$ ${thisCard.sale_price}` :
                     '免費' }}</h5>

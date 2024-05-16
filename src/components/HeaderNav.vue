@@ -25,7 +25,9 @@ export default {
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <a class="navbar-brand" href="#!">夢幻宇宙網</a>
+            <RouterLink to="/">
+                <div class="navbar-brand" href="#!">夢幻宇宙網</div>
+            </RouterLink>
             <div class=" order-1 order-lg-5">
                 <button class=" btn-shop-account">
                     <Icon icon="ic:round-account-circle" />
@@ -36,7 +38,9 @@ export default {
             </div>  
             <div class="collapse navbar-collapse order-5 order-lg-1" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">首頁</a></li>
+                    <RouterLink to="/">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">首頁</a></li>
+                    </RouterLink>
                     <li class="nav-item"><a class="nav-link" href="#!">關於</a></li>
                     <li class="nav-item dropdown pb-lg-0 pb-3">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"

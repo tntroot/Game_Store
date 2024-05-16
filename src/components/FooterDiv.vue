@@ -6,7 +6,7 @@ export default {
 
 <template>
     <footer>
-        <h1>@ 夢幻宇宙網 @</h1>
+        <h3>@ 夢幻宇宙網 @</h3>
     </footer>
 </template>
 
@@ -21,7 +21,7 @@ export default {
         font-size: 1.5rem;
         margin-top: 4rem;
 
-        h1{
+        h3{
             padding: 3rem 0;
         }
     }

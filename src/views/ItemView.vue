@@ -41,7 +41,7 @@ export default {
 					</div>
 					<div class="col-md-8">
 						<div class="card-body">
-							<h1 class="card-title">冰與火之舞</h1>
+							<h1 class="card-title">Minecraft</h1>
 							<table class=" card-text">
 								<tr>
 									<td>作者：</td>
@@ -72,8 +72,18 @@ export default {
 				</div>
 			</div>
 		</div>
-
 	</div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.mySwiper2{
+	padding: 0.8rem;
+	background-color: rgba(0, 0, 0, 0.911);
+
+	img{
+		cursor: pointer;
+	}
+}
+</style>
+
+<!-- https://codesandbox.io/p/sandbox/qd6gyz?file=%2Findex.html%3A171%2C16-171%2C75 -->

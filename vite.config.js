@@ -6,15 +6,16 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  publicPath: "./",
   plugins: [
     vue({
-        template: {
-          compilerOptions: {
-            isCustomElement: tag => tag.startsWith('swiper-'),
-          }
+      template: {
+        compilerOptions: {
+          isCustomElement: tag => tag.startsWith('swiper-'),
         }
-      }),
-      vueJsx(),
+      }
+    }),
+    vueJsx(),
   ],
   resolve: {
     alias: {
@@ -23,9 +24,11 @@ export default defineConfig({
   },
 
   root: './',
-    build: {
-        outDir: 'dist',
-    },
-    publicDir: 'assets',
-    filenameHashing: false,
+  build: {
+    outDir: 'dist',
+  },
+  publicDir: 'assets',
+  filenameHashing: false,
+
+  base: "./"
 })

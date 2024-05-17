@@ -20,13 +20,13 @@ export default {
 }
 </script>
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light p-0 sticky-top">
         <div class="container px-4 px-lg-5 position-relative">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <RouterLink to="/">
-                <div class="navbar-brand" href="#!">夢幻宇宙網</div>
+                <div class="navbar-brand fs-3">夢幻宇宙網</div>
             </RouterLink>
             <div class=" order-1 order-lg-5">
                 <button class=" btn-shop-account">
@@ -37,18 +37,20 @@ export default {
                 </button> 
             </div>  
             <div class="collapse navbar-collapse order-5 order-lg-1" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-4">
                     <RouterLink to="/">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">首頁</a></li>
+                        <li class="nav-item nav-link ">首頁</li>
                     </RouterLink>
-                    <li class="nav-item"><a class="nav-link" href="#!">關於</a></li>
+                    <RouterLink to="/item">
+                        <li class="nav-item nav-link">關於</li>
+                    </RouterLink>
                     <li class="nav-item dropdown pb-lg-0 pb-3">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">商店</a>
                         <ul class="dropdown-menu py-0" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#!">新遊戲</a></li>
-                            <li><a class="dropdown-item" href="#!">排行</a></li>
-                            <li><a class="dropdown-item" href="#!">免費遊戲</a></li>
+                            <RouterLink to="/"><li class="dropdown-item">新遊戲</li></RouterLink>
+                            <RouterLink to="/"><li class="dropdown-item">排行</li></RouterLink>
+                            <RouterLink to="/"><li class="dropdown-item">免費遊戲</li></RouterLink>
                         </ul>
                     </li>
                     <li class="nav-item ms-4">

@@ -3,53 +3,21 @@ import { RouterLink } from 'vue-router';
 export default {
 	data() {
 		return {
-
-		}
-	},
-	mounted() {
-		const swiperEl = document.querySelectorAll('swiper-container');
-
-		// swiper parameters
-		const swiperParams = {
-			direction: 'horizontal', // 方向 vertical 垂直、horizontal 橫向
-			navigation: true, // 前後退啟用按鈕
-			slidesOffsetAfter: 0, // 與前後退按鈕間隔距離
-			slidesOffsetBefore: 0, // 與前後退按鈕間隔距離
-			breakpoints: {  // 響應式
-				0: {
-					slidesPerView: 1, // 顯示數量
-					slidesPerGroup: 1, // 滑動時移動的格數
-				},
-				400: {
-					slidesPerView: 2,
-					slidesPerGroup: 1,
-				},
-				750: {
-					slidesPerView: 3,
-					slidesPerGroup: 2,
-				},
-				100: {
-					slidesPerView: 4,
-					slidesPerGroup: 3,
-				},
-				1300: {
-					slidesPerView: 5,
-					slidesPerGroup: 4,
-				}
-			},
-			on: { // 按件事件
-				init() {
-					// ...
-				}
+			itemList: {
+				"id": 1,
+				"name": "Minecraft",
+				"img": ["/src/assets/img/minecraft/minecraft.webp", "/src/assets/img/minecraft/minecraft2.jpg", "/src/assets/img/minecraft/minecraft3.jpg", "/src/assets/img/minecraft/minecraft4.jpg"],
+				"price": 1000,
+				"sale_price": 1000,
+				"rating": 3.7,
+				"sales": 123564,
+				"message": 123
 			}
 		}
-
-		// 淺層複製到 swiperEl
-		Object.assign(swiperEl, swiperParams);
-
-		// 初始化 swiper
-		swiperEl.initialize();
-	}
+	},
+	created() {
+		// this.itemList.img.map( item => {item = new URL(item, import.meta.url)});
+	},
 }
 </script>
 
@@ -59,9 +27,15 @@ export default {
 			<div class="card mb-3">
 				<div class="row g-0">
 					<div class="col-md-4">
-						<swiper-container init="false">
-							<swiper-slide v-for="(item, index) in listAll" :key="item.id">
-								<CardDiv :thisCard="item" />
+						<swiper-container class="mySwiper" thumbs-swiper=".mySwiper2" space-between="10" navigation="true">
+							<swiper-slide v-for="(item, index) in itemList.img" :key="index">
+								<img class="w-100 tw-h-[18rem]" :src="item" alt="" srcset="">
+							</swiper-slide>
+						</swiper-container>
+						<swiper-container class="mySwiper2" space-between="10" slides-per-view="4" free-mode="true"
+						watch-slides-progress="true">
+							<swiper-slide v-for="(item, index) in itemList.img" :key="index">
+								<img class="tw-w-[6rem] tw-h-[6rem]" :src="item" alt="" srcset="">
 							</swiper-slide>
 						</swiper-container>
 					</div>
@@ -80,10 +54,10 @@ export default {
 								<tr>
 									<td>遊戲標籤：</td>
 									<td>
-										<RouterLink>
+										<RouterLink to="/">
 											<span class=" tw-text-blue-600 hover:tw-text-red-600">3D</span>
 										</RouterLink>、
-										<RouterLink>
+										<RouterLink to="/">
 											<span class=" tw-text-blue-600 hover:tw-text-red-600">可愛</span>
 										</RouterLink>
 									</td>

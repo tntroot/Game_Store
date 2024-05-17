@@ -17,7 +17,7 @@ export default {
         }
     },
     created() {
-        this.thisCard.img = new URL(this.thisCard.img, import.meta.url);
+        this.thisCard.img[0] = new URL(this.thisCard.img[0], import.meta.url);
     },
 }
 </script>
@@ -27,7 +27,7 @@ export default {
             <div v-if="salePrice" class="badge sales">
                 特價
             </div>
-            <img :src="thisCard.img" class="card-img-top w-100 tw-h-48" :alt="thisCard.name">
+            <img :src="thisCard.img[0]" class="card-img-top w-100 tw-h-48" :alt="thisCard.name">
         </RouterLink> 
         <div class="card-body">
             <RouterLink to="/item">

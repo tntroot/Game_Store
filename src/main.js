@@ -6,7 +6,7 @@ import router from './router'
 
 // bootstrap 樣式
 import 'bootstrap'
-import './assets/SASS/_all.scss'
+import './assets/SASS/all.scss'
 
 // 自訂樣式
 import './assets/SASS/_setting.scss'

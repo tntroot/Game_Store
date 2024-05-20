@@ -1,0 +1,16 @@
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../../node_modules/bootstrap/scss/functions';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities{
+    /* 響應式 */
+    @variants responsive {
+        .border-b-2-black{
+            border-bottom: 2px solid black;
+        }
+    }
+    
+}

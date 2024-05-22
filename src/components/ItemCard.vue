@@ -102,12 +102,20 @@ export default {
 }
 
 .itemTable {
-    font-size: 1.5rem;
+    font-size: 1rem;
     table-layout: fixed;
     width: 100%;
 
     tr>td:nth-child(1) {
         padding: 0.3rem 0;
-        width: 150px;
+        width: 100px;
+    }
+
+    @media screen and (min-width: 600px) {
+        font-size: 1.5rem;
+        & > tr>td:nth-child(1) {
+            padding: 0.3rem 0;
+            width: 150px;
+        }
     }
 }</style>

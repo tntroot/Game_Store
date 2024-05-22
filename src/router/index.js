@@ -18,8 +18,8 @@ const router = createRouter({
       component: SearchView
     },
     {
-      path: '/item',
-      name: 'Item',
+      path: '/search/item/:userId?',
+      name: 'SearchItem',
       component: ItemView
     }
   ]

@@ -23,14 +23,15 @@ export default {
 </script>
 <template>
     <div class="card p-0 border-0 mx-2">
-        <RouterLink to="/item">
+        <!-- :to="{part: '/item', query: { userID : thisCard.id }}" -->
+        <RouterLink :to="'/search/item/' + thisCard.id">
             <div v-if="salePrice" class="badge sales">
                 特價
             </div>
             <img :src="thisCard.img[0]" class="card-img-top w-100 tw-h-48" :alt="thisCard.name">
         </RouterLink> 
         <div class="card-body">
-            <RouterLink to="/item">
+            <RouterLink :to="'/search/item/' + thisCard.id">
                 <h5 class="card-title fs-5 tw-text-[#3640ac] hover:tw-text-red-600">{{ thisCard.name }}</h5>
             </RouterLink>
             <div class="d-flex align-items-center">

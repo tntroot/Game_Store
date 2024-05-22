@@ -9,8 +9,10 @@ export default {
 </script>
 
 <template>
-    <div>
-        123
+    <div class=" container">
+        <div class="row">
+            <div class="col-12">123</div>
+        </div>
     </div>
 </template>
 

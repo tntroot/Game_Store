@@ -1,0 +1,345 @@
+{
+    "search": [
+        {
+            "id": 1,
+            "name": "Minecraft",
+            "author": "凱薩",
+            "update": "2024/05/16",
+            "gameTag": ["跑酷", "第一人稱"],
+            "sysReq": {
+                "最低配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "8GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                },
+                "建議配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "9GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                }
+            },
+            "img": ["../assets/img/minecraft/minecraft.webp", "../assets/img/minecraft/minecraft2.jpg", "../assets/img/minecraft/minecraft3.jpg", "../assets/img/minecraft/minecraft4.jpg"],
+            "price": 1000,
+            "sale_price": 1000,
+            "rating": 3.7,
+            "sales": 123564,
+            "message": 123
+        },
+        {
+            "id": 2,
+            "name": "冰與火之舞",
+            "author": "凱薩",
+            "update": "2024/05/16",
+            "gameTag": ["跑酷", "第一人稱"],
+            "sysReq": {
+                "最低配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "8GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                },
+                "建議配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "9GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                }
+            },
+            "img": ["../assets/img/A_Dance_of_Fire_and_Ice/A_Dance_of_Fire_and_Ice.jpg"],
+            "price": 123,
+            "sale_price": 100,
+            "rating": 4.5,
+            "sales": 100000,
+            "message": 123
+        },
+        {
+            "id": 3,
+            "name": "Gravitas",
+            "author": "凱薩",
+            "update": "2024/05/16",
+            "gameTag": ["跑酷", "第一人稱"],
+            "sysReq": {
+                "最低配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "8GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                },
+                "建議配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "9GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                }
+            },
+            "img": ["../assets/img/Gravitas/Gravitas.jpg"],
+            "price": 0,
+            "sale_price": 0,
+            "rating": 4.0,
+            "sales": 100000,
+            "message": 123
+        },
+        {
+            "id": 4,
+            "name": "GTA 5",
+            "author": "凱薩",
+            "update": "2024/05/16",
+            "gameTag": ["跑酷", "第一人稱"],
+            "sysReq": {
+                "最低配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "8GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                },
+                "建議配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "9GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                }
+            },
+            "img": ["../assets/img/gta/gta.jpg"],
+            "price": 1000,
+            "sale_price": 600,
+            "rating": 4.8,
+            "sales": 100000,
+            "message": 123
+        },
+        {
+            "id": 5,
+            "name": "幻塔",
+            "author": "凱薩",
+            "update": "2024/05/16",
+            "gameTag": ["跑酷", "第一人稱"],
+            "sysReq": {
+                "最低配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "8GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                },
+                "建議配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "9GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                }
+            },
+            "img": ["../assets/img/Hotta/Hotta.jpg"],
+            "price": 0,
+            "sale_price": 0,
+            "rating": 3.0,
+            "sales": 100000,
+            "message": 123
+        },
+        {
+            "id": 6,
+            "name": "雀魂麻將",
+            "author": "凱薩",
+            "update": "2024/05/16",
+            "gameTag": ["跑酷", "第一人稱"],
+            "sysReq": {
+                "最低配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "8GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                },
+                "建議配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "9GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                }
+            },
+            "img": ["../assets/img/MahjongSoul/MahjongSoul.jpg"],
+            "price": 0,
+            "sale_price": 0,
+            "rating": 2.7,
+            "sales": 100000,
+            "message": 123
+        },
+        {
+            "id": 7,
+            "name": "Monster Hunter: World",
+            "author": "凱薩",
+            "update": "2024/05/16",
+            "gameTag": ["跑酷", "第一人稱"],
+            "sysReq": {
+                "最低配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "8GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                },
+                "建議配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "9GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                }
+            },
+            "img": ["../assets/img/Monster_Hunter_World/Monster_Hunter_World.jpg"],
+            "price": 1230,
+            "sale_price": 1100,
+            "rating": 3.7,
+            "sales": 100000,
+            "message": 123
+        },
+        {
+            "id": 8,
+            "name": "NaissanceE",
+            "author": "凱薩",
+            "update": "2024/05/16",
+            "gameTag": ["跑酷", "第一人稱"],
+            "sysReq": {
+                "最低配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "8GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                },
+                "建議配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "9GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                }
+            },
+            "img": ["../assets/img/NaissanceE/NaissanceE.jpg"],
+            "price": 0,
+            "sale_price": 0,
+            "rating": 4.5,
+            "sales": 100000,
+            "message": 123
+        },
+        {
+            "id": 9,
+            "name": "Portal1",
+            "author": "凱薩",
+            "update": "2024/05/16",
+            "gameTag": ["跑酷", "第一人稱"],
+            "sysReq": {
+                "最低配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "8GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                },
+                "建議配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "9GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                }
+            },
+            "img": ["../assets/img/Portal1/Portal1.jpg"],
+            "price": 250,
+            "sale_price": 250,
+            "rating": 4.0,
+            "sales": 100000,
+            "message": 123
+        },
+        {
+            "id": 10,
+            "name": "Portal2",
+            "author": "凱薩",
+            "update": "2024/05/16",
+            "gameTag": ["跑酷", "第一人稱"],
+            "sysReq": {
+                "最低配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "8GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                },
+                "建議配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "9GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                }
+            },
+            "img": ["../assets/img/Portal2/Portal2.jpg"],
+            "price": 300,
+            "sale_price": 250,
+            "rating": 4.8,
+            "sales": 100000,
+            "message": 123
+        },
+        {
+            "id": 11,
+            "name": "Sky 光域",
+            "author": "凱薩",
+            "update": "2024/05/16",
+            "gameTag": ["跑酷", "第一人稱"],
+            "sysReq": {
+                "最低配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "8GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                },
+                "建議配置": {
+                    "Window": "Window 10",
+                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "RAM": "9GB",
+                    "Display_Card": "Nvida GeForce GTX 660",
+                    "DirectX": "11",
+                    "ROM": "6GB"
+                }
+            },
+            "img": ["../assets/img/Sky/Sky.jpg"],
+            "price": 300,
+            "sale_price": 0,
+            "rating": 3.0,
+            "sales": 100000,
+            "message": 123
+        }
+    ]
+}

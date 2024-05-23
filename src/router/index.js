@@ -15,10 +15,10 @@ const router = createRouter({
     {
       path: '/search',
       name: 'Search',
-      component: SearchView
+      component: SearchView,
     },
     {
-      path: '/search/item/:userId?',
+      path: '/search/item',
       name: 'SearchItem',
       component: ItemView
     }

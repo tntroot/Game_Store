@@ -42,10 +42,6 @@ export default {
                             <td>凱薩</td>
                         </tr>
                         <tr>
-                            <td>遊戲類型：</td>
-                            <td>角色扮演</td>
-                        </tr>
-                        <tr>
                             <td>上架時間：</td>
                             <td><small class="text-muted">2024/05/16</small></td>
                         </tr>

@@ -3,7 +3,7 @@
         {
             "id": 1,
             "name": "Minecraft",
-            "img": ["../assets/img/minecraft/minecraft.webp", "../assets/img/minecraft/minecraft2.jpg", "../assets/img/minecraft/minecraft3.jpg", "../assets/img/minecraft/minecraft4.jpg"],
+            "img": ["../assets/img/minecraft/minecraft.webp", "../assets/img/minecraft/image_1.jpg", "../assets/img/minecraft/image_6.jpg", "../assets/img/minecraft/image_3.jpg", "../assets/img/minecraft/image_4.jpg", "../assets/img/minecraft/image_5.jpg"],
             "price": 1000,
             "sale_price": 1000,
             "rating": 3.7,
@@ -109,16 +109,6 @@
             "price": 300,
             "sale_price": 0,
             "rating": 3.0,
-            "sales": 100000,
-            "message": 123
-        },
-        {
-            "id": 12,
-            "name": "雀魂麻將",
-            "img": ["../assets/img/MahjongSoul/MahjongSoul.jpg"],
-            "price": 0,
-            "sale_price": 0,
-            "rating": 2.7,
             "sales": 100000,
             "message": 123
         }

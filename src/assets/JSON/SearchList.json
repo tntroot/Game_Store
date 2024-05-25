@@ -5,7 +5,7 @@
             "name": "Minecraft",
             "author": "凱薩",
             "update": "2024/05/16",
-            "gameTag": ["跑酷", "第一人稱"],
+            "gameTag": ["開放世界", "3D"],
             "sysReq": {
                 "最低配置": {
                     "Window": "Window 10",
@@ -24,7 +24,7 @@
                     "ROM": "6GB"
                 }
             },
-            "img": ["../assets/img/minecraft/minecraft.webp", "../assets/img/minecraft/minecraft2.jpg", "../assets/img/minecraft/minecraft3.jpg", "../assets/img/minecraft/minecraft4.jpg"],
+            "img": ["../assets/img/minecraft/minecraft.webp", "../assets/img/minecraft/image_1.jpg", "../assets/img/minecraft/image_3.jpg", "../assets/img/minecraft/image_4.jpg", "../assets/img/minecraft/image_5.jpg", "../assets/img/minecraft/image_6.jpg"],
             "price": 1000,
             "sale_price": 1000,
             "rating": 3.7,
@@ -36,23 +36,23 @@
             "name": "冰與火之舞",
             "author": "凱薩",
             "update": "2024/05/16",
-            "gameTag": ["跑酷", "第一人稱"],
+            "gameTag": ["節奏", "音樂", "單人", "2D"],
             "sysReq": {
                 "最低配置": {
-                    "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "8GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "Window": "Windows 7 or later",
+                    "CPU": "無",
+                    "RAM": "2GB",
+                    "Display_Card": "Intel Graphics 4000, 2GB VRAM",
+                    "DirectX": "無",
+                    "ROM": "1.5GB"
                 },
                 "建議配置": {
-                    "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "9GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "Window": "Windows 7 or later",
+                    "CPU": "無",
+                    "RAM": "2GB",
+                    "Display_Card": "Intel Graphics 4000, 2GB VRAM",
+                    "DirectX": "無",
+                    "ROM": "1.5GB"
                 }
             },
             "img": ["../assets/img/A_Dance_of_Fire_and_Ice/A_Dance_of_Fire_and_Ice.jpg"],
@@ -67,23 +67,23 @@
             "name": "Gravitas",
             "author": "凱薩",
             "update": "2024/05/16",
-            "gameTag": ["跑酷", "第一人稱"],
+            "gameTag": ["單人", "第一人稱", "解謎", "平台解謎", "免費遊玩"],
             "sysReq": {
                 "最低配置": {
-                    "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "8GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "Window": "Windows 7/8/10 64-bit",
+                    "CPU": "64-bit Quad-core Intel or AMD, 2.0 GHz or faster",
+                    "RAM": "4GB",
+                    "Display_Card": "OpenGL 3.0+ / DirectX, 1GB Video RAM",
+                    "DirectX": "10",
+                    "ROM": "8GB"
                 },
                 "建議配置": {
-                    "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "9GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "Window": "Windows 7/8/10 64-bit",
+                    "CPU": "64-bit Quad-core Intel or AMD, 2.5 GHz or faster",
+                    "RAM": "8GB",
+                    "Display_Card": "NVIDIA Geforece 470 GTX or AMD Radeon 6870 HD series or higher",
+                    "DirectX": "10",
+                    "ROM": "8GB"
                 }
             },
             "img": ["../assets/img/Gravitas/Gravitas.jpg"],
@@ -98,23 +98,23 @@
             "name": "GTA 5",
             "author": "凱薩",
             "update": "2024/05/16",
-            "gameTag": ["跑酷", "第一人稱"],
+            "gameTag": ["開放世界", "動作", "多人"],
             "sysReq": {
                 "最低配置": {
                     "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "8GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "CPU": "Intel Core 2 四核心 CPU Q6600 @ 2.40GHz (4 CPUs) / AMD Phenom 9850 四核心處理器 (4 個 CPU) @ 2.5GHz",
+                    "RAM": "4GB",
+                    "Display_Card": "NVIDIA 9800 GT 1GB / AMD HD 4870 1GB (DX 10、10.1、11)",
+                    "DirectX": "無",
+                    "ROM": "30GB"
                 },
                 "建議配置": {
                     "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "9GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "CPU": " Intel Core i5 3470 @ 3.2GHZ (4 個 CPU) / AMD X8 FX-8350 @ 4GHZ (8 個 CPU)",
+                    "RAM": "8GB",
+                    "Display_Card": "NVIDIA GTX 660 2GB / AMD HD7870 2GB",
+                    "DirectX": "無",
+                    "ROM": "30GB"
                 }
             },
             "img": ["../assets/img/gta/gta.jpg"],
@@ -129,26 +129,26 @@
             "name": "幻塔",
             "author": "凱薩",
             "update": "2024/05/16",
-            "gameTag": ["跑酷", "第一人稱"],
+            "gameTag": ["冒險", "角色扮演", "動作", "動作冒險", "動作角色扮演"],
             "sysReq": {
                 "最低配置": {
-                    "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "Window": "Windows 7 SP1, Windows 8.1, Windows 10 (僅支持64-bit)",
+                    "CPU": " Intel Core™ i5 或同等規格",
                     "RAM": "8GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
+                    "Display_Card": "NVIDIA GeForce GT 1030",
                     "DirectX": "11",
-                    "ROM": "6GB"
+                    "ROM": "30GB"
                 },
                 "建議配置": {
                     "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "9GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "CPU": " Intel Core™ i5 或同等規格",
+                    "RAM": "16GB",
+                    "Display_Card": "NVIDIA GeForce GTX 1060 6GB 或以上規格",
+                    "DirectX": "12",
+                    "ROM": "30GB"
                 }
             },
-            "img": ["../assets/img/Hotta/Hotta.jpg"],
+            "img": ["../assets/img/Hotta/Hotta.jpg", "../assets/img/Hotta/00001.jpg", "../assets/img/Hotta/00002.jpg", "../assets/img/Hotta/00003.jpg", "../assets/img/Hotta/00004.jpg"],
             "price": 0,
             "sale_price": 0,
             "rating": 3.0,
@@ -160,23 +160,23 @@
             "name": "雀魂麻將",
             "author": "凱薩",
             "update": "2024/05/16",
-            "gameTag": ["跑酷", "第一人稱"],
+            "gameTag": ["恐怖", "驚悚", "懸疑驚悚"],
             "sysReq": {
                 "最低配置": {
-                    "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "8GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "Window": "Windows 7 SP1",
+                    "CPU": "Intel Pentium Dual CPU E2180 2.00GHz",
+                    "RAM": "2GB",
+                    "Display_Card": "GeForce GT 430 / ATI Radeon HD 2600XT",
+                    "DirectX": "10",
+                    "ROM": "0.6GB"
                 },
                 "建議配置": {
                     "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "9GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "CPU": "Intel Core i5 – 2.4 GHz",
+                    "RAM": "3GB",
+                    "Display_Card": "GeForce GT 430 / ATI Radeon HD 2600XT",
+                    "DirectX": "10",
+                    "ROM": "0.6GB"
                 }
             },
             "img": ["../assets/img/MahjongSoul/MahjongSoul.jpg"],
@@ -191,23 +191,23 @@
             "name": "Monster Hunter: World",
             "author": "凱薩",
             "update": "2024/05/16",
-            "gameTag": ["跑酷", "第一人稱"],
+            "gameTag": ["合作", "多人", "動作", "角色扮演", "冒險"],
             "sysReq": {
                 "最低配置": {
                     "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "CPU": " Intel® Core™ i5 4460或Core™ i3 9100F或AMD FX™-6300或Ryzen™ 3 3200G",
                     "RAM": "8GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
+                    "Display_Card": "NVIDIA® GeForce® GTX 760或GTX1050或AMD Radeon™ R7 260x或RX 560",
                     "DirectX": "11",
-                    "ROM": "6GB"
+                    "ROM": "52GB"
                 },
                 "建議配置": {
                     "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "9GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
+                    "CPU": "Intel® Core™ i7 3770或Core™ i3 8350或Core™ i3 9350F或 AMD Ryzen™ 5 1500X或Ryzen™ 5 3400G",
+                    "RAM": "8GB",
+                    "Display_Card": "NVIDIA® GeForce® GTX 1060(VRAM 3GB)或GTX 1650或AMD Radeon™ RX 480或RX 570",
                     "DirectX": "11",
-                    "ROM": "6GB"
+                    "ROM": "52GB"
                 }
             },
             "img": ["../assets/img/Monster_Hunter_World/Monster_Hunter_World.jpg"],
@@ -222,23 +222,23 @@
             "name": "NaissanceE",
             "author": "凱薩",
             "update": "2024/05/16",
-            "gameTag": ["跑酷", "第一人稱"],
+            "gameTag": ["跑酷", "第一人稱", "探索", "冒險"],
             "sysReq": {
                 "最低配置": {
-                    "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "8GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "Window": " Windows XP SP3 or Windows Vista",
+                    "CPU": "2.0+ GHz multi-core processor",
+                    "RAM": "3GB",
+                    "Display_Card": "NVIDIA 8800 gts or similar graphics card",
+                    "DirectX": "9",
+                    "ROM": "2GB"
                 },
                 "建議配置": {
-                    "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "9GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "Window": "Window 7",
+                    "CPU": "3.0+ GHz multi-core processor",
+                    "RAM": "4GB",
+                    "Display_Card": "NVIDIA 460 gtx or higher graphics card",
+                    "DirectX": "9",
+                    "ROM": "2GB"
                 }
             },
             "img": ["../assets/img/NaissanceE/NaissanceE.jpg"],
@@ -253,23 +253,23 @@
             "name": "Portal1",
             "author": "凱薩",
             "update": "2024/05/16",
-            "gameTag": ["跑酷", "第一人稱"],
+            "gameTag": ["解謎", "第一人稱", "平台解謎", "3D平台", "單人"],
             "sysReq": {
                 "最低配置": {
-                    "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "8GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "Window": " Windows 7 / Vista / XP",
+                    "CPU": " 3.0 GHz P4、雙核心 2.0（以上）或 AMD64X2（以上）",
+                    "RAM": "2GB",
+                    "Display_Card": "顯示卡必須為 128 MB 以上並支援 Pixel Shader 2.0b（ATI Radeon X800 以上 / NVIDIA GeForce 7600 以上 / Intel HD Graphics 2000 以上）",
+                    "DirectX": "9",
+                    "ROM": "8GB"
                 },
                 "建議配置": {
-                    "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "9GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "Window": " Windows 7 / Vista / XP",
+                    "CPU": " 3.0 GHz P4、雙核心 2.0（以上）或 AMD64X2（以上）",
+                    "RAM": "2GB",
+                    "Display_Card": "顯示卡必須為 128 MB 以上並支援 Pixel Shader 2.0b（ATI Radeon X800 以上 / NVIDIA GeForce 7600 以上 / Intel HD Graphics 2000 以上）",
+                    "DirectX": "9",
+                    "ROM": "8GB"
                 }
             },
             "img": ["../assets/img/Portal1/Portal1.jpg"],
@@ -284,23 +284,23 @@
             "name": "Portal2",
             "author": "凱薩",
             "update": "2024/05/16",
-            "gameTag": ["跑酷", "第一人稱"],
+            "gameTag": ["解謎", "第一人稱", "平台解謎", "3D平台", "單人"],
             "sysReq": {
                 "最低配置": {
-                    "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "8GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "Window": " Windows 7 / Vista / XP",
+                    "CPU": " 3.0 GHz P4、雙核心 2.0（以上）或 AMD64X2（以上）",
+                    "RAM": "2GB",
+                    "Display_Card": "顯示卡必須為 128 MB 以上並支援 Pixel Shader 2.0b（ATI Radeon X800 以上 / NVIDIA GeForce 7600 以上 / Intel HD Graphics 2000 以上）",
+                    "DirectX": "9",
+                    "ROM": "8GB"
                 },
                 "建議配置": {
-                    "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "9GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "Window": " Windows 7 / Vista / XP",
+                    "CPU": " 3.0 GHz P4、雙核心 2.0（以上）或 AMD64X2（以上）",
+                    "RAM": "2GB",
+                    "Display_Card": "顯示卡必須為 128 MB 以上並支援 Pixel Shader 2.0b（ATI Radeon X800 以上 / NVIDIA GeForce 7600 以上 / Intel HD Graphics 2000 以上）",
+                    "DirectX": "9",
+                    "ROM": "8GB"
                 }
             },
             "img": ["../assets/img/Portal2/Portal2.jpg"],
@@ -315,23 +315,23 @@
             "name": "Sky 光域",
             "author": "凱薩",
             "update": "2024/05/16",
-            "gameTag": ["跑酷", "第一人稱"],
+            "gameTag": ["MMORPG", "獨立", "放鬆", "冒險"],
             "sysReq": {
                 "最低配置": {
-                    "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
+                    "Window": "Windows 10 64-bit, build 1903+ (10.0.18362)",
+                    "CPU": "Intel i5-6400 or AMD FX 8310",
                     "RAM": "8GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "Display_Card": "Nvidia GeForce GTX 1030 or AMD Radeon RX 560",
+                    "DirectX": "無",
+                    "ROM": "3GB"
                 },
                 "建議配置": {
-                    "Window": "Window 10",
-                    "CPU": "Intnet Core i5 2.8 GHz",
-                    "RAM": "9GB",
-                    "Display_Card": "Nvida GeForce GTX 660",
-                    "DirectX": "11",
-                    "ROM": "6GB"
+                    "Window": "Windows 10 64-bit, build 1903+ (10.0.18362)",
+                    "CPU": " Intel i5-8400 or AMD Ryzen 5 1600",
+                    "RAM": "8GB",
+                    "Display_Card": "Nvidia GeForce GTX 1060 or AMD Radeon RX 580",
+                    "DirectX": "無",
+                    "ROM": "3GB"
                 }
             },
             "img": ["../assets/img/Sky/Sky.jpg"],

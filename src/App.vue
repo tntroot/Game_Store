@@ -14,6 +14,7 @@ export default {
 }
 </script>
 <template>
+    
 	<HeaderNav />
 	<div>
 		<RouterView></RouterView>

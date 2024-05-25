@@ -6,46 +6,24 @@ export default {
 	},
 	data() {
 		return {
-			// item: {
-			// 	"id": 1,
-			// 	"name": "Minecraft",
-			// 	"img": ["/src/assets/img/minecraft/minecraft.webp", "/src/assets/img/minecraft/minecraft2.jpg", "/src/assets/img/minecraft/minecraft3.jpg", "/src/assets/img/minecraft/minecraft4.jpg"],
-			// 	"price": 1000,
-			// 	"sale_price": 1000,
-			// 	"rating": 3.7,
-			// 	"sales": 123564,
-			// 	"message": 123,
-			// 	"sysReq": {
-			// 		"最低配置": {
-			// 			"Window": "Window 10",
-			// 			"CPU": "Intnet Core i5 2.8 GHz",
-			// 			"RAM": "8GB",
-			// 			"Display_Card": "Nvida GeForce GTX 660",
-			// 			"DirectX": "11",
-			// 			"ROM": "6GB"
-			// 		},
-			// 		"建議配置": {
-			// 			"Window": "Window 10",
-			// 			"CPU": "Intnet Core i5 2.8 GHz",
-			// 			"RAM": "9GB",
-			// 			"Display_Card": "Nvida GeForce GTX 660",
-			// 			"DirectX": "11",
-			// 			"ROM": "6GB"
-			// 		}
-			// 	}
-			// }
-			item: "",
+			item: {},
 		}
 	},
 	async created() {
+        
 		const url1 = new URL("../assets/JSON/SearchList.json", import.meta.url);
-		const data = await fetch(url1).then(res => res.json());
-		
-		this.item = data.search.filter(item => item.id == this.$route.query.userId);
-		console.log(this.item);
+		let data = await fetch(url1).then(res => res.json());
+		let data2 = data.search.filter(item => item.id == this.$route.query.userId);
+
+        /* 前端圖片轉址，後面用後端船就不須寫這段 */
+        for (let i = 0; i < data2[0].img.length; i++){
+            data2[0].img[i] = new URL(data2[0].img[i], import.meta.url);
+        }
+		this.item = data2[0];
+
 	},
 	mounted(){
-		console.log(this.$route.query.userId);
+		
 	}
 }
 </script>
@@ -104,7 +82,10 @@ export default {
 	padding-bottom: 1rem;
 }
 table{
-	table-layout: fixed;
+    tr > td:nth-child(1){
+        width: 90px;
+        table-layout: fixed;
+    }
 }
 </style>
 

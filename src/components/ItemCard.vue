@@ -5,6 +5,7 @@ export default {
     props: {
         itemList: {
             type: Object,
+            required: true
         }
     },
     components: {
@@ -15,6 +16,9 @@ export default {
 
         }
     },
+    mounted(){
+        
+    }
 }
 </script>
 <template>
@@ -35,25 +39,25 @@ export default {
             </div>
             <div class="col-lg-6">
                 <div class="card-body">
-                    <h1 class="card-title">Minecraft</h1>
+                    <h1 class="card-title">{{ itemList.name }}</h1>
                     <table class=" itemTable">
                         <tr>
                             <td>作者：</td>
-                            <td>凱薩</td>
+                            <td>{{ itemList.author }}</td>
                         </tr>
                         <tr>
                             <td>上架時間：</td>
-                            <td><small class="text-muted">2024/05/16</small></td>
+                            <td><small class="text-muted">{{ itemList.update }}</small></td>
                         </tr>
                         <tr>
                             <td>遊戲標籤：</td>
                             <td>
                                 <div class="d-flex flex-wrap">
                                     <div
-                                        v-for="(item, index) in ['3D', '可愛', '3D', '可愛', '3D', '可愛', '3D', '可愛', '可愛', '可愛', '可愛', '可愛']">
+                                        v-for="(item, index) in itemList.gameTag">
                                         <RouterLink to="/">
                                             <span class=" tw-text-blue-600 hover:tw-text-red-600">{{ item }}</span>
-                                            <span v-if="['3D', '可愛'].length !== index + 1">、</span>
+                                            <span v-if="itemList.gameTag.length !== index + 1">、</span>
                                         </RouterLink>
                                     </div>
                                 </div>
@@ -65,9 +69,9 @@ export default {
                             </td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <h5 class="card-text text-danger fw-bolder fs-1 me-2 py-3"> {{ 200 != 0 ? `$ ${200}` :
+                                    <h5 class="card-text text-danger fw-bolder fs-1 me-2 py-3"> {{ itemList.sale_price != 0 ? `$ ${itemList.sale_price}` :
                                         '免費' }}</h5>
-                                    <h5 v-if="true" class="text-decoration-line-through">${{ 300 }}</h5>
+                                    <h5 v-if="itemList.sale_price != itemList.price" class="text-decoration-line-through">${{ itemList.price }}</h5>
                                 </div>
                             </td>
                         </tr>

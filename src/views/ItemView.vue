@@ -73,13 +73,20 @@ export default {
 				</div>
 			</div>
 		</div>
+
+        <div class="row mt-5">
+            <div class=" bg-white p-4 w-100 rounded-4">
+                <p class="h3">玩家評論</p>
+            </div>
+        </div>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-.h2 {
+.h2, .h3 {
 	border-bottom: 0.3rem solid #00d9ff;
 	padding-bottom: 1rem;
+    font-weight: bold;
 }
 table{
     tr > td:nth-child(1){

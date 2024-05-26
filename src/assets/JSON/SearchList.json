@@ -5,7 +5,7 @@
             "name": "Minecraft",
             "author": "凱薩",
             "update": "2024/05/16",
-            "gameTag": ["開放世界", "3D"],
+            "gameTag": ["開放世界", "3D", "沙盒", "第一人稱"],
             "sysReq": {
                 "最低配置": {
                     "Window": "Window 10",
@@ -210,7 +210,7 @@
                     "ROM": "52GB"
                 }
             },
-            "img": ["../assets/img/Monster_Hunter_World/Monster_Hunter_World.jpg"],
+            "img": ["../assets/img/Monster_Hunter_World/Monster_Hunter_World.jpg", "../assets/img/Monster_Hunter_World/Monster_Hunter_World_1.jpg", "../assets/img/Monster_Hunter_World/Monster_Hunter_World_2.jpg", "../assets/img/Monster_Hunter_World/Monster_Hunter_World_3.jpg", "../assets/img/Monster_Hunter_World/Monster_Hunter_World_4.jpg"],
             "price": 1230,
             "sale_price": 1100,
             "rating": 3.7,

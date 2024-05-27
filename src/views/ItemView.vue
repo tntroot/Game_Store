@@ -77,6 +77,11 @@ export default {
         <div class="row mt-5">
             <div class=" bg-white p-4 w-100 rounded-4">
                 <p class="h3">玩家評論</p>
+				<div>
+					<div class="">
+						<img class="rounded-circle" src="../assets/img/account.png" width="50" alt="">
+					</div>
+				</div>
             </div>
         </div>
 	</div>

@@ -26,13 +26,13 @@ import { register } from 'swiper/element/bundle';
 // register Swiper custom elements
 register();
 
-
+import { Icon } from '@iconify/vue';
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-app.component('swiper', Swiper).component('SwiperSlide', SwiperSlide)
+app.component('swiper', Swiper).component('SwiperSlide', SwiperSlide).component('Icon', Icon)
 
 app.mount('#app')
 

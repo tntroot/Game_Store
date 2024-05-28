@@ -1,11 +1,9 @@
 <script lang="jsx">
 import CardDiv from './CardDiv.vue'
-import { Icon } from '@iconify/vue'
 export default {
   props: ['listAll'],
   components: {
     CardDiv,
-    Icon
   },
   methods: {
     setBtn(index) {

@@ -16,7 +16,7 @@ export default {
 <template>
     
 	<HeaderNav />
-	<div>
+	<div class=" min-vh-100">
 		<RouterView></RouterView>
 	</div>
 	<FooterDiv />

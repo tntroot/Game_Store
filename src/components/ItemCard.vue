@@ -1,15 +1,11 @@
 <script>
 import { RouterLink } from 'vue-router';
-import { Icon } from '@iconify/vue';
 export default {
     props: {
         itemList: {
             type: Object,
             required: true
         }
-    },
-    components: {
-        Icon,
     },
     data() {
         return {

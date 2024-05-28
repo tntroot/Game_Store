@@ -1,10 +1,6 @@
 <script>
-import { Icon } from '@iconify/vue';
 import { RouterLink } from 'vue-router';
 export default {
-    components:{
-        Icon, 
-    },
     data() {
         return {
             search: "",

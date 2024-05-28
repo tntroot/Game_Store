@@ -1,11 +1,7 @@
 <script>
 import { RouterLink } from 'vue-router';
-import { Icon } from '@iconify/vue';
 export default {
     props: ['thisCard'],
-    components: {
-        Icon,
-    },
     data() {
         return {
 

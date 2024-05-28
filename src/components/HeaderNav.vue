@@ -16,6 +16,10 @@ export default {
             if(!this.search.trim()){
                 this.$router.push({ path: '/search', query: { search: this.search } });
             }
+        },
+
+        shopping(){
+            this.$router.push("/account/shoppingCar");
         }
     },
     watch:{
@@ -42,7 +46,7 @@ export default {
                 <button class=" btn-shop-account">
                     <Icon icon="ic:round-account-circle" />
                 </button> 
-                <button class=" btn-shop-account">
+                <button class=" btn-shop-account" @click="shopping">
                     <Icon icon="icon-park:shopping-cart" />
                 </button> 
             </div>  

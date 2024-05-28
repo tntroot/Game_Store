@@ -10,20 +10,20 @@ export default {
 		}
 	},
 	async created() {
-        
+
 		const url1 = new URL("../assets/JSON/SearchList.json", import.meta.url);
 		let data = await fetch(url1).then(res => res.json());
 		let data2 = data.search.filter(item => item.id == this.$route.query.userId);
 
-        /* 前端圖片轉址，後面用後端船就不須寫這段 */
-        for (let i = 0; i < data2[0].img.length; i++){
-            data2[0].img[i] = new URL(data2[0].img[i], import.meta.url);
-        }
+		/* 前端圖片轉址，後面用後端船就不須寫這段 */
+		for (let i = 0; i < data2[0].img.length; i++) {
+			data2[0].img[i] = new URL(data2[0].img[i], import.meta.url);
+		}
 		this.item = data2[0];
 
 	},
-	mounted(){
-		
+	mounted() {
+
 	}
 }
 </script>
@@ -42,7 +42,7 @@ export default {
 					<div class="row">
 						<div class="col-md-6" v-for="(item1, index1) in item.sysReq">
 							<p class="h5 fw-bolder">{{ index1 + " :" }}</p>
-							<table >
+							<table>
 								<tr>
 									<td>作業系統：</td>
 									<td>{{ item1.Window }}</td>
@@ -74,31 +74,49 @@ export default {
 			</div>
 		</div>
 
-        <div class="row mt-5">
-            <div class=" bg-white p-4 w-100 rounded-4">
-                <p class="h3">玩家評論</p>
-				<div>
-					<div class="">
+		<div class="row mt-5">
+			<div class=" bg-white p-4 w-100 rounded-4">
+				<p class="h3">玩家評論</p>
+				<div class="px-md-3">
+					<div class="d-flex align-items-start mt-2">
 						<img class="rounded-circle" src="../assets/img/account.png" width="50" alt="">
+						<div>
+							<div>
+								<p class="h4 ps-2 pt-2 fw-bolder">凱薩</p>
+								<p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio aliquam
+								provident saepe esse neque, totam veritatis enim dolorem voluptatibus necessitatibus. Nam
+								sint minus sunt accusantium harum totam a quos deleniti.</p>
+							</div>
+							<div class="d-flex align-items-start mt-2">
+								<img class="rounded-circle" src="../assets/img/account.png" width="50" alt="">
+								<div>
+									<p class="h4 ps-2 pt-2 fw-bolder">凱薩</p>
+									<p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio aliquam
+										provident saepe esse neque, totam veritatis enim dolorem voluptatibus necessitatibus.
+										Nam sint minus sunt accusantium harum totam a quos deleniti.</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-            </div>
-        </div>
+			</div>
+		</div>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-.h2, .h3 {
+.h2,
+.h3 {
 	border-bottom: 0.3rem solid #00d9ff;
 	padding-bottom: 1rem;
-    font-weight: bold;
+	font-weight: bold;
 }
-table{
-    tr > td:nth-child(1){
-        width: 90px;
-        table-layout: fixed;
-    }
-}
-</style>
+
+table {
+	tr>td:nth-child(1) {
+		width: 90px;
+		table-layout: fixed;
+	}
+}</style>
 
 <!-- https://codesandbox.io/p/sandbox/qd6gyz?file=%2Findex.html%3A171%2C16-171%2C75 -->

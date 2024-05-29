@@ -27,7 +27,9 @@ export default {
     },
     methods: {
         deleteShop(id) {
-            this.shopping = this.shopping.filter((item) => item.id !== id)
+            this.shopping = this.shopping.filter((item) => item.id !== id);
+            let as = "this-add";
+            console.log(as.split("_").at(0));
         }
     },
     computed: {
@@ -46,7 +48,7 @@ export default {
                 <div class="tw-bg-[#123c66] rounded-4 mb-5" v-for="item in shopping" :key="item.id">
                     <div class="d-flex justify-content-between align-items-center tw-text-[white]">
                         <div class="d-flex">
-                            <img src="../assets/img/A_Dance_of_Fire_and_Ice/A_Dance_of_Fire_and_Ice.jpg"
+                            <img src="../assets/img/A_Dance_of_Fire_and_Ice/A Dance of Fire and Ice_home.jpg"
                                 class="tw-w-[12rem] tw-h-[8rem]" alt="" srcset="" />
                             <div>
                                 <p class="h2 tw-font-bold ps-4 pt-3">{{ item.name }}</p>

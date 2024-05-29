@@ -3,7 +3,7 @@
         {
             "id": 1,
             "name": "Minecraft",
-            "img": ["minecraft/minecraft.webp", "minecraft/image_1.jpg", "minecraft/image_6.jpg", "minecraft/image_3.jpg", "minecraft/image_4.jpg", "minecraft/image_5.jpg"],
+            "img": ["minecraft/Minecraft_home.jpg"],
             "price": 1000,
             "sale_price": 1000,
             "rating": 3.7,
@@ -13,7 +13,7 @@
         {
             "id": 2,
             "name": "冰與火之舞",
-            "img": ["A_Dance_of_Fire_and_Ice/A_Dance_of_Fire_and_Ice.jpg"],
+            "img": ["A_Dance_of_Fire_and_Ice/A Dance of Fire and Ice_home.jpg"],
             "price": 123,
             "sale_price": 100,
             "rating": 4.5,
@@ -23,7 +23,7 @@
         {
             "id": 3,
             "name": "Gravitas",
-            "img": ["Gravitas/Gravitas.jpg"],
+            "img": ["Gravitas/Gravitas_home.jpg"],
             "price": 0,
             "sale_price": 0,
             "rating": 4.0,
@@ -33,7 +33,7 @@
         {
             "id": 4,
             "name": "GTA 5",
-            "img": ["gta/gta.jpg"],
+            "img": ["gta/gta_home.jpg"],
             "price": 1000,
             "sale_price": 600,
             "rating": 4.8,
@@ -43,7 +43,7 @@
         {
             "id": 5,
             "name": "幻塔",
-            "img": ["Hotta/Hotta.jpg"],
+            "img": ["Hotta/Hotta_home.jpg"],
             "price": 0,
             "sale_price": 0,
             "rating": 3.0,
@@ -53,7 +53,7 @@
         {
             "id": 6,
             "name": "雀魂麻將",
-            "img": ["MahjongSoul/MahjongSoul.jpg"],
+            "img": ["MahjongSoul/MahjongSoul_home.jpg"],
             "price": 0,
             "sale_price": 0,
             "rating": 2.7,
@@ -65,7 +65,7 @@
         {
             "id": 7,
             "name": "Monster Hunter: World",
-            "img": ["Monster_Hunter_World/Monster_Hunter_World.jpg"],
+            "img": ["Monster_Hunter_World/Monster Hunter World_home.jpg"],
             "price": 1230,
             "sale_price": 1100,
             "rating": 3.7,
@@ -75,7 +75,7 @@
         {
             "id": 8,
             "name": "NaissanceE",
-            "img": ["NaissanceE/NaissanceE.jpg"],
+            "img": ["NaissanceE/NaissanceE_home.jpg"],
             "price": 0,
             "sale_price": 0,
             "rating": 4.5,
@@ -85,7 +85,7 @@
         {
             "id": 9,
             "name": "Portal1",
-            "img": ["Portal1/Portal1.jpg"],
+            "img": ["Portal1/Portal1_home.jpg"],
             "price": 250,
             "sale_price": 250,
             "rating": 4.0,
@@ -95,7 +95,7 @@
         {
             "id": 10,
             "name": "Portal2",
-            "img": ["Portal2/Portal2.jpg"],
+            "img": ["Portal2/Portal2_home.jpg"],
             "price": 300,
             "sale_price": 250,
             "rating": 4.8,
@@ -105,7 +105,7 @@
         {
             "id": 11,
             "name": "Sky 光域",
-            "img": ["Sky/Sky.jpg"],
+            "img": ["Sky/Sky_home.jpg"],
             "price": 300,
             "sale_price": 0,
             "rating": 3.0,

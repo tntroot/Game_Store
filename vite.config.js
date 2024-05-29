@@ -25,7 +25,26 @@ export default defineConfig({
 
   root: './',
   build: {
-    outDir: 'dist',
+    // outDir: 'dist',
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+            let extType = assetInfo.name.split('.').at(1);
+            let extTypeName = assetInfo.name.split('_').at(0);
+
+            // 查詢是否為圖片副檔名
+            if (/png|jpe?g|svg|gif|webp|tiff|bmp|ico/i.test(extType)) {
+                extType = 'img';
+            }
+            if(extTypeName){
+                return `assets/${extType}/${extTypeName}/[name]-[hash][extname]`;
+            }
+            return `assets/${extType}/[name]-[hash][extname]`;
+        },
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js'
+      }
+    }
   },
   publicDir: 'assets',
   filenameHashing: false,

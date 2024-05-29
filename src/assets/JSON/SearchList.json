@@ -24,7 +24,7 @@
                     "ROM": "6GB"
                 }
             },
-            "img": ["minecraft/minecraft.webp", "minecraft/image_1.jpg", "minecraft/image_3.jpg", "minecraft/image_4.jpg", "minecraft/image_5.jpg", "minecraft/image_6.jpg"],
+            "img": ["minecraft/Minecraft_home.jpg", "minecraft/minecraft_1.jpg", "minecraft/minecraft_3.jpg", "minecraft/minecraft_4.jpg", "minecraft/minecraft_5.jpg", "minecraft/minecraft_6.jpg"],
             "price": 1000,
             "sale_price": 1000,
             "rating": 3.7,
@@ -55,7 +55,7 @@
                     "ROM": "1.5GB"
                 }
             },
-            "img": ["A_Dance_of_Fire_and_Ice/A_Dance_of_Fire_and_Ice.jpg"],
+            "img": ["A_Dance_of_Fire_and_Ice/A Dance of Fire and Ice_home.jpg"],
             "price": 123,
             "sale_price": 100,
             "rating": 4.5,
@@ -86,7 +86,7 @@
                     "ROM": "8GB"
                 }
             },
-            "img": ["Gravitas/Gravitas.jpg"],
+            "img": ["Gravitas/Gravitas_home.jpg"],
             "price": 0,
             "sale_price": 0,
             "rating": 4.0,
@@ -117,7 +117,7 @@
                     "ROM": "30GB"
                 }
             },
-            "img": ["gta/gta.jpg"],
+            "img": ["gta/gta_home.jpg"],
             "price": 1000,
             "sale_price": 600,
             "rating": 4.8,
@@ -148,7 +148,7 @@
                     "ROM": "30GB"
                 }
             },
-            "img": ["Hotta/Hotta.jpg", "Hotta/00001.jpg", "Hotta/00002.jpg", "Hotta/00003.jpg", "Hotta/00004.jpg"],
+            "img": ["Hotta/Hotta_home.jpg", "Hotta/Hotta_5.jpg", "Hotta/Hotta_2.jpg", "Hotta/Hotta_3.jpg", "Hotta/Hotta_4.jpg"],
             "price": 0,
             "sale_price": 0,
             "rating": 3.0,
@@ -179,7 +179,7 @@
                     "ROM": "0.6GB"
                 }
             },
-            "img": ["MahjongSoul/MahjongSoul.jpg"],
+            "img": ["MahjongSoul/MahjongSoul_home.jpg"],
             "price": 0,
             "sale_price": 0,
             "rating": 2.7,
@@ -210,7 +210,7 @@
                     "ROM": "52GB"
                 }
             },
-            "img": ["Monster_Hunter_World/Monster_Hunter_World.jpg", "Monster_Hunter_World/Monster_Hunter_World_1.jpg", "Monster_Hunter_World/Monster_Hunter_World_2.jpg", "Monster_Hunter_World/Monster_Hunter_World_3.jpg", "Monster_Hunter_World/Monster_Hunter_World_4.jpg"],
+            "img": ["Monster_Hunter_World/Monster Hunter World_home.jpg", "Monster_Hunter_World/Monster Hunter World_1.jpg", "Monster Hunter World_3.jpg", "Monster_Hunter_World/Monster Hunter World_4.jpg"],
             "price": 1230,
             "sale_price": 1100,
             "rating": 3.7,
@@ -241,7 +241,7 @@
                     "ROM": "2GB"
                 }
             },
-            "img": ["NaissanceE/NaissanceE.jpg"],
+            "img": ["NaissanceE/NaissanceE_home.jpg"],
             "price": 0,
             "sale_price": 0,
             "rating": 4.5,
@@ -272,7 +272,7 @@
                     "ROM": "8GB"
                 }
             },
-            "img": ["Portal1/Portal1.jpg"],
+            "img": ["Portal1/Portal1_home.jpg"],
             "price": 250,
             "sale_price": 250,
             "rating": 4.0,
@@ -303,7 +303,7 @@
                     "ROM": "8GB"
                 }
             },
-            "img": ["Portal2/Portal2.jpg"],
+            "img": ["Portal2/Portal2_home.jpg"],
             "price": 300,
             "sale_price": 250,
             "rating": 4.8,
@@ -334,7 +334,7 @@
                     "ROM": "3GB"
                 }
             },
-            "img": ["Sky/Sky.jpg"],
+            "img": ["Sky/Sky_home.jpg"],
             "price": 300,
             "sale_price": 0,
             "rating": 3.0,

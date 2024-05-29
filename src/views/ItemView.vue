@@ -17,7 +17,7 @@ export default {
 
 		/* 前端圖片轉址，後面用後端船就不須寫這段 */
 		for (let i = 0; i < data2[0].img.length; i++) {
-			data2[0].img[i] = new URL(data2[0].img[i], import.meta.url);
+			data2[0].img[i] = new URL(`../assets/img/${data2[0].img[i]}`, import.meta.url);
 		}
 		this.item = data2[0];
 

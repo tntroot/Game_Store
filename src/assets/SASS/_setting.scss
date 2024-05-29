@@ -43,3 +43,14 @@ h6{
     @extend %h1-5Setting;
     font-size: 0.67em;
 }
+
+input{
+    &:focus{
+        border: 1px solid #8f8f8f;
+        outline: none;
+        box-shadow: none;
+    }
+    &:visited, &:valid{
+        border: 1px solid #8f8f8f;
+    }
+}

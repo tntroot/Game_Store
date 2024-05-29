@@ -13,8 +13,16 @@ export default {
         }
     },
     created() {
-        this.thisCard.img[0] = new URL(this.thisCard.img[0], import.meta.url);
+        this.thisCard.img[0] = new URL(`../assets/img/${this.thisCard.img[0]}`, import.meta.url);
+        console.log(this.thisCard.img[0]);
+        if(typeof this.thisCard.price !== 'string'){
+            this.thisCard.price = new Intl.NumberFormat('en').format(this.thisCard.price);
+            this.thisCard.sale_price = new Intl.NumberFormat('en').format(this.thisCard.sale_price);
+            this.thisCard.sales = new Intl.NumberFormat('en').format(this.thisCard.sales);
+        }
+        
     },
+
 }
 </script>
 <template>

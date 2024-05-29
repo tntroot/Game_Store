@@ -43,7 +43,7 @@ export default {
         <p class="h2 text-white fw-bolder my-5">你的購物車</p>
         <div class="row" v-if="shopping.length">
             <div class="col-sm-9">
-                <div class="tw-bg-[#123456] rounded-4 mb-5" v-for="item in shopping" :key="item.id">
+                <div class="tw-bg-[#123c66] rounded-4 mb-5" v-for="item in shopping" :key="item.id">
                     <div class="d-flex justify-content-between align-items-center tw-text-[white]">
                         <div class="d-flex">
                             <img src="../assets/img/A_Dance_of_Fire_and_Ice/A_Dance_of_Fire_and_Ice.jpg"
@@ -54,7 +54,7 @@ export default {
                         </div>
                         <div class="d-flex pe-4 align-items-center">
                             <div class="mx-4">
-                                <h3 v-if="item.price > item.sale_price" class="text-decoration-line-through tw-text-gray-600">NTT$ {{ item.price }}</h3>
+                                <h3 v-if="item.price > item.sale_price" class="text-decoration-line-through tw-text-[#777777]">NTT$ {{ item.price }}</h3>
                                 <h3 class="card-text text-white fw-bolder fs-5 me-2 text-center">
                                     {{ item.sale_price != 0 ? `NT$ ${item.sale_price}` : '免費' }}
                                 </h3>

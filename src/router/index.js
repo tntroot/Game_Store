@@ -3,6 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import SearchView from '../views/SearchView.vue'
 import ItemView from '../views/ItemView.vue';
 import ShoppingCarView from '../views/ShoppingCarView.vue';
+import LoginView from '../views/LoginView.vue';
+import SignUpView from '../views/SignUpView.vue';
 
 const router = createRouter({
   // history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +29,16 @@ const router = createRouter({
       path: '/account/shoppingCar',
       name: 'AccountShoppingCar',
       component: ShoppingCarView
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: LoginView
+    },
+    {
+      path: '/signUp',
+      name: 'SignUp',
+      component: SignUpView
     }
   ]
 })

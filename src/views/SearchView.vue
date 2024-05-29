@@ -17,7 +17,9 @@ export default {
         resple(){
             this.changeList = [];
             Object.values(this.$route.query).forEach((item, index, values) => {
-                this.changeList.push(item);
+                if(item){
+                    this.changeList.push(item);
+                }
             })
         }
     },

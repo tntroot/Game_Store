@@ -26,17 +26,17 @@ export default {
     const urlEl = new URL('../assets/JSON/ProductList.json', import.meta.url);
     const thisListAll = await fetch(urlEl).then((res) => res.json());
 
-	const Li_1 = thisListAll.list1; const Li_2 = thisListAll.list2;
-	Li_1.map( item => {
-		item.price = new Intl.NumberFormat().format(item.price);
-		item.sale_price = new Intl.NumberFormat().format(item.sale_price);
-		item.sales = new Intl.NumberFormat().format(item.sales);
-	});
-	Li_2.map( item => {
-		item.price = new Intl.NumberFormat().format(item.price);
-		item.sale_price = new Intl.NumberFormat().format(item.sale_price);
-		item.sales = new Intl.NumberFormat().format(item.sales);
-	});
+	// const Li_1 = thisListAll.list1; const Li_2 = thisListAll.list2;
+	// Li_1.map( item => {
+	// 	item.price = new Intl.NumberFormat().format(item.price);
+	// 	item.sale_price = new Intl.NumberFormat().format(item.sale_price);
+	// 	item.sales = new Intl.NumberFormat().format(item.sales);
+	// });
+	// Li_2.map( item => {
+	// 	item.price = new Intl.NumberFormat().format(item.price);
+	// 	item.sale_price = new Intl.NumberFormat().format(item.sale_price);
+	// 	item.sales = new Intl.NumberFormat().format(item.sales);
+	// });
 	// console.log(new Intl.NumberFormat().format(num));
 
     this.list1 = thisListAll.list1

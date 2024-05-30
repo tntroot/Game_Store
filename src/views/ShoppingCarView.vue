@@ -28,8 +28,6 @@ export default {
     methods: {
         deleteShop(id) {
             this.shopping = this.shopping.filter((item) => item.id !== id);
-            let as = "this-add";
-            console.log(as.split("_").at(0));
         }
     },
     computed: {

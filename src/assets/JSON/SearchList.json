@@ -24,7 +24,7 @@
                     "ROM": "6GB"
                 }
             },
-            "img": ["minecraft/Minecraft_home.jpg", "minecraft/minecraft_1.jpg", "minecraft/minecraft_3.jpg", "minecraft/minecraft_4.jpg", "minecraft/minecraft_5.jpg", "minecraft/minecraft_6.jpg"],
+            "img": ["minecraft/Minecraft_home.jpg", "minecraft/Minecraft_1.jpg", "minecraft/Minecraft_3.jpg", "minecraft/Minecraft_4.jpg", "minecraft/Minecraft_5.jpg", "minecraft/Minecraft_6.jpg"],
             "price": 1000,
             "sale_price": 1000,
             "rating": 3.7,

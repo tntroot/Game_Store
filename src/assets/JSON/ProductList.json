@@ -112,5 +112,67 @@
             "sales": 100000,
             "message": 123
         }
+    ],
+    "list3": [
+        {
+            "id": 1,
+            "name": "Minecraft",
+            "img": ["minecraft/Minecraft_home.jpg"],
+            "price": 1000,
+            "sale_price": 1000,
+            "rating": 3.7,
+            "sales": 123564,
+            "message": 123
+        },
+        {
+            "id": 2,
+            "name": "冰與火之舞",
+            "img": ["A_Dance_of_Fire_and_Ice/A Dance of Fire and Ice_home.jpg"],
+            "price": 123,
+            "sale_price": 100,
+            "rating": 4.5,
+            "sales": 100000,
+            "message": 123
+        },
+        {
+            "id": 3,
+            "name": "Gravitas",
+            "img": ["Gravitas/Gravitas_home.jpg"],
+            "price": 0,
+            "sale_price": 0,
+            "rating": 4.0,
+            "sales": 100000,
+            "message": 123
+        },
+        {
+            "id": 4,
+            "name": "GTA 5",
+            "img": ["gta/gta_home.jpg"],
+            "price": 1000,
+            "sale_price": 600,
+            "rating": 4.8,
+            "sales": 100000,
+            "message": 123
+        },
+        {
+            "id": 5,
+            "name": "幻塔",
+            "img": ["Hotta/Hotta_home.jpg"],
+            "price": 0,
+            "sale_price": 0,
+            "rating": 3.0,
+            "sales": 100000,
+            "message": 123
+        },
+        {
+            "id": 6,
+            "name": "雀魂麻將",
+            "img": ["MahjongSoul/MahjongSoul_home.jpg"],
+            "price": 0,
+            "sale_price": 0,
+            "rating": 2.7,
+            "sales": 100000,
+            "message": 123
+        }
     ]
 }

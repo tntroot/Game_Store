@@ -1,7 +1,6 @@
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import autoprefixer from 'autoprefixer'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // https://vitejs.dev/config/
@@ -30,14 +29,15 @@ export default defineConfig({
       output: {
         assetFileNames: (assetInfo) => {
             let extType = assetInfo.name.split('.').at(1);
-            let extTypeName = assetInfo.name.split('_').at(0);
+            let extTypeName = assetInfo.name.split('_');
 
             // 查詢是否為圖片副檔名
             if (/png|jpe?g|svg|gif|webp|tiff|bmp|ico/i.test(extType)) {
                 extType = 'img';
-            }
-            if(extTypeName){
-                return `assets/${extType}/${extTypeName}/[name]-[hash][extname]`;
+
+                if(extTypeName.at(1)){
+                    return `assets/${extType}/${extTypeName.at(0)}/[name]-[hash][extname]`;
+                }
             }
             return `assets/${extType}/[name]-[hash][extname]`;
         },

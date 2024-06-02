@@ -8,39 +8,23 @@ export default {
     return {
       list1: [],
       list2: [],
+      list3: [],
     }
   },
   methods:{
 	setSwiper(){
-
 		this.$refs.swiperDiv1.setSwiper(0);
 		this.$refs.swiperDiv2.setSwiper(1);
 		this.$refs.swiperDiv3.setSwiper(2);
-
-		this.$refs.swiperDiv1.setBtn(0);
-		this.$refs.swiperDiv2.setBtn(1);
-		this.$refs.swiperDiv3.setBtn(2);
 	}
   },
   async created() {
     const urlEl = new URL('../assets/JSON/ProductList.json', import.meta.url);
     const thisListAll = await fetch(urlEl).then((res) => res.json());
 
-	// const Li_1 = thisListAll.list1; const Li_2 = thisListAll.list2;
-	// Li_1.map( item => {
-	// 	item.price = new Intl.NumberFormat().format(item.price);
-	// 	item.sale_price = new Intl.NumberFormat().format(item.sale_price);
-	// 	item.sales = new Intl.NumberFormat().format(item.sales);
-	// });
-	// Li_2.map( item => {
-	// 	item.price = new Intl.NumberFormat().format(item.price);
-	// 	item.sale_price = new Intl.NumberFormat().format(item.sale_price);
-	// 	item.sales = new Intl.NumberFormat().format(item.sales);
-	// });
-	// console.log(new Intl.NumberFormat().format(num));
-
     this.list1 = thisListAll.list1
     this.list2 = thisListAll.list2
+    this.list3 = thisListAll.list3;
 
 	this.setSwiper();
   },
@@ -60,21 +44,21 @@ export default {
         <p class="badge bg-primary rounded-bottom-0 p-3 fs-6">最新遊戲</p>
       </h3>
 
-      <SwiperNav ref="swiperDiv1" :listAll="list1" />
+      <SwiperNav ref="swiperDiv1" :listAll="list1" :contorl="0" />
     </div>
     <div class="row my-4">
       <h3 class="tw-border-b-4 rounded-3 border-danger mb-4">
         <p class="badge bg-danger rounded-bottom-0 p-3 fs-6">促銷遊戲</p>
       </h3>
 
-      <SwiperNav ref="swiperDiv2" :listAll="list2" />
+      <SwiperNav ref="swiperDiv2" :listAll="list2" :contorl="1" />
     </div>
     <div class="row my-4">
       <h3 class="tw-border-b-4 rounded-3 border-info mb-4">
         <p class="badge bg-info rounded-bottom-0 p-3 fs-6">人氣遊戲</p>
       </h3>
 
-      <SwiperNav ref="swiperDiv3" :listAll="list1" />
+      <SwiperNav ref="swiperDiv3" :listAll="list3" :contorl="2" />
     </div>
   </div>
 </template>

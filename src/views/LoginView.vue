@@ -59,7 +59,8 @@ export default {
                             </div>
                             <div class="text-center">
                                 <button class="btn btn-primary btn-lg fw-bolder my-3" type="submit">登入</button>
-                                <p class="fs-5">還沒有帳號嗎? <RouterLink to="/sign up">
+                                <p class="fs-5">還沒有帳號嗎? 
+                                    <RouterLink to="/signUp">
                                         <span class="fw-bolder hover:tw-text-[red]">立即註冊</span>
                                     </RouterLink>
                                 </p>

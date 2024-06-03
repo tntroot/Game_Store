@@ -35,7 +35,7 @@ export default {
         </RouterLink> 
         <div class="card-body">
             <RouterLink :to="'/search/item?userId=' + thisCard.id">
-                <h5 class="card-title fs-5 tw-text-[#3640ac] hover:tw-text-red-600">{{ thisCard.name }}</h5>
+                <h5 class="card-title fs-5 tw-text-[#3640ac] hover:tw-text-red-600 tw-line-clamp-2">{{ thisCard.name }}</h5>
             </RouterLink>
             <div class="d-flex align-items-center">
                 <h5 class="card-text text-danger fw-bolder fs-5 me-2"> {{ thisCard.sale_price!=0 ? `$ ${thisCard.sale_price}` :

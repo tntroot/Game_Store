@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import SearchView from '../views/SearchView.vue'
 
+const SearchView  = () => import('../views/SearchView.vue');
 const ShoppingCarView  = () => import('../views/ShoppingCarView.vue');
 const SignUpView  = () => import('../views/SignUpView.vue');
 const ItemView = () => import('../views/ItemView.vue');

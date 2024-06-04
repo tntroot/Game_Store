@@ -9,7 +9,7 @@ const LoginView  = () => import('../views/LoginView.vue');
 
 const router = createRouter({
   // history: createWebHistory(import.meta.env.BASE_URL),
-  history: createWebHistory(),
+  history: createWebHistory("/113-1-11"),
   routes: [
     {
       path: '/',

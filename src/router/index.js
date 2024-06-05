@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
-const SearchView  = () => import('../views/SearchView.vue');
-const ShoppingCarView  = () => import('../views/ShoppingCarView.vue');
-const SignUpView  = () => import('../views/SignUpView.vue');
+const SearchView = () => import('../views/SearchView.vue');
+const ShoppingCarView = () => import('../views/ShoppingCarView.vue');
+const SignUpView = () => import('../views/SignUpView.vue');
 const ItemView = () => import('../views/ItemView.vue');
-const LoginView  = () => import('../views/LoginView.vue');
+const LoginView = () => import('../views/LoginView.vue');
 
 const router = createRouter({
   // history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,9 +27,14 @@ const router = createRouter({
       component: ItemView
     },
     {
-      path: '/account/shoppingCar',
-      name: 'AccountShoppingCar',
-      component: ShoppingCarView
+      path: '/account',
+      name: 'Account',
+      children: [
+        {
+          path: 'shoppingCar',
+          component: ShoppingCarView
+        },
+      ]
     },
     {
       path: '/login',

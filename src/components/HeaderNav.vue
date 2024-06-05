@@ -9,8 +9,11 @@ export default {
     },
     methods: {
         searchFu() {
-            if (!this.search.trim()) {
+            if (this.search.trim()) {
                 this.$router.push({ path: '/search', query: { search: this.search } });
+            }else{
+                this.$router.push({ path: '/search', query: { search: this.search, type: 'all' } });
+                console.log(123);
             }
         },
 
@@ -24,7 +27,7 @@ export default {
     watch: {
         "$route": {
             handler() {
-                this.route = this.$route.query.type;
+                this.route = this.$route.query.type || "";
             },
             deep: true,
             immediate: false,
@@ -61,6 +64,9 @@ export default {
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">商店</a>
                         <ul class="dropdown-menu py-0" aria-labelledby="navbarDropdown">
+                            <RouterLink to="/search?type=all">
+                                <li class="dropdown-item" :class="[route === 'all' ? 'router-link-active' : '']">全部</li>
+                            </RouterLink>
                             <RouterLink to="/search?type=newGame">
                                 <li class="dropdown-item" :class="[route === 'newGame' ? 'router-link-active' : '']">新遊戲</li>
                             </RouterLink>
@@ -128,11 +134,17 @@ export default {
 }
 
 // 下拉選單設定
-.dropdown-item {
-    padding: 0.5rem 0 0.5rem 1rem;
-
-    &:hover {
-        background-color: rgb(218, 218, 218);
-        font-weight: bolder;
+.dropdown-menu{
+    a:nth-child(1)>li{
+        border-bottom: 1px solid #c4c4c4;
     }
-}</style>
+    .dropdown-item {
+        padding: 0.5rem 0 0.5rem 1rem;
+
+        &:hover {
+            background-color: rgb(218, 218, 218);
+            font-weight: bolder;
+        }
+    }
+}
+</style>

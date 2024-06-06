@@ -28,12 +28,13 @@ import { register } from 'swiper/element/bundle';
 register();
 
 import { Icon } from '@iconify/vue';
+import ModalDiv from './components/ModalDiv.vue';
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-app.component('swiper', Swiper).component('SwiperSlide', SwiperSlide).component('Icon', Icon)
+app.component('swiper', Swiper).component('SwiperSlide', SwiperSlide).component('Icon', Icon).component('ModalDiv', ModalDiv)
 
 app.mount('#app')
 

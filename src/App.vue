@@ -4,8 +4,8 @@ import HeaderNav from './components/HeaderNav.vue';
 import FooterDiv from './components/FooterDiv.vue';
 export default {
 	components: {
-		HeaderNav, FooterDiv,
-	},
+    HeaderNav, FooterDiv,
+},
 	data() {
 		return {
 

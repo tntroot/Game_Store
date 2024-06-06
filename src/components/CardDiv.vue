@@ -55,10 +55,10 @@ export default {
                 </div>
             </div>
             <div class="text-center">  
-                <div class="btn btn-outline-dark mt-3 fw-bolder">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal1">
                     <Icon icon="typcn:shopping-cart" class=" d-inline-block me-2" />
                     <span>加入購物車</span>
-                </div>
+                </button>
             </div>
         </div>
     </div>

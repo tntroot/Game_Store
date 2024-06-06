@@ -14,6 +14,7 @@
     "@iconify/vue": "^4.1.2",
     "@popperjs/core": "^2.11.8",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "jquery": "^3.7.1",
     "jQuery": "^1.7.4",

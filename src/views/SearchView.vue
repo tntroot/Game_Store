@@ -1,45 +1,36 @@
-<script>
+<script setup>
+import { useRoute } from 'vue-router';
 import CardDiv from '../components/CardDiv.vue'
-export default {
-    components: {
-        CardDiv
-    },
-    data() {
-        return {
-            list: [],
-            changeList: []
-        }
-    },
-    methods: {
-        close(index) {
-            this.changeList = this.changeList.filter((item) => item != index)
-        },
-        resple() {
-            this.changeList = []
-            Object.values(this.$route.query).forEach((item, index, values) => {
-                if (item !== 'all') {
-                    if (item) {
-                        this.changeList.push(item)
-                    }
-                }
-            })
-        }
-    },
-    async created() {
-        const urlEl = new URL('../assets/JSON/SearchList.json', import.meta.url)
-        const searchList = await fetch(urlEl).then((res) => res.json())
+import { ref, onMounted, watch } from 'vue';
 
-        this.list = searchList
-        this.resple()
-    },
-    watch: {
-        $route: {
-            handler: 'resple',
-            immediate: false,
-            deep: true
-        }
-    }
+let route = useRoute();
+let changeList = ref([]);
+function close(index) {
+    changeList.value = changeList.value.filter((item) => item != index);
 }
+function resple() {
+    changeList.value = [];
+    Object.values(route.query).forEach((item, index, values) => {
+        if (item !== 'all') {
+            if (item) {
+                changeList.value.push(item);
+            }
+        }
+    });
+}
+watch(route, () => {
+    resple()
+}, {deep: true, immediate: false})
+
+
+let list = ref([]);
+onMounted( async () => {
+    const urlEl = new URL('../assets/JSON/SearchList.json', import.meta.url)
+    const searchList = await fetch(urlEl).then((res) => res.json())
+
+    list.value = searchList
+    resple()
+})
 </script>
 
 <template>

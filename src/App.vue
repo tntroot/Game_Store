@@ -1,27 +1,14 @@
-<script>
-import { RouterView, RouterLink } from 'vue-router';
-import HeaderNav from './components/HeaderNav.vue';
-import FooterDiv from './components/FooterDiv.vue';
-export default {
-	components: {
-    HeaderNav, FooterDiv,
-},
-	data() {
-		return {
-
-		}
-	},
-}
+<script setup>
+import { RouterView, RouterLink } from 'vue-router'
+import HeaderNav from './components/HeaderNav.vue'
+import FooterDiv from './components/FooterDiv.vue'
 </script>
 <template>
-    
-	<HeaderNav />
-	<div class=" min-vh-100">
-		<RouterView></RouterView>
-	</div>
-	<FooterDiv />
+    <HeaderNav />
+    <div class="min-vh-100">
+        <RouterView></RouterView>
+    </div>
+    <FooterDiv />
 </template>
 
-<style lang="">
-
-</style>
+<style lang=""></style>

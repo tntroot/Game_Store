@@ -1,21 +1,12 @@
-<script>
+<script setup>
 import { RouterLink } from 'vue-router';
-export default {
-    props: {
-        itemList: {
-            type: Object,
-            required: true
-        }
-    },
-    data() {
-        return {
 
-        }
-    },
-    mounted(){
-        
+defineProps({
+    itemList: {
+        type: Object,
+        required: true
     }
-}
+})
 </script>
 <template>
     <div class="card my-5">

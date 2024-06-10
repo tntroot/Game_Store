@@ -1,34 +1,29 @@
-<script>
+<script setup>
 import SwiperNav from '../components/SwiperNav.vue'
-export default {
-  components: {
-    SwiperNav,
-  },
-  data() {
-    return {
-      list1: [],
-      list2: [],
-      list3: [],
-    }
-  },
-  methods:{
-	setSwiper(){
-		this.$refs.swiperDiv1.setSwiper(0);
-		this.$refs.swiperDiv2.setSwiper(1);
-		this.$refs.swiperDiv3.setSwiper(2);
-	}
-  },
-  async created() {
+import { ref, onMounted } from "vue"
+
+let swiperDiv1 = ref();
+    let swiperDiv2 = ref();
+    let swiperDiv3 = ref();
+function setSwiper() {
+    swiperDiv1.value.setSwiper(0);
+    swiperDiv2.value.setSwiper(1);
+    swiperDiv3.value.setSwiper(2);
+}
+
+let list1 = ref([]);
+let list2 = ref([]);
+let list3 = ref([]);
+onMounted( async() => {
     const urlEl = new URL('../assets/JSON/ProductList.json', import.meta.url);
     const thisListAll = await fetch(urlEl).then((res) => res.json());
 
-    this.list1 = thisListAll.list1
-    this.list2 = thisListAll.list2
-    this.list3 = thisListAll.list3;
+    list1.value = thisListAll.list1;
+    list2.value = thisListAll.list2;
+    list3.value = thisListAll.list3;
 
-	this.setSwiper();
-  },
-}
+    setSwiper();
+})
 </script>
 
 <template>
@@ -60,24 +55,6 @@ export default {
 
       <SwiperNav ref="swiperDiv3" :listAll="list3" :contorl="2" />
     </div>
-
-    <div id="modal1" class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-  </div>
   </div>
 </template>
 

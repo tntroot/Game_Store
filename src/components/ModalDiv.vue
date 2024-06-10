@@ -1,12 +1,6 @@
 
-<script>
-export default {
-    data() {
-        return {
-            
-        }
-    },
-}
+<script setup>
+
 </script>
 
 <template>

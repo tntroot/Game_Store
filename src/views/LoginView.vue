@@ -1,29 +1,15 @@
-<script>
-export default {
-    data() {
-        return {
+<script setup>
+import { ref } from 'vue'
 
-        }
-    },
-    mounted() {
-
-    },
-    methods: {
-        login() {
-            alert('登入成功');
-        },
-        loginCheck(event) {
-            const form = document.querySelector('.needs-validation');
-            if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
-            } else {
-                console.log(123);
-            }
-
-            form.classList.add('was-validated')
-        }
+let loginOn = ref()
+function loginCheck(event) {
+    if (!loginOn.value.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+    } else {
+        console.log(123)
     }
+    loginOn.value.classList.add('was-validated')
 }
 </script>
 
@@ -32,8 +18,13 @@ export default {
         <div class="row">
             <div class="col-12 mt-5">
                 <div class="tw-bg-[#123456] p-5 rounded-4 tw-w-fit mx-auto sm:tw-w-[35rem] mt-5">
-                    <div class=" text-white">
-                        <form action="" class="row g-3 needs-validation" novalidate @submit.prevent="loginCheck">
+                    <div class="text-white">
+                        <form
+                            action="" ref="loginOn"
+                            class="row g-3 needs-validation"
+                            novalidate
+                            @submit.prevent="loginCheck"
+                        >
                             <p class="h3 fw-bolder text-center">登入</p>
                             <div class="col-12">
                                 <label for="account" class="form-label fs-5">帳號</label>
@@ -41,8 +32,13 @@ export default {
                                     <span class="input-group-text" id="accountIcon">
                                         <Icon icon="icon-park-outline:people" />
                                     </span>
-                                    <input type="text" class="form-control" id="account" aria-describedby="accountIcon"
-                                        required>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="account"
+                                        aria-describedby="accountIcon"
+                                        required
+                                    />
                                     <div class="invalid-feedback fs-5">帳號不得為空</div>
                                 </div>
                             </div>
@@ -52,14 +48,22 @@ export default {
                                     <span class="input-group-text" id="passwordIcon">
                                         <Icon icon="ph:lock-key-bold" />
                                     </span>
-                                    <input type="password" class="form-control" id="passwrd" aria-describedby="passwordIcon"
-                                        required>
+                                    <input
+                                        type="password"
+                                        class="form-control"
+                                        id="password"
+                                        aria-describedby="passwordIcon"
+                                        autocomplete="off"
+                                    />
                                     <div class="invalid-feedback fs-5">密碼不得為空</div>
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-primary btn-lg fw-bolder my-3" type="submit">登入</button>
-                                <p class="fs-5">還沒有帳號嗎? 
+                                <button class="btn btn-primary btn-lg fw-bolder my-3" type="submit">
+                                    登入
+                                </button>
+                                <p class="fs-5">
+                                    還沒有帳號嗎?
                                     <RouterLink to="/signUp">
                                         <span class="fw-bolder hover:tw-text-[red]">立即註冊</span>
                                     </RouterLink>
@@ -74,14 +78,15 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-input{
+input {
     &:focus {
         border: 1px solid #8f8f8f;
         outline: none;
         box-shadow: none;
     }
 }
-.was-validated .form-control:invalid, .was-validated .form-control:valid{
+.was-validated .form-control:invalid,
+.was-validated .form-control:valid {
     border: none;
 }
 </style>

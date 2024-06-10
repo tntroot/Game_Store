@@ -1,39 +1,28 @@
-<script>
-import { RouterLink } from 'vue-router';
-export default {
-    data() {
-        return {
-            search: "",
-            route: this.$route.query.type || "",
-        }
-    },
-    methods: {
-        searchFu() {
-            if (this.search.trim()) {
-                this.$router.push({ path: '/search', query: { search: this.search } });
-            }else{
-                this.$router.push({ path: '/search', query: { search: this.search, type: 'all' } });
-                console.log(123);
-            }
-        },
+<script setup>
+import { RouterLink, useRoute, useRouter } from 'vue-router';
+import { ref, watch } from "vue"
 
-        shopping() {
-            this.$router.push("/account/shoppingCar");
-        },
-        account() {
-            this.$router.push("/login");
-        }
-    },
-    watch: {
-        "$route": {
-            handler() {
-                this.route = this.$route.query.type || "";
-            },
-            deep: true,
-            immediate: false,
-        }
+let useRou = useRouter();
+let search = ref("");
+function searchFu() {
+    if (search.value.trim()) {
+        useRou.push({ path: '/search', query: { search: search.value } });
+    }else{
+        useRou.push({ path: '/search', query: { search: search.value, type: 'all' } });
     }
 }
+function shopping() {
+    useRou.push("/account/shoppingCar");
+}
+function account() {
+    useRou.push("/login");
+}
+
+let route = ref("");
+route.value = useRoute().query.type || "";
+watch(useRoute(), (newValue) => {
+    route.value = newValue.query.type || "";
+},{ deep: true})
 </script>
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light p-0 sticky-top">

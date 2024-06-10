@@ -1,28 +1,18 @@
-<script>
+<script setup>
 import { RouterLink } from 'vue-router';
-export default {
-    props: ['thisCard'],
-    data() {
-        return {
-
-        }
-    },
-    computed: {
-        salePrice() {
-            return this.thisCard.price > this.thisCard.sale_price;
-        }
-    },
-    created() {
-        this.thisCard.img[0] = new URL(`../assets/img/${this.thisCard.img[0]}`, import.meta.url);
-        if(typeof this.thisCard.price !== 'string'){
-            this.thisCard.price = new Intl.NumberFormat('en').format(this.thisCard.price);
-            this.thisCard.sale_price = new Intl.NumberFormat('en').format(this.thisCard.sale_price);
-            this.thisCard.sales = new Intl.NumberFormat('en').format(this.thisCard.sales);
-        }
-        
-    },
-
-}
+import { computed, onMounted } from 'vue'
+let propsThisCard = defineProps(['thisCard']);
+let salePrice = computed(() => {
+    return propsThisCard.thisCard.price > propsThisCard.thisCard.sale_price;
+})
+onMounted(() => {
+    propsThisCard.thisCard.img[0] = new URL(`../assets/img/${propsThisCard.thisCard.img[0]}`, import.meta.url);
+    if(typeof propsThisCard.thisCard.price !== 'string'){
+        propsThisCard.thisCard.price = new Intl.NumberFormat('en').format(propsThisCard.thisCard.price);
+        propsThisCard.thisCard.sale_price = new Intl.NumberFormat('en').format(propsThisCard.thisCard.sale_price);
+        propsThisCard.thisCard.sales = new Intl.NumberFormat('en').format(propsThisCard.thisCard.sales);
+    }
+})
 </script>
 <template>
     <div class="card p-0 border-0 mx-2">

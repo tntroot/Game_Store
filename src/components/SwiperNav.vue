@@ -1,66 +1,57 @@
-<script lang="jsx">
+<script setup>
 import CardDiv from './CardDiv.vue'
-export default {
-  props: ['listAll', 'contorl'],
-  components: {
-    CardDiv
-  },
-  methods: {
-    setSwiper(index) {
-      const swiperEl = document.querySelectorAll('swiper-container')[index]
 
-      // swiper parameters
-      const swiperParams = {
-        direction: 'horizontal', // 方向 vertical 垂直、horizontal 橫向
-        navigation: true, // 前後退啟用按鈕
-        slidesOffsetAfter: 0, // 與前後退按鈕間隔距離
-        slidesOffsetBefore: 0, // 與前後退按鈕間隔距離
-        breakpoints: {
-          // 響應式
-          0: {
-            slidesPerView: 1, // 顯示數量
-            slidesPerGroup: 1 // 滑動時移動的格數
-          },
-          400: {
-            slidesPerView: 2,
-            slidesPerGroup: 1
-          },
-          750: {
-            slidesPerView: 3,
-            slidesPerGroup: 2
-          },
-          100: {
-            slidesPerView: 4,
-            slidesPerGroup: 3
-          },
-          1300: {
-            slidesPerView: 5,
-            slidesPerGroup: 4
-          }
+let props = defineProps(['listAll', 'contorl']);
+function  setSwiper(index) {
+    const swiperEl = document.querySelectorAll('swiper-container')[index]
+    // swiper parameters
+    const swiperParams = {
+      direction: 'horizontal', // 方向 vertical 垂直、horizontal 橫向
+      navigation: true, // 前後退啟用按鈕
+      slidesOffsetAfter: 0, // 與前後退按鈕間隔距離
+      slidesOffsetBefore: 0, // 與前後退按鈕間隔距離
+      breakpoints: {
+        // 響應式
+        0: {
+          slidesPerView: 1, // 顯示數量
+          slidesPerGroup: 1 // 滑動時移動的格數
         },
-        navigation: {
-          nextEl: `#next${this.contorl}`,
-          prevEl: `#prev${this.contorl}`
+        400: {
+          slidesPerView: 2,
+          slidesPerGroup: 1
         },
-        on: {
-          // 按件事件
-          init() {
-            // ...
-          }
+        750: {
+          slidesPerView: 3,
+          slidesPerGroup: 2
+        },
+        100: {
+          slidesPerView: 4,
+          slidesPerGroup: 3
+        },
+        1300: {
+          slidesPerView: 5,
+          slidesPerGroup: 4
+        }
+      },
+      navigation: {
+        nextEl: `#next${props.contorl}`,
+        prevEl: `#prev${props.contorl}`
+      },
+      on: {
+        // 按件事件
+        init() {
+          // ...
         }
       }
-
-      // 淺層複製到 swiperEl
-      Object.assign(swiperEl, swiperParams)
-
-      // 初始化 swiper
-      swiperEl.initialize()
     }
-  },
-  mounted() {
-    // swiper
-  }
+    // 淺層複製到 swiperEl
+    Object.assign(swiperEl, swiperParams)
+    // 初始化 swiper
+    swiperEl.initialize()
 }
+defineExpose({
+    setSwiper,
+})
 </script>
 
 <template>

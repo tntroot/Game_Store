@@ -1,43 +1,34 @@
-<script>
+<script setup>
 import { RouterLink } from 'vue-router'
-export default {
-    data() {
-        return {
-            shopping: [
-                {
-                    id: 1,
-                    name: '冰與火之舞',
-                    price: 123,
-                    sale_price: 0
-                },
-                {
-                    id: 2,
-                    name: '幻塔',
-                    price: 123,
-                    sale_price: 120
-                },
-                {
-                    id: 3,
-                    name: 'Minecraft',
-                    price: 123,
-                    sale_price: 100
-                }
-            ]
-        }
+import { ref, computed } from 'vue'
+
+let shopping = ref('');
+shopping.value = [
+    {
+        id: 1,
+        name: '冰與火之舞',
+        price: 123,
+        sale_price: 0
     },
-    methods: {
-        deleteShop(id) {
-            this.shopping = this.shopping.filter((item) => item.id !== id);
-            let as = "this-add";
-            console.log(as.split("_").at(0));
-        }
+    {
+        id: 2,
+        name: '幻塔',
+        price: 123,
+        sale_price: 120
     },
-    computed: {
-        allPrice() {
-            return this.shopping.reduce((sum, item) => sum + item.sale_price, 0)
-        }
+    {
+        id: 3,
+        name: 'Minecraft',
+        price: 123,
+        sale_price: 100
     }
+];
+function deleteShop(id){
+    shopping.value = shopping.value.filter((item) => item.id !== id);
 }
+let allPrice = computed(() => {
+    return shopping.value.reduce((sum, item) => sum + item.sale_price, 0)
+}) 
 </script>
 
 <template>

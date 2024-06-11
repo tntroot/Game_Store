@@ -1,17 +1,14 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 import { computed, onMounted } from 'vue'
+import { numFormat } from "../assets/JS/NumberFormat";
 let propsThisCard = defineProps(['thisCard']);
 let salePrice = computed(() => {
     return propsThisCard.thisCard.price > propsThisCard.thisCard.sale_price;
 })
 onMounted(() => {
     propsThisCard.thisCard.img[0] = new URL(`../assets/img/${propsThisCard.thisCard.img[0]}`, import.meta.url);
-    if(typeof propsThisCard.thisCard.price !== 'string'){
-        propsThisCard.thisCard.price = new Intl.NumberFormat('en').format(propsThisCard.thisCard.price);
-        propsThisCard.thisCard.sale_price = new Intl.NumberFormat('en').format(propsThisCard.thisCard.sale_price);
-        propsThisCard.thisCard.sales = new Intl.NumberFormat('en').format(propsThisCard.thisCard.sales);
-    }
+    numFormat(propsThisCard.thisCard);
 })
 </script>
 <template>
@@ -44,7 +41,7 @@ onMounted(() => {
                     <span>{{ " " + thisCard.message }}</span>
                 </div>
             </div>
-            <div class="text-center">  
+            <div class="text-center my-2">  
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal1">
                     <Icon icon="typcn:shopping-cart" class=" d-inline-block me-2" />
                     <span>加入購物車</span>

@@ -5,11 +5,7 @@ import { ref, watch } from "vue"
 let useRou = useRouter();
 let search = ref("");
 function searchFu() {
-    if (search.value.trim()) {
-        useRou.push({ path: '/search', query: { search: search.value } });
-    }else{
-        useRou.push({ path: '/search', query: { search: search.value, type: 'all' } });
-    }
+    useRou.push({ path: '/search', query: { search: search.value } });
 }
 function shopping() {
     useRou.push("/account/shoppingCar");
@@ -53,17 +49,17 @@ watch(useRoute(), (newValue) => {
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">商店</a>
                         <ul class="dropdown-menu py-0" aria-labelledby="navbarDropdown">
-                            <RouterLink to="/search?type=all">
-                                <li class="dropdown-item" :class="[route === 'all' ? 'router-link-active' : '']">全部</li>
+                            <RouterLink to="/search">
+                                <li class="dropdown-item" :class="[route === '' ? 'router-link-active' : '']">全部</li>
                             </RouterLink>
-                            <RouterLink to="/search?type=newGame">
-                                <li class="dropdown-item" :class="[route === 'newGame' ? 'router-link-active' : '']">新遊戲</li>
+                            <RouterLink to="/search?type=新遊戲">
+                                <li class="dropdown-item" :class="[route === '新遊戲' ? 'router-link-active' : '']">新遊戲</li>
                             </RouterLink>
-                            <RouterLink to="/search?type=rank">
-                                <li class="dropdown-item" :class="[route === 'rank' ? 'router-link-active' : '']">排行</li>
+                            <RouterLink to="/search?type=排行">
+                                <li class="dropdown-item" :class="[route === '排行' ? 'router-link-active' : '']">排行</li>
                             </RouterLink>
-                            <RouterLink to="/search?type=free&all=a123">
-                                <li class="dropdown-item" :class="[route === 'free' ? 'router-link-active' : '']">免費遊戲</li>
+                            <RouterLink to="/search?type=免費遊戲">
+                                <li class="dropdown-item" :class="[route === '免費遊戲' ? 'router-link-active' : '']">免費遊戲</li>
                             </RouterLink>
                         </ul>
                     </li>

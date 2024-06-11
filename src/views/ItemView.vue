@@ -2,6 +2,7 @@
 import ItemCard from '../components/ItemCard.vue'
 import { ref, onMounted, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
+import {numFormat} from '../assets/JS/NumberFormat'
 
 let route = useRoute();
 let reoly = ref(false)
@@ -23,6 +24,7 @@ onMounted(async () => {
     for (let i = 0; i < data2[0].img.length; i++) {
         data2[0].img[i] = new URL(`../assets/img/${data2[0].img[i]}`, import.meta.url)
     }
+    numFormat(data2[0])
     itemCard.value = data2[0]
 })
 </script>

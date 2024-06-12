@@ -2,22 +2,26 @@
 import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { ref, watch } from "vue"
 
-let useRou = useRouter();
 let search = ref("");
+
+let router = useRouter();
+let route = useRoute();
 function searchFu() {
-    useRou.push({ path: '/search', query: { search: search.value } });
+    let routeQuery = route.query;
+    routeQuery['search'] = search.value;
+    router.push({ path: '/search', query: JSON.parse(JSON.stringify(routeQuery)) });
 }
 function shopping() {
-    useRou.push("/account/shoppingCar");
+    router.push("/account/shoppingCar");
 }
 function account() {
-    useRou.push("/login");
+    router.push("/login");
 }
 
-let route = ref("");
-route.value = useRoute().query.type || "";
+let thisRoute = ref("");
+thisRoute.value = useRoute().query.type || "";
 watch(useRoute(), (newValue) => {
-    route.value = newValue.query.type || "";
+    thisRoute.value = newValue.query.type || "";
 },{ deep: true})
 </script>
 <template>

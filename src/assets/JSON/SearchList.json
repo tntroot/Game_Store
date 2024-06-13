@@ -55,7 +55,7 @@
                     "ROM": "1.5GB"
                 }
             },
-            "img": ["A_Dance_of_Fire_and_Ice/A Dance of Fire and Ice_home.jpg"],
+            "img": ["A_Dance_of_Fire_and_Ice/A Dance of Fire and Ice_home.jpg", "A_Dance_of_Fire_and_Ice/A Dance of Fire and Ice_3.jpg", "A_Dance_of_Fire_and_Ice/A Dance of Fire and Ice_4.jpg", "A_Dance_of_Fire_and_Ice/A Dance of Fire and Ice_1.jpg", "A_Dance_of_Fire_and_Ice/A Dance of Fire and Ice_5.jpg"],
             "price": 123,
             "sale_price": 100,
             "rating": 4.5,
@@ -86,7 +86,7 @@
                     "ROM": "8GB"
                 }
             },
-            "img": ["Gravitas/Gravitas_home.jpg"],
+            "img": ["Gravitas/Gravitas_home.jpg", "Gravitas/Gravitas_1.jpg", "Gravitas/Gravitas_2.jpg", "Gravitas/Gravitas_3.jpg", "Gravitas/Gravitas_6.jpg", "Gravitas/Gravitas_8.jpg"],
             "price": 0,
             "sale_price": 0,
             "rating": 4.0,
@@ -179,7 +179,7 @@
                     "ROM": "0.6GB"
                 }
             },
-            "img": ["MahjongSoul/MahjongSoul_home.jpg"],
+            "img": ["MahjongSoul/MahjongSoul_home.jpg", "MahjongSoul/MahjongSoul_1.webp", "MahjongSoul/MahjongSoul_2.webp", "MahjongSoul/MahjongSoul_3.webp", "MahjongSoul/MahjongSoul_4.webp", "MahjongSoul/MahjongSoul_5.webp"],
             "price": 0,
             "sale_price": 0,
             "rating": 2.7,
@@ -210,7 +210,7 @@
                     "ROM": "52GB"
                 }
             },
-            "img": ["Monster_Hunter_World/Monster Hunter World_home.jpg", "Monster_Hunter_World/Monster Hunter World_1.jpg", "Monster Hunter World_3.jpg", "Monster_Hunter_World/Monster Hunter World_4.jpg"],
+            "img": ["Monster_Hunter_World/Monster Hunter World_home.jpg", "Monster_Hunter_World/Monster Hunter World_1.jpg", "Monster_Hunter_World/Monster Hunter World_3.jpg", "Monster_Hunter_World/Monster Hunter World_4.jpg"],
             "price": 1230,
             "sale_price": 1100,
             "rating": 3.7,
@@ -241,7 +241,7 @@
                     "ROM": "2GB"
                 }
             },
-            "img": ["NaissanceE/NaissanceE_home.jpg"],
+            "img": ["NaissanceE/NaissanceE_home.jpg", "NaissanceE/NaissanceE_1.jpg", "NaissanceE/NaissanceE_2.jpg"],
             "price": 0,
             "sale_price": 0,
             "rating": 4.5,
@@ -272,7 +272,7 @@
                     "ROM": "8GB"
                 }
             },
-            "img": ["Portal1/Portal1_home.jpg"],
+            "img": ["Portal1/Portal1_home.jpg", "Portal1/Portal1_1.jpg", "Portal1/Portal1_2.jpg"],
             "price": 250,
             "sale_price": 250,
             "rating": 4.0,
@@ -303,7 +303,7 @@
                     "ROM": "8GB"
                 }
             },
-            "img": ["Portal2/Portal2_home.jpg"],
+            "img": ["Portal2/Portal2_home.jpg", "Portal2/Portal2_1.jpg"],
             "price": 300,
             "sale_price": 250,
             "rating": 4.8,
@@ -334,7 +334,7 @@
                     "ROM": "3GB"
                 }
             },
-            "img": ["Sky/Sky_home.jpg"],
+            "img": ["Sky/Sky_home.jpg", "Sky/Sky_1.jpg", "Sky/Sky_2.jpg", "Sky/Sky_3.jpg"],
             "price": 300,
             "sale_price": 0,
             "rating": 3.0,

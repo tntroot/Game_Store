@@ -4,6 +4,4 @@ export function numFormat(num) {
         num.sale_price = new Intl.NumberFormat('en').format(num.sale_price);
         num.sales = new Intl.NumberFormat('en').format(num.sales);
     }
-
-    
 }

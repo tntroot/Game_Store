@@ -30,6 +30,10 @@ register();
 import { Icon } from '@iconify/vue';
 import ModalDiv from './components/ModalDiv.vue';
 
+router.afterEach((to, from, next) => {
+    window.scrollTo(0, 0);
+});
+
 const app = createApp(App)
 
 app.use(createPinia())

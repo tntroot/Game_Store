@@ -38,7 +38,7 @@ let allPrice = computed(() => {
             <div class="col-xl-9 col-lg-8">
                 <div class=" tw-bg-[#123c66] rounded-4 mb-5" v-for="item in shopping" :key="item.id">
                     <div class="row tw-text-[white]">
-                        <img src="../assets/img/A_Dance_of_Fire_and_Ice/A Dance of Fire and Ice_home.jpg"
+                        <img src="../../assets/img/A_Dance_of_Fire_and_Ice/A Dance of Fire and Ice_home.jpg"
                             class="col-sm-4" alt="" srcset="" />
                         <div class="tw-font-bold ps-4 py-3 col-sm-8">
                             <p class="md:tw-text-2xl tw-font-bold tw-line-clamp-2">{{ item.name + " 123 " +  item.name + item.name + item.name +item.name }}</p>
@@ -64,7 +64,9 @@ let allPrice = computed(() => {
                     <div class="text-center text-white">
                         <p class="h3 fw-bolder">總計</p>
                         <p class="h3 fw-bolder">NT$ {{ allPrice }}</p>
-                        <button class="btn btn-primary btn-lg fw-bolder my-3" type="button">確認結帳</button>
+                        <RouterLink to="/account/checkout">
+                           <button class="btn btn-primary btn-lg fw-bolder my-3" type="button">確認結帳</button> 
+                        </RouterLink>
                     </div>
                 </div>
             </div>

@@ -23,12 +23,14 @@ shopping.value = [
         sale_price: 100
     }
 ];
-function deleteShop(id){
+function deleteShop(id) {
     shopping.value = shopping.value.filter((item) => item.id !== id);
 }
+
 let allPrice = computed(() => {
     return shopping.value.reduce((sum, item) => sum + item.sale_price, 0)
-}) 
+})
+
 // md:tw-w-[12rem] tw-w-1/4 tw-h-[8rem]
 </script>
 <template>
@@ -41,7 +43,8 @@ let allPrice = computed(() => {
                         <img src="../../assets/img/A_Dance_of_Fire_and_Ice/A Dance of Fire and Ice_home.jpg"
                             class="col-sm-4" alt="" srcset="" />
                         <div class="tw-font-bold ps-4 py-3 col-sm-8">
-                            <p class="md:tw-text-2xl tw-font-bold tw-line-clamp-2">{{ item.name + " 123 " +  item.name + item.name + item.name +item.name }}</p>
+                            <p class="md:tw-text-2xl tw-font-bold tw-line-clamp-2">{{ item.name + " 123 " + item.name +
+                                item.name + item.name + item.name }}</p>
                             <div class="d-sm-flex pe-4 align-items-center justify-content-between">
                                 <div class="my-4 d-flex justify-content-center fw-bolder fs-5">
                                     <h3 v-if="item.price > item.sale_price"
@@ -51,7 +54,7 @@ let allPrice = computed(() => {
                                         {{ item.sale_price != 0 ? `NT$ ${item.sale_price}` : '免費' }}
                                     </h3>
                                 </div>
-                                <button class="btn btn-danger btn-lg p-3 tw-w-full sm:tw-w-fit " type="button" @click="deleteShop(item.id)">
+                                <button class="btn btn-danger btn-lg p-3 tw-w-full sm:tw-w-fit " type="button">
                                     <Icon icon="wpf:delete" class=" mx-auto" />
                                 </button>
                             </div>
@@ -60,12 +63,12 @@ let allPrice = computed(() => {
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4 px-5">
-                <div class="p-4 tw-bg-[#123456] rounded-4">
+                <div class="p-4 tw-bg-[#123456] rounded-4 w-100">
                     <div class="text-center text-white">
                         <p class="h3 fw-bolder">總計</p>
                         <p class="h3 fw-bolder">NT$ {{ allPrice }}</p>
                         <RouterLink to="/account/checkout">
-                           <button class="btn btn-primary btn-lg fw-bolder my-3" type="button">確認結帳</button> 
+                            <button class="btn btn-primary btn-lg fw-bolder my-3" type="submit">確認結帳</button>
                         </RouterLink>
                     </div>
                 </div>

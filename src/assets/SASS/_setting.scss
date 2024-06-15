@@ -1,56 +1,71 @@
-*, *::before, *::after{
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0;
     background: url('../../../public/unsplash_asuyh-_ZX54.jpg') fixed;
     // background-repeat: no-repeat;
     background-size: 100% 100vh;
 }
 
-%h1-5Setting{
+%h1-5Setting {
     display: block;
     font-weight: bold;
     unicode-bidi: isolate;
 }
 
-h1{   
+h1 {
     @extend %h1-5Setting;
     font-size: 2em;
     font-weight: bolder;
 }
 
-h2{
+h2 {
     @extend %h1-5Setting;
     font-size: 1.5em;
     font-weight: bolder;
 }
-h3{
+
+h3 {
     @extend %h1-5Setting;
     font-size: 1.17em;
     font-weight: bolder;
 }
-h4{
+
+h4 {
     @extend %h1-5Setting;
     font-size: 1em;
 }
-h5{
+
+h5 {
     @extend %h1-5Setting;
     font-size: 0.83em;
 }
-h6{
+
+h6 {
     @extend %h1-5Setting;
     font-size: 0.67em;
 }
 
-input{
-    &:focus{
+input,
+.form-control {
+    &:focus {
         border: 1px solid #8f8f8f;
         outline: none;
         box-shadow: none;
     }
-    &:visited, &:valid{
+
+    &:visited,
+    &:valid {
         border: 1px solid #8f8f8f;
     }
+}
+
+.d-flex-xy-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

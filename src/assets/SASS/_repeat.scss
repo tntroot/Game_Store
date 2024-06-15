@@ -1,0 +1,11 @@
+
+@mixin btn-onClick($color) {
+    &:hover {
+        background-color: lighten($color, 10%);
+        transform: scale(1.1);
+    }
+    &:active {
+        background-color: darken($color, 20%);
+        transform: scale(0.9);
+    }
+}

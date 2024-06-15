@@ -7,6 +7,7 @@ const ItemView = () => import('../views/ItemView.vue');
 const LoginView = () => import('../views/LoginView.vue');
 const ShoppingCarView = () => import('../views/Account/ShoppingCarView.vue');
 const CheckoutView = () => import('../views/Account/CheckoutView.vue');
+const CheckoutCompleteView = () => import('../views/Account/CheckoutCompleteView.vue');
 
 const router = createRouter({
   // history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,10 @@ const router = createRouter({
         {
           path: 'checkout',
           component: CheckoutView
+        },
+        {
+          path: 'checkoutComplete',
+          component: CheckoutCompleteView
         }
       ]
     },

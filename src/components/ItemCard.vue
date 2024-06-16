@@ -12,7 +12,7 @@ defineProps({
     <div class="card my-5">
         <div class="row g-0">
             <div class="col-lg-6 bg-black">
-                <swiper-container class="mySwiper" thumbs-swiper=".mySwiper2" space-between="10" navigation="true">
+                <swiper-container class="mySwiper" thumbs-swiper=".mySwiper2" space-between="10" navigation="true" autoScrollOffset="1">
                     <swiper-slide v-for="(item, index) in itemList.img" :key="index">
                         <img class="w-100 md:tw-h-[24rem] tw-h-[12rem]" :src="item" alt="" srcset="">
                     </swiper-slide>

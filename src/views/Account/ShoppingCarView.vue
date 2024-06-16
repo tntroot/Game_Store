@@ -54,7 +54,7 @@ let allPrice = computed(() => {
                                         {{ item.sale_price != 0 ? `NT$ ${item.sale_price}` : '免費' }}
                                     </h3>
                                 </div>
-                                <button class="btn btn-danger btn-lg p-3 tw-w-full sm:tw-w-fit " type="button">
+                                <button class="btn btn-danger btn-lg p-3 tw-w-full sm:tw-w-fit " type="button" @click="deleteShop(item.id)">
                                     <Icon icon="wpf:delete" class=" mx-auto" />
                                 </button>
                             </div>

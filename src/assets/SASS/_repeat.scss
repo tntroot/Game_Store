@@ -1,11 +1,62 @@
-
-@mixin btn-onClick($color) {
+// 按鈕 滑入、按下樣式
+@mixin btn-onClick($color: none) {
+    background-color: $color;
     &:hover {
-        background-color: lighten($color, 10%);
+        @if $color != none {
+            background-color: lighten($color, 10%);
+        }
         transform: scale(1.1);
     }
     &:active {
-        background-color: darken($color, 20%);
+        @if $color != none {
+            background-color: darken($color, 20%);
+        }
         transform: scale(0.9);
+    }
+}
+
+// 螢幕斷點
+$breakpoints-minmax:( 
+    'sm': (320px, 480px),
+    'md': (481px, 768px),
+    'lg': (769px, 1024px),
+    'xl': (1025px, 1440px),
+    'xxl': 1441px
+);
+$breakpoints-following:(
+    'sm': 320px,
+    'md': 481px,
+    'lg': 769px,
+    'xl': 1025px,
+    'xxl': 1441px
+);
+// 螢幕響應式 min ~ max
+@mixin mobile_minmax($breakpoint-name) {
+    $bp: map-get($breakpoints-minmax, $breakpoint-name);
+    @if type-of($bp) == 'list' {
+        $min: nth($bp, 1);
+        $max: nth($bp, 2);
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    }
+    @else {
+        @media (min-width: $bp) {
+            @content;
+        }
+    }
+}
+// 螢幕響應式 min
+@mixin mobile_max($breakpoint-name) {
+    $bp: map-get($breakpoints-following, $breakpoint-name);
+    @if $bp == 'xxl' {
+        @media (min-width: $min) {
+            @content;
+        }
+    }
+    @else {
+        @media (max-width: $bp) {
+            @content;
+        }
     }
 }

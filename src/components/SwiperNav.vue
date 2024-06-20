@@ -58,7 +58,7 @@ defineExpose({
 	<div class=" position-relative">
 		<swiper-container init="false">
 			<swiper-slide v-for="(item, index) in listAll" :key="item.id">
-				<CardDiv :thisCard="item" />
+				<CardDiv :thisCard="item" :isSwiper="true" />
 			</swiper-slide>
 		</swiper-container>
 		<div :id="'prev' + contorl" class="swiper-button-prev"></div>

@@ -1,5 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import ModalDiv from './ModalDiv.vue';
+import { ref } from 'vue';
 
 defineProps({
     itemList: {
@@ -7,6 +9,11 @@ defineProps({
         required: true
     }
 })
+
+let reoly = ref();
+function addShopping(item) {
+    reoly.value.addShopping(item);
+}
 </script>
 <template>
     <div class="card my-5">
@@ -63,10 +70,14 @@ defineProps({
                             </td>
                         </tr>
                     </table>
-                    <div class="btn btn-lg btn-outline-dark mt-3 fw-bolder mx-auto d-block">
-                        <Icon icon="typcn:shopping-cart" class=" d-inline-block me-2" />
-                        <span>加入購物車</span>
-                    </div>
+                    <ModalDiv ref="reoly" :shop="itemList" >
+                        <template #showShopping>
+                            <button type="button" class="btn btn-lg btn-outline-dark mt-3 fw-bolder mx-auto d-block w-100" @click="addShopping(itemList.id)">
+                                <Icon icon="typcn:shopping-cart" class=" d-inline-block me-2" />
+                                <span>加入購物車</span>
+                            </button>
+                        </template>
+                    </ModalDiv>
                 </div>
             </div>
         </div>

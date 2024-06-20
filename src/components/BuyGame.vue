@@ -43,7 +43,7 @@ function download() {
                 </div>
             </div>
             <div class="row" v-if="!props.activeView">
-                <div class="col-12 text-end p-4">
+                <div class="col-12 text-end px-5 py-4">
                     <h3 class="tw-font-bold tw-text-2xl">總計:　<span class="tw-text-red-600">NT$ {{ allPrice }}</span></h3>
                 </div>
             </div>

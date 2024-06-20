@@ -1,8 +1,9 @@
 <script setup>
 import ItemCard from '../components/ItemCard.vue'
+import ModalDiv from '../components/ModalDiv.vue'
 import { ref, onMounted, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
-import {numFormat} from '../assets/JS/NumberFormat'
+import { numFormat } from '../assets/JS/NumberFormat'
 
 let route = useRoute();
 let reoly = ref(false)
@@ -78,12 +79,7 @@ onMounted(async () => {
                 <p class="h3">玩家評論</p>
                 <div class="px-md-3">
                     <div class="d-flex align-items-start mt-2">
-                        <img
-                            class="rounded-circle"
-                            src="../assets/img/account.png"
-                            width="50"
-                            alt=""
-                        />
+                        <img class="rounded-circle" src="../assets/img/account.png" width="50" alt="" />
                         <div>
                             <div>
                                 <p class="h4 ps-2 pt-2 fw-bolder">凱薩</p>
@@ -95,52 +91,29 @@ onMounted(async () => {
                                 </p>
                                 <div class="d-flex align-items-center">
                                     <div class="ms-2">
-                                        <button
-                                            type="button"
-                                            class="p-2 hover:tw-bg-[#58e9ff] rounded-circle"
-                                        >
+                                        <button type="button" class="p-2 hover:tw-bg-[#58e9ff] rounded-circle">
                                             <Icon icon="carbon:thumbs-up" class="text-dark" />
                                         </button>
                                         <span class="ms-2">1</span>
                                     </div>
                                     <div class="ms-2">
-                                        <button
-                                            type="button"
-                                            class="p-2 hover:tw-bg-[#fa5656] rounded-circle"
-                                        >
+                                        <button type="button" class="p-2 hover:tw-bg-[#fa5656] rounded-circle">
                                             <Icon icon="carbon:thumbs-down" class="text-dark" />
                                         </button>
                                         <span class="ms-2">0</span>
                                     </div>
-                                    <button
-                                        type="button"
-                                        class="btn ms-2 hover:tw-bg-[gray] hover:tw-text-white"
-                                        @click="reolyClick"
-                                    >
+                                    <button type="button" class="btn ms-2 hover:tw-bg-[gray] hover:tw-text-white"
+                                        @click="reolyClick">
                                         <span>回覆</span>
                                     </button>
                                 </div>
                                 <form action="" class="mt-2" v-show="reoly" @submit.prevent="">
                                     <div class="d-flex align-items-center">
-                                        <img
-                                            class="rounded-circle"
-                                            src="../assets/img/account.png"
-                                            width="50"
-                                            alt=""
-                                        />
-                                        <input
-                                            type="text"
-                                            class="form-control reply"
-                                            placeholder="輸入回覆"
-                                            ref="reolyForm"
-                                        />
+                                        <img class="rounded-circle" src="../assets/img/account.png" width="50" alt="" />
+                                        <input type="text" class="form-control reply" placeholder="輸入回覆" ref="reolyForm" />
                                     </div>
                                     <div class="tw-ms-14 mt-2">
-                                        <button
-                                            type="button"
-                                            class="btn btn-secondary"
-                                            @click="reoly = false"
-                                        >
+                                        <button type="button" class="btn btn-secondary" @click="reoly = false">
                                             取消
                                         </button>
                                         <button type="submit" class="btn btn-primary ms-2">
@@ -151,12 +124,7 @@ onMounted(async () => {
                                 </form>
                             </div>
                             <div class="d-flex align-items-start mt-2">
-                                <img
-                                    class="rounded-circle"
-                                    src="../assets/img/account.png"
-                                    width="50"
-                                    alt=""
-                                />
+                                <img class="rounded-circle" src="../assets/img/account.png" width="50" alt="" />
                                 <div>
                                     <p class="h4 ps-2 pt-2 fw-bolder">凱薩</p>
                                     <p class="">
@@ -184,7 +152,7 @@ onMounted(async () => {
 }
 
 table {
-    tr > td:nth-child(1) {
+    tr>td:nth-child(1) {
         width: 90px;
         table-layout: fixed;
     }
@@ -195,6 +163,7 @@ table {
     border-bottom: 1px solid black;
     border-radius: 0;
     margin-left: 0.5rem;
+
     &:focus {
         outline: none;
         box-shadow: none;

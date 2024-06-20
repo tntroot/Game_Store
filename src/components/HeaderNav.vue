@@ -69,7 +69,7 @@ watch(useRoute(), (newValue) => {
                         </ul>
                     </li>
                     <li class="nav-item ms-4 ">
-                        <div class="d-flex border-1 tw-border-gray-600 rounded-pill nav-link">
+                        <div class="d-flex rounded-pill nav-link">
                             <input class="form-control" type="text" placeholder="遊戲名稱" v-model.trim="search"
                                 @keyup.enter="searchFu">
                             <button class="btn btn-outline-success btn-secondary" type="button" @click="searchFu">

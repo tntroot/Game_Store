@@ -2,7 +2,10 @@
 import { RouterLink } from 'vue-router';
 import { computed, onMounted } from 'vue'
 import { numFormat } from "../assets/JS/NumberFormat";
-let propsThisCard = defineProps(['thisCard']);
+
+import ModalDiv from './ModalDiv.vue';
+
+let propsThisCard = defineProps(['thisCard', 'isSwiper']);
 let salePrice = computed(() => {
     return propsThisCard.thisCard.price > propsThisCard.thisCard.sale_price;
 })
@@ -19,13 +22,14 @@ onMounted(() => {
                 特價
             </div>
             <img :src="thisCard.img[0]" class="card-img-top w-100 tw-h-48" :alt="thisCard.name">
-        </RouterLink> 
+        </RouterLink>
         <div class="card-body">
             <RouterLink :to="'/search/item?userId=' + thisCard.id">
                 <h5 class="card-title fs-5 tw-text-[#3640ac] hover:tw-text-red-600 tw-line-clamp-2">{{ thisCard.name }}</h5>
             </RouterLink>
             <div class="d-flex align-items-center">
-                <h5 class="card-text text-danger fw-bolder fs-5 me-2"> {{ thisCard.sale_price!=0 ? `$ ${thisCard.sale_price}` :
+                <h5 class="card-text text-danger fw-bolder fs-5 me-2"> {{ thisCard.sale_price != 0 ? `$
+                    ${thisCard.sale_price}` :
                     '免費' }}</h5>
                 <h5 v-if="salePrice" class="text-decoration-line-through">${{ thisCard.price }}</h5>
             </div>
@@ -41,17 +45,21 @@ onMounted(() => {
                     <span>{{ " " + thisCard.message }}</span>
                 </div>
             </div>
-            <div class="text-center my-2">  
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal1">
-                    <Icon icon="typcn:shopping-cart" class=" d-inline-block me-2" />
-                    <span>加入購物車</span>
-                </button>
+            <div class="text-center my-2">
+                <ModalDiv v-if="!isSwiper">
+                    <template #showShopping>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            <Icon icon="typcn:shopping-cart" class=" d-inline-block me-2" />
+                            <span>加入購物車</span>
+                        </button>
+                    </template>
+                </ModalDiv>
             </div>
         </div>
     </div>
 </template>
 <style lang="scss" scoped>
- .sales {
+.sales {
     background-color: rgb(255, 50, 50);
     position: absolute;
     top: 0.5rem;
@@ -60,7 +68,7 @@ onMounted(() => {
     font-size: 1rem;
     padding: 0.5rem 1rem;
     font-weight: bolder;
-} 
+}
 
 .ratings {
     position: relative;

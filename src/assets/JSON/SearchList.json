@@ -29,7 +29,8 @@
             "sale_price": 1000,
             "rating": 3.7,
             "sales": 123564,
-            "message": 123
+            "message": 123,
+            "isBuy": false
         },
         {
             "id": 2,
@@ -60,7 +61,8 @@
             "sale_price": 100,
             "rating": 4.5,
             "sales": 100000,
-            "message": 123
+            "message": 123,
+            "isBuy": true
         },
         {
             "id": 3,
@@ -91,7 +93,8 @@
             "sale_price": 0,
             "rating": 4.0,
             "sales": 100000,
-            "message": 123
+            "message": 123,
+            "isBuy": false
         },
         {
             "id": 4,
@@ -122,7 +125,8 @@
             "sale_price": 600,
             "rating": 4.8,
             "sales": 100000,
-            "message": 123
+            "message": 123,
+            "isBuy": true
         },
         {
             "id": 5,
@@ -153,7 +157,8 @@
             "sale_price": 0,
             "rating": 3.0,
             "sales": 100000,
-            "message": 123
+            "message": 123,
+            "isBuy": false
         },
         {
             "id": 6,
@@ -184,7 +189,8 @@
             "sale_price": 0,
             "rating": 2.7,
             "sales": 100000,
-            "message": 123
+            "message": 123,
+            "isBuy": true
         },
         {
             "id": 7,
@@ -215,7 +221,8 @@
             "sale_price": 1100,
             "rating": 3.7,
             "sales": 100000,
-            "message": 123
+            "message": 123,
+            "isBuy": false
         },
         {
             "id": 8,
@@ -246,7 +253,8 @@
             "sale_price": 0,
             "rating": 4.5,
             "sales": 100000,
-            "message": 123
+            "message": 123,
+            "isBuy": false
         },
         {
             "id": 9,
@@ -277,7 +285,8 @@
             "sale_price": 250,
             "rating": 4.0,
             "sales": 100000,
-            "message": 123
+            "message": 123,
+            "isBuy": true
         },
         {
             "id": 10,
@@ -308,7 +317,8 @@
             "sale_price": 250,
             "rating": 4.8,
             "sales": 100000,
-            "message": 123
+            "message": 123,
+            "isBuy": false
         },
         {
             "id": 11,
@@ -339,7 +349,8 @@
             "sale_price": 0,
             "rating": 3.0,
             "sales": 100000,
-            "message": 123
+            "message": 123,
+            "isBuy": false
         }
     ]
 }

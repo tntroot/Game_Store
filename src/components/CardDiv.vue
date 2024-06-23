@@ -46,14 +46,7 @@ onMounted(() => {
                 </div>
             </div>
             <div class="text-center my-2">
-                <ModalDiv v-if="!isSwiper">
-                    <template #showShopping>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cartModal">
-                            <Icon icon="typcn:shopping-cart" class=" d-inline-block me-2" />
-                            <span>加入購物車</span>
-                        </button>
-                    </template>
-                </ModalDiv>
+                <ModalDiv v-if="!isSwiper" :btnEvent="{ class: 'btn btn-primary', isBuy: thisCard.isBuy}"></ModalDiv>
             </div>
         </div>
     </div>

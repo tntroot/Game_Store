@@ -6,14 +6,8 @@ import { ref } from 'vue';
 defineProps({
     itemList: {
         type: Object,
-        required: true
     }
 })
-
-let reoly = ref();
-function addShopping(item) {
-    reoly.value.addShopping(item);
-}
 </script>
 <template>
     <div class="card my-5">
@@ -70,14 +64,7 @@ function addShopping(item) {
                             </td>
                         </tr>
                     </table>
-                    <ModalDiv ref="reoly" :shop="itemList" >
-                        <template #showShopping>
-                            <button type="button" class="btn btn-lg btn-outline-dark mt-3 fw-bolder mx-auto d-block w-100" @click="addShopping(itemList.id)">
-                                <Icon icon="typcn:shopping-cart" class=" d-inline-block me-2" />
-                                <span>加入購物車</span>
-                            </button>
-                        </template>
-                    </ModalDiv>
+                    <ModalDiv ref="reoly" :btnEvent="{ class: 'btn btn-lg btn-outline-dark mt-3 fw-bolder w-100', isBuy: itemList.isBuy}"></ModalDiv>
                 </div>
             </div>
         </div>

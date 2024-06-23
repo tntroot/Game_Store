@@ -17,7 +17,7 @@ function reolyClick() {
 }
 
 let itemCard = ref({})
-onMounted(async () => {
+async function craeteGameContent() {
     const url1 = new URL('../assets/JSON/SearchList.json', import.meta.url)
     let data = await fetch(url1).then((res) => res.json())
     let data2 = data.search.filter((item) => item.id == route.query.userId)
@@ -27,7 +27,8 @@ onMounted(async () => {
     }
     numFormat(data2[0])
     itemCard.value = data2[0]
-})
+}
+craeteGameContent();
 </script>
 
 <template>

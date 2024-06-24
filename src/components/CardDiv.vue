@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 import { computed, onMounted } from 'vue'
-import { numFormat } from "../assets/JS/NumberFormat";
+import { numFormat } from "../assets/JS/function";
 
 import ModalDiv from './ModalDiv.vue';
 

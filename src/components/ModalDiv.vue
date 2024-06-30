@@ -2,7 +2,7 @@
 <script setup>
 import { ref, nextTick } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { numFormat } from '../assets/JS/NumberFormat'
+import { numFormat } from '../assets/JS/function';
 
 let props = defineProps(['btnEvent']);
 

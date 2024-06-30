@@ -7,17 +7,11 @@ import { numFormat } from '../assets/JS/NumberFormat'
 let props = defineProps(['btnEvent']);
 
 const modal = ref();
-const isActive = ref(false);
 function addShopping() {
 	if (!props.btnEvent.isBuy) {
-        isActive.value = true;
         nextTick(() => {
             const myModal = new bootstrap.Modal(modal.value);
             myModal.show();
-
-            modal.value.addEventListener('hidden.bs.modal', function (event) {
-                isActive.value = false;
-            })
         })
 	} else {
 		router.push('/account/shoppingCar');
@@ -52,7 +46,7 @@ defineExpose({
     </button>
 
 	<!-- Modal -->
-	<div ref="modal" class="modal fade" tabindex="-1" aria-hidden="true" v-if="isActive">
+	<div ref="modal" class="modal fade" tabindex="-1" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">

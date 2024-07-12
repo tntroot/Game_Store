@@ -20,11 +20,27 @@ function loginCheck(event) {
             "password": pwd.value
         }, setting).then((res) => {
             console.log(res);
+            localStorage.setItem('token', res.data.token);
+        }).catch((err) => {
+            console.log(`登入失敗，原因為${err}`);
         })
 
 
     }
     loginFrom.value.classList.add('was-validated')
+}
+function loginAPI(){
+    axios.post(getAccountAPI('checkAccount'), {
+        header:{
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `${localStorage.getItem('token')}`
+        }
+    })
+    .then((res) => {
+        console.log(res);
+    }).catch((err) => {
+        console.log(`驗證失敗，原因為${err}`);
+    })
 }
 </script>
 
@@ -68,6 +84,9 @@ function loginCheck(event) {
                                         <span class="fw-bolder hover:tw-text-[red]">立即註冊</span>
                                     </RouterLink>
                                 </p>
+                                <button class="btn btn-primary" type="button" @click="loginAPI">
+                                    驗證登入
+                                </button>
                             </div>
                         </form>
                     </div>

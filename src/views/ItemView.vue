@@ -3,7 +3,7 @@ import ItemCard from '../components/ItemCard.vue'
 import ModalDiv from '../components/ModalDiv.vue'
 import { ref, onMounted, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
-import { numFormat } from '../assets/JS/NumberFormat'
+import { numFormat } from '../assets/JS/function'
 
 let route = useRoute();
 let reoly = ref(false)

@@ -1,46 +1,40 @@
 <script setup>
 import axios from 'axios';
 import { ref, reactive, toRefs } from 'vue';
-
+import { useRouter } from 'vue-router';
 import { getAccountAPI, setting } from '../assets/JS/function';
+import Cookies from 'js-cookie';
+
+let router = useRouter();
 
 let loginFrom = ref();
 let loginData = reactive({
     acc: '',
     pwd: ''
 })
-function loginCheck(event) {
+let errorText = ref('');
+async function loginCheck(event) {
     if (!loginFrom.value.checkValidity()) {
         event.preventDefault()
         event.stopPropagation()
     } else {
         let { acc, pwd } = toRefs(loginData);
-        axios.post(getAccountAPI('login'), {
+        const res = await axios.post(getAccountAPI('login'), {
             "account": acc.value,
             "password": pwd.value
-        }, setting).then((res) => {
-            console.log(res);
-            localStorage.setItem('token', res.data.token);
-        }).catch((err) => {
+        }, setting).catch((err) => {
             console.log(`登入失敗，原因為${err}`);
         })
 
-
+        if (!res) { return };
+        if (res.data.status == 200) {
+            Cookies.set('UUID', res.data.data, { expires: 7, path: '/113-1-11', secure: true });
+            router.push('/');
+        } else {
+            errorText.value = res.data.message;
+        }
     }
     loginFrom.value.classList.add('was-validated')
-}
-function loginAPI(){
-    axios.post(getAccountAPI('checkAccount'), {
-        header:{
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `${localStorage.getItem('token')}`
-        }
-    })
-    .then((res) => {
-        console.log(res);
-    }).catch((err) => {
-        console.log(`驗證失敗，原因為${err}`);
-    })
 }
 </script>
 
@@ -70,9 +64,13 @@ function loginAPI(){
                                         <Icon icon="ph:lock-key-bold" />
                                     </span>
                                     <input type="password" class="form-control" id="password" name="password"
-                                        v-model="loginData.pwd" aria-describedby="passwordIcon" autocomplete="off" />
+                                        v-model="loginData.pwd" aria-describedby="passwordIcon" autocomplete="off"
+                                        required />
                                     <div class="invalid-feedback fs-5">密碼不得為空</div>
                                 </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <p class="fs-5 fw-bold tw-text-red-600">{{ errorText }}</p>
                             </div>
                             <div class="text-center">
                                 <button class="btn btn-primary btn-lg fw-bolder my-3" type="submit">
@@ -84,9 +82,6 @@ function loginAPI(){
                                         <span class="fw-bolder hover:tw-text-[red]">立即註冊</span>
                                     </RouterLink>
                                 </p>
-                                <button class="btn btn-primary" type="button" @click="loginAPI">
-                                    驗證登入
-                                </button>
                             </div>
                         </form>
                     </div>

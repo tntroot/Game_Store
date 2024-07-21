@@ -1,3 +1,4 @@
+/* 更改數字格式 1000 -> 1,000 */
 export function numFormat(num) {
     if(typeof num.price !== 'string'){
         num.price = new Intl.NumberFormat('en').format(num.price);

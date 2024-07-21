@@ -1,29 +1,33 @@
 <script setup>
 import { RouterLink, useRoute, useRouter } from 'vue-router';
-import { ref, watch } from "vue"
+import { ref, watch } from "vue";
+import { storeToRefs } from 'pinia';
 
-let search = ref("");
+import { useAccountStore } from '../stores/account';
+import { useHeaderStore } from '../stores/header';
 
-let router = useRouter();
-let route = useRoute();
-function searchFu() {
-    let routeQuery = {...route.query};
-    routeQuery['search'] = search.value;
-    router.push({ path: '/search', query: Object.assign({}, routeQuery) });
-}
-function shopping() {
-    router.push("/account/shoppingCar");
-}
+const headerStore = useHeaderStore();
+const { search, thisRoute   } = storeToRefs(headerStore);
+const { searchFu, shopping } = headerStore;
+
+const router = useRouter();
+const accountStore = useAccountStore();
+
+const showAcc = ref(false);
 function account() {
-    router.push("/login");
+    if (!accountStore.account) {
+        router.push('/login');
+    }else{
+        showAcc.value = !showAcc.value
+    }
 }
 
-let thisRoute = ref("");
-thisRoute.value = useRoute().query.type || "";
 watch(useRoute(), (newValue) => {
     thisRoute.value = newValue.query.type || "";
     search.value = "";
-},{ deep: true})
+    showAcc.value = false
+},{  immediate: true ,deep: true });
+
 </script>
 <template>
     <nav class="navbar navbar-expand-lg navbar-light tw-bg-[#c1b0ffda] p-0 sticky-top">
@@ -34,7 +38,7 @@ watch(useRoute(), (newValue) => {
             <RouterLink to="/" style="background-color: transparent;">
                 <div class="navbar-brand fs-3">夢幻宇宙網</div>
             </RouterLink>
-            <div class=" order-1 order-lg-5">
+            <div class=" order-1 order-lg-5 position-relative">
                 <button class=" btn-shop-account" @click="account">
                     <Icon icon="ic:round-account-circle" />
                 </button>
@@ -78,6 +82,15 @@ watch(useRoute(), (newValue) => {
                         </div>
                     </li>
                 </ul>
+            </div>
+
+            <div class=" position-absolute end-0 top-100" v-if="accountStore.account">
+                <div class="bg-white" v-show="showAcc">
+                    <button class="btn btn-outline-secondary btn-lg w-100 fw-bold">管理帳號</button>
+                    <RouterLink to="/signOut" class="btn btn-outline-secondary btn-lg w-100 fw-bold">
+                        登出
+                    </RouterLink>
+                </div>
             </div>
         </div>
     </nav>

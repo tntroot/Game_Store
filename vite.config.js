@@ -52,5 +52,5 @@ export default defineConfig({
   publicDir: 'assets',
   filenameHashing: false,
 
-  base: "./"
+  base: "/"
 })

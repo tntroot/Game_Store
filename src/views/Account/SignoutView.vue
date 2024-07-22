@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 
 const router = useRouter();
 function signOut(time) {
-    Cookies.remove('UUID', { path: '/113-1-11' ,secure: true});
+    Cookies.remove('UUID', { path: '/113-1-11'});
     setTimeout(() => {
         router.push('/');
     }, time);

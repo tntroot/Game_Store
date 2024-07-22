@@ -5,6 +5,8 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 
 import * as path from 'path';
 
+const webpack = require('webpack');
+
 // https://vitejs.dev/config/
 export default defineConfig({
   publicPath: "./",
@@ -17,6 +19,11 @@ export default defineConfig({
       }
     }),
     vueJsx(),
+    
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    }),
   ],
   resolve: {
     alias: {
@@ -52,5 +59,5 @@ export default defineConfig({
   publicDir: 'assets',
   filenameHashing: false,
 
-  base: "/"
+  base: "./"
 })

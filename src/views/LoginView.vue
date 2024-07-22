@@ -28,7 +28,7 @@ async function loginCheck(event) {
 
         if (!res) { return };
         if (res.data.status == 200) {
-            Cookies.set('UUID', res.data.data, { expires: 7, path: '/113-1-11', secure: true });
+            Cookies.set('UUID', res.data.data, { expires: 7, path: '/113-1-11' });
             router.push('/');
         } else {
             errorText.value = res.data.message;

@@ -29,6 +29,18 @@ async function craeteGameContent() {
     itemCard.value = data2[0]
 }
 craeteGameContent();
+
+onMounted(() => {
+    $(document).ready(function () {
+        $('#summernote').summernote();
+    });
+})
+
+let content = ref('');
+function changeContent(even) {
+    console.log(even);
+}
+
 </script>
 
 <template>
@@ -37,7 +49,10 @@ craeteGameContent();
         <div class="row">
             <div class="col-12 bg-white rounded-4 p-3">
                 <p class="h2">遊戲內容</p>
-                <div id="Game_Content"></div>
+                <div id="Game_Content">
+                    <SummernoteEditor v-model="content" @update:modelValue="changeContent($event)"
+                        @summernoteImageLinkInsert="summernoteImageLinkInsert" />
+                </div>
                 <p class="h2">系統需求</p>
                 <div id="Sys_Require">
                     <div class="row">

@@ -18,6 +18,8 @@ register();
 import { Icon } from '@iconify/vue';
 import ModalDiv from './components/ModalDiv.vue';
 
+import SummernoteEditor from 'vue3-summernote-editor';
+
 router.afterEach((to, from, next) => {
     window.scrollTo(0, 0);
 });
@@ -26,7 +28,8 @@ const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-app.component('swiper', Swiper).component('SwiperSlide', SwiperSlide).component('Icon', Icon).component('ModalDiv', ModalDiv)
+app.use(VueVditor)
+app.component('swiper', Swiper).component('SwiperSlide', SwiperSlide).component('Icon', Icon).component('ModalDiv', ModalDiv).component('SummernoteEditor', SummernoteEditor)
 
 app.mount('#app')
 

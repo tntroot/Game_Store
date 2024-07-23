@@ -14,6 +14,8 @@ const CheckoutView = () => import('../views/Account/CheckoutView.vue');
 const CheckoutCompleteView = () => import('../views/Account/CheckoutCompleteView.vue');
 const SignOutView = () => import('../views/Account/SignOutView.vue');
 
+const AddGameView = () => import('../views/Admin/AddGameView.vue');
+
 const router = createRouter({
 	// history: createWebHistory(import.meta.env.BASE_URL),
 	history: createWebHistory("/113-1-11"),
@@ -93,6 +95,11 @@ const router = createRouter({
             },
             component: SignOutView
         },
+		{
+			path: '/admin/addGame',
+			name: 'AddGame',
+			component: AddGameView
+		}
 	]
 })
 

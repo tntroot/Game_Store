@@ -18,7 +18,9 @@ register();
 import { Icon } from '@iconify/vue';
 import ModalDiv from './components/ModalDiv.vue';
 
-import SummernoteEditor from 'vue3-summernote-editor';
+// wangEditor 富文本編輯器
+import '@wangeditor/editor/dist/css/style.css' // 引入 css
+import { Editor, Toolbar } from '@wangeditor/editor-for-vue';
 
 router.afterEach((to, from, next) => {
     window.scrollTo(0, 0);
@@ -28,8 +30,8 @@ const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-app.use(VueVditor)
-app.component('swiper', Swiper).component('SwiperSlide', SwiperSlide).component('Icon', Icon).component('ModalDiv', ModalDiv).component('SummernoteEditor', SummernoteEditor)
+app.component('swiper', Swiper).component('SwiperSlide', SwiperSlide).component('Icon', Icon).component('ModalDiv', ModalDiv)
+app.component('Editor', Editor).component('Toolbar', Toolbar)
 
 app.mount('#app')
 

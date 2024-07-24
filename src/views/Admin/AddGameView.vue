@@ -1,3 +1,21 @@
+<template>
+    <div style="border: 1px solid #ccc">
+      <Toolbar
+        style="border-bottom: 1px solid #ccc"
+        :editor="editorRef"
+        :defaultConfig="toolbarConfig"
+        :mode="mode"
+      />
+      <Editor @onChange="handleChange"
+        style="height: 500px; overflow-y: hidden;"
+        v-model="valueHtml"
+        :defaultConfig="editorConfig"
+        :mode="mode"
+        @onCreated="handleCreated"
+      />
+    </div>
+</template>
+
 <script setup>
 import { ref, shallowRef, onMounted, onBeforeUnmount } from "vue";
 
@@ -42,26 +60,6 @@ editorConfig.MENU_CONF['uploadImage'] = {
     
     //【注意】不需要修改的不用写，wangEditor 会去 merge 当前其他配置
 }
-
-
 </script>
-
-<template>
-    <div style="border: 1px solid #ccc">
-      <Toolbar
-        style="border-bottom: 1px solid #ccc"
-        :editor="editorRef"
-        :defaultConfig="toolbarConfig"
-        :mode="mode"
-      />
-      <Editor @onChange="handleChange"
-        style="height: 500px; overflow-y: hidden;"
-        v-model="valueHtml"
-        :defaultConfig="editorConfig"
-        :mode="mode"
-        @onCreated="handleCreated"
-      />
-    </div>
-</template>
 
 <style lang="scss" scoped></style>

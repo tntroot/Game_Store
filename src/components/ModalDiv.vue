@@ -1,3 +1,36 @@
+<template>
+	<button type="button" :class="[props.btnEvent.class === 'btn btn-primary'?'btn btn-primary':props.btnEvent.class]" @click="addShopping()">
+        <Icon icon="typcn:shopping-cart" class=" d-inline-block me-2" />
+        <span>{{ props.btnEvent.isBuy ? '已加入購物車' : '加入購物車' }}</span>
+    </button>
+
+	<!-- Modal -->
+	<div ref="modal" class="modal fade" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<p class="modal-title h2" id="cartModalLabel">遊戲已加入到購物車</p>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-6">
+								<img :src="getID.img" alt="" srcset="">
+							</div>
+							<div class="col-md-6">
+								<p class="h3">{{ getID.name }}</p>
+								<RouterLink to="/account/shoppingcar" >
+									<button type="button" class="btn btn-secondary btn-lg w-100" data-bs-dismiss="modal" aria-label="Close">查看購物車</button>
+								</RouterLink>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
 
 <script setup>
 import { ref, nextTick } from 'vue';
@@ -38,39 +71,5 @@ defineExpose({
 	addShopping,
 })
 </script>
-
-<template>
-	<button type="button" :class="[props.btnEvent.class === 'btn btn-primary'?'btn btn-primary':props.btnEvent.class]" @click="addShopping()">
-        <Icon icon="typcn:shopping-cart" class=" d-inline-block me-2" />
-        <span>{{ props.btnEvent.isBuy ? '已加入購物車' : '加入購物車' }}</span>
-    </button>
-
-	<!-- Modal -->
-	<div ref="modal" class="modal fade" tabindex="-1" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<p class="modal-title h2" id="cartModalLabel">遊戲已加入到購物車</p>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-md-6">
-								<img :src="getID.img" alt="" srcset="">
-							</div>
-							<div class="col-md-6">
-								<p class="h3">{{ getID.name }}</p>
-								<RouterLink to="/account/shoppingcar" >
-									<button type="button" class="btn btn-secondary btn-lg w-100" data-bs-dismiss="modal" aria-label="Close">查看購物車</button>
-								</RouterLink>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</template>
 
 <style lang="scss" scoped></style>

@@ -1,19 +1,3 @@
-<script setup>
-import { RouterLink } from 'vue-router';
-import { computed, onMounted } from 'vue'
-import { numFormat } from "../assets/JS/function";
-
-import ModalDiv from './ModalDiv.vue';
-
-let propsThisCard = defineProps(['thisCard', 'isSwiper']);
-let salePrice = computed(() => {
-    return propsThisCard.thisCard.price > propsThisCard.thisCard.sale_price;
-})
-onMounted(() => {
-    propsThisCard.thisCard.img[0] = new URL(`../assets/img/${propsThisCard.thisCard.img[0]}`, import.meta.url);
-    numFormat(propsThisCard.thisCard);
-})
-</script>
 <template>
     <div class="card p-0 border-0 mx-2">
         <!-- :to="{part: '/item', query: { userID : thisCard.id }}" -->
@@ -51,6 +35,24 @@ onMounted(() => {
         </div>
     </div>
 </template>
+
+<script setup>
+import { RouterLink } from 'vue-router';
+import { computed, onMounted } from 'vue'
+import { numFormat } from "../assets/JS/function";
+
+import ModalDiv from './ModalDiv.vue';
+
+let propsThisCard = defineProps(['thisCard', 'isSwiper']);
+let salePrice = computed(() => {
+    return propsThisCard.thisCard.price > propsThisCard.thisCard.sale_price;
+})
+onMounted(() => {
+    propsThisCard.thisCard.img[0] = new URL(`../assets/img/${propsThisCard.thisCard.img[0]}`, import.meta.url);
+    numFormat(propsThisCard.thisCard);
+})
+</script>
+
 <style lang="scss" scoped>
 .sales {
     background-color: rgb(255, 50, 50);

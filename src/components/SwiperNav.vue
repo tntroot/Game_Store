@@ -1,3 +1,15 @@
+<template>
+	<div class=" position-relative">
+		<swiper-container init="false">
+			<swiper-slide v-for="(item, index) in listAll" :key="item.id">
+				<CardDiv :thisCard="item" :isSwiper="true" />
+			</swiper-slide>
+		</swiper-container>
+		<div :id="'prev' + contorl" class="swiper-button-prev"></div>
+		<div :id="'next' + contorl" class="swiper-button-next"></div>
+	</div>
+</template>
+
 <script setup>
 import CardDiv from './CardDiv.vue'
 
@@ -53,18 +65,6 @@ defineExpose({
 	setSwiper,
 })
 </script>
-
-<template>
-	<div class=" position-relative">
-		<swiper-container init="false">
-			<swiper-slide v-for="(item, index) in listAll" :key="item.id">
-				<CardDiv :thisCard="item" :isSwiper="true" />
-			</swiper-slide>
-		</swiper-container>
-		<div :id="'prev' + contorl" class="swiper-button-prev"></div>
-		<div :id="'next' + contorl" class="swiper-button-next"></div>
-	</div>
-</template>
 
 <style lang="scss" scoped>
 %swiper-button {

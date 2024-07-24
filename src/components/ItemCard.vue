@@ -1,14 +1,3 @@
-<script setup>
-import { RouterLink } from 'vue-router';
-import ModalDiv from './ModalDiv.vue';
-import { ref } from 'vue';
-
-defineProps({
-    itemList: {
-        type: Object,
-    }
-})
-</script>
 <template>
     <div class="card my-5">
         <div class="row g-0">
@@ -70,6 +59,18 @@ defineProps({
         </div>
     </div>
 </template>
+
+<script setup>
+import { RouterLink } from 'vue-router';
+import ModalDiv from './ModalDiv.vue';
+import { ref } from 'vue';
+
+defineProps({
+    itemList: {
+        type: Object,
+    }
+})
+</script>
 
 <style lang="scss" scoped>
 .mySwiper2 {

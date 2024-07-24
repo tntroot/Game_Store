@@ -1,59 +1,3 @@
-<script setup>
-import { ref, reactive, computed, toRefs } from 'vue';
-import axios from 'axios';
-import { getAccountAPI, setting } from '../assets/JS/function';
-import Cookies from 'js-cookie';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
-
-let signUpForm = ref();
-const signUpData = reactive({
-    username: '',
-    email: '',
-    account: '',
-    password: '',
-    repassword: '',
-    phone: '',
-    birthday: '',
-});
-const { username, email, account, password, repassword, phone, birthday } = toRefs(signUpData);
-
-const errorText = ref('');
-async function signUpCheck(event) {
-    if (!signUpForm.value.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-    } else {
-        const res = await axios.post(getAccountAPI('signUp'), {
-            "name": username.value,
-            "email": email.value,
-            "account": account.value,
-            "password": password.value,
-            "phone": phone.value,
-            "birthday": birthday.value
-        }, setting).catch((err) => {
-            console.log(`註冊失敗，原因為${err}`)
-        })
-
-        console.log(res);
-        if (!res) { return; }
-        if (res.data.status == 200) {
-            Cookies.set('UUID', res.data.data, { expires: 7, path: '/113-1-11' });
-            router.push('/');
-        } else {
-            errorText.value = res.data.message
-        }
-    }
-    signUpForm.value.classList.add('was-validated')
-}
-
-let maxBirthday = computed(() => {
-    const today = new Date()
-    return today.toISOString().split('T')[0]
-})
-</script>
-
 <template>
     <div class="container">
         <div class="row">
@@ -172,6 +116,62 @@ let maxBirthday = computed(() => {
         </div>
     </div>
 </template>
+
+<script setup>
+import { ref, reactive, computed, toRefs } from 'vue';
+import axios from 'axios';
+import { getAccountAPI, setting } from '../assets/JS/function';
+import Cookies from 'js-cookie';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+let signUpForm = ref();
+const signUpData = reactive({
+    username: '',
+    email: '',
+    account: '',
+    password: '',
+    repassword: '',
+    phone: '',
+    birthday: '',
+});
+const { username, email, account, password, repassword, phone, birthday } = toRefs(signUpData);
+
+const errorText = ref('');
+async function signUpCheck(event) {
+    if (!signUpForm.value.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+    } else {
+        const res = await axios.post(getAccountAPI('signUp'), {
+            "name": username.value,
+            "email": email.value,
+            "account": account.value,
+            "password": password.value,
+            "phone": phone.value,
+            "birthday": birthday.value
+        }, setting).catch((err) => {
+            console.log(`註冊失敗，原因為${err}`)
+        })
+
+        console.log(res);
+        if (!res) { return; }
+        if (res.data.status == 200) {
+            Cookies.set('UUID', res.data.data, { expires: 7, path: '/113-1-11' });
+            router.push('/');
+        } else {
+            errorText.value = res.data.message
+        }
+    }
+    signUpForm.value.classList.add('was-validated')
+}
+
+let maxBirthday = computed(() => {
+    const today = new Date()
+    return today.toISOString().split('T')[0]
+})
+</script>
 
 <style lang="scss" scoped>
 input {

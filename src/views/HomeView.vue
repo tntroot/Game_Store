@@ -1,31 +1,3 @@
-<script setup>
-import SwiperNav from '../components/SwiperNav.vue'
-import { ref, onMounted } from "vue"
-
-let swiperDiv1 = ref();
-    let swiperDiv2 = ref();
-    let swiperDiv3 = ref();
-function setSwiper() {
-    swiperDiv1.value.setSwiper(0);
-    swiperDiv2.value.setSwiper(1);
-    swiperDiv3.value.setSwiper(2);
-}
-
-let list1 = ref([]);
-let list2 = ref([]);
-let list3 = ref([]);
-onMounted( async() => {
-    const urlEl = new URL('../assets/JSON/ProductList.json', import.meta.url);
-    const thisListAll = await fetch(urlEl).then((res) => res.json());
-
-    list1.value = thisListAll.list1;
-    list2.value = thisListAll.list2;
-    list3.value = thisListAll.list3;
-
-    setSwiper();
-})
-</script>
-
 <template>
   <header class="bg-dark px-5 tw-py-[3rem] sm:tw-py-[6rem] text-center">
     <h1 class="tw-text-4xl sm:tw-text-6xl fw-bolder tw-text-[#1efce6]">夢幻宇宙網</h1>
@@ -57,6 +29,34 @@ onMounted( async() => {
     </div>
   </div>
 </template>
+
+<script setup>
+import SwiperNav from '../components/SwiperNav.vue'
+import { ref, onMounted } from "vue"
+
+let swiperDiv1 = ref();
+    let swiperDiv2 = ref();
+    let swiperDiv3 = ref();
+function setSwiper() {
+    swiperDiv1.value.setSwiper(0);
+    swiperDiv2.value.setSwiper(1);
+    swiperDiv3.value.setSwiper(2);
+}
+
+let list1 = ref([]);
+let list2 = ref([]);
+let list3 = ref([]);
+onMounted( async() => {
+    const urlEl = new URL('../assets/JSON/ProductList.json', import.meta.url);
+    const thisListAll = await fetch(urlEl).then((res) => res.json());
+
+    list1.value = thisListAll.list1;
+    list2.value = thisListAll.list2;
+    list3.value = thisListAll.list3;
+
+    setSwiper();
+})
+</script>
 
 <style lang="scss" scoped>
 header {

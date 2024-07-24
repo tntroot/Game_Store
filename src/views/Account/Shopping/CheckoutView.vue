@@ -1,54 +1,3 @@
-<script setup>
-import BuyGame from '../../components/BuyGame.vue'
-import { ref, computed, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
-import { Icon } from '@iconify/vue'
-
-let shopping = ref('')
-shopping.value = [
-    {
-        id: 1,
-        name: '冰與火之舞',
-        price: 123,
-        sale_price: 0
-    },
-    {
-        id: 2,
-        name: '幻塔',
-        price: 123,
-        sale_price: 120
-    },
-    {
-        id: 3,
-        name: 'Minecraft',
-        price: 123,
-        sale_price: 100
-    }
-]
-
-// 付款方式
-let payment = ref('VISA')
-
-// 表單驗證
-let router = useRouter()
-let form = ref()
-function checkout(event) {
-    if (!form.value.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-    } else {
-        router.push('/account/checkoutComplete')
-    }
-    form.value.classList.add('was-validated')
-}
-
-// 有效期限 (年) + 10年
-let thisYear = computed(() => {
-    let year = new Date().getFullYear()
-    return Array.from({ length: 10 }, (_, i) => year + i)
-})
-</script>
-
 <template>
     <div class="container my-5">
         <div class="row">
@@ -172,6 +121,57 @@ let thisYear = computed(() => {
         </div>
     </div>
 </template>
+
+<script setup>
+import BuyGame from '../../components/BuyGame.vue'
+import { ref, computed, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { Icon } from '@iconify/vue'
+
+let shopping = ref('')
+shopping.value = [
+    {
+        id: 1,
+        name: '冰與火之舞',
+        price: 123,
+        sale_price: 0
+    },
+    {
+        id: 2,
+        name: '幻塔',
+        price: 123,
+        sale_price: 120
+    },
+    {
+        id: 3,
+        name: 'Minecraft',
+        price: 123,
+        sale_price: 100
+    }
+]
+
+// 付款方式
+let payment = ref('VISA')
+
+// 表單驗證
+let router = useRouter()
+let form = ref()
+function checkout(event) {
+    if (!form.value.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+    } else {
+        router.push('/account/checkoutComplete')
+    }
+    form.value.classList.add('was-validated')
+}
+
+// 有效期限 (年) + 10年
+let thisYear = computed(() => {
+    let year = new Date().getFullYear()
+    return Array.from({ length: 10 }, (_, i) => year + i)
+})
+</script>
 
 <style lang="scss" scoped>
     .paymentBtn {

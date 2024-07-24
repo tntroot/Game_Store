@@ -1,16 +1,3 @@
-<script setup>
-import { computed } from 'vue'
-
-const props = defineProps(['shopping', 'activeView']);
-let allPrice = computed(() => {
-    return props.shopping.reduce((sum, item) => sum + item.sale_price, 0)
-})
-
-function download() {
-    window.open("https://drive.usercontent.google.com/download?id=16OgydLXTIWOOZeFUQIAAbT9kih0PaUED&export=download&authuser=0&confirm=t&uuid=81ca6b2a-16d5-4b89-8bf2-e9004613142e&at=APZUnTUu2jkwglH_ZP7GTAnBNAlw%3A1718560118281");
-}
-</script>
-
 <template>
     <h3 class="tw-border-b-4 rounded-3 border-primary mb-4">
         <p class="badge bg-primary rounded-bottom-0 p-3 fs-6">購買遊戲</p>
@@ -48,6 +35,19 @@ function download() {
         </div>
     </div>
 </template>
+
+<script setup>
+import { computed } from 'vue'
+
+const props = defineProps(['shopping', 'activeView']);
+let allPrice = computed(() => {
+    return props.shopping.reduce((sum, item) => sum + item.sale_price, 0)
+})
+
+function download() {
+    window.open("https://drive.usercontent.google.com/download?id=16OgydLXTIWOOZeFUQIAAbT9kih0PaUED&export=download&authuser=0&confirm=t&uuid=81ca6b2a-16d5-4b89-8bf2-e9004613142e&at=APZUnTUu2jkwglH_ZP7GTAnBNAlw%3A1718560118281");
+}
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/SASS/repeat';

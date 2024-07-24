@@ -1,34 +1,3 @@
-<script setup>
-import { RouterLink, useRoute, useRouter } from 'vue-router';
-import { ref, watch } from "vue";
-import { storeToRefs } from 'pinia';
-
-import { useAccountStore } from '../stores/account';
-import { useHeaderStore } from '../stores/header';
-
-const headerStore = useHeaderStore();
-const { search, thisRoute   } = storeToRefs(headerStore);
-const { searchFu, shopping } = headerStore;
-
-const router = useRouter();
-const accountStore = useAccountStore();
-
-const showAcc = ref(false);
-function account() {
-    if (!accountStore.account) {
-        router.push('/login');
-    }else{
-        showAcc.value = !showAcc.value
-    }
-}
-
-watch(useRoute(), (newValue) => {
-    thisRoute.value = newValue.query.type || "";
-    search.value = "";
-    showAcc.value = false
-},{  immediate: true ,deep: true });
-
-</script>
 <template>
     <nav class="navbar navbar-expand-lg navbar-light tw-bg-[#c1b0ffda] p-0 sticky-top">
         <div class="container px-4 px-lg-5 position-relative">
@@ -86,7 +55,7 @@ watch(useRoute(), (newValue) => {
 
             <div class=" position-absolute end-0 top-100" v-if="accountStore.account">
                 <div class="bg-white" v-show="showAcc">
-                    <button class="btn btn-outline-secondary btn-lg w-100 fw-bold">管理帳號</button>
+                    <button class="btn btn-outline-secondary btn-lg w-100 fw-bold">我的帳號</button>
                     <RouterLink to="/signOut" class="btn btn-outline-secondary btn-lg w-100 fw-bold">
                         登出
                     </RouterLink>
@@ -95,6 +64,38 @@ watch(useRoute(), (newValue) => {
         </div>
     </nav>
 </template>
+
+<script setup>
+import { RouterLink, useRoute, useRouter } from 'vue-router';
+import { ref, watch } from "vue";
+import { storeToRefs } from 'pinia';
+
+import { useAccountStore } from '../stores/account';
+import { useHeaderStore } from '../stores/header';
+
+const headerStore = useHeaderStore();
+const { search, thisRoute   } = storeToRefs(headerStore);
+const { searchFu, shopping } = headerStore;
+
+const router = useRouter();
+const accountStore = useAccountStore();
+
+const showAcc = ref(false);
+function account() {
+    if (!accountStore.account) {
+        router.push('/login');
+    }else{
+        showAcc.value = !showAcc.value
+    }
+}
+
+watch(useRoute(), (newValue) => {
+    thisRoute.value = newValue.query.type || "";
+    search.value = "";
+    showAcc.value = false
+},{  immediate: true ,deep: true });
+
+</script>
 
 <style lang="scss" scoped>
 .router-link-active {

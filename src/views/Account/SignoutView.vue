@@ -1,18 +1,3 @@
-<script setup>
-import { useRouter } from 'vue-router';
-import Cookies from 'js-cookie';
-
-const router = useRouter();
-function signOut(time) {
-    Cookies.remove('UUID', { path: '/113-1-11'});
-    setTimeout(() => {
-        router.push('/');
-    }, time);
-}
-
-signOut(3000); // 3秒後跳轉
-</script>
-
 <template>
     <div class="container">
         <div class="row tw-mt-[30vh]">
@@ -28,4 +13,19 @@ signOut(3000); // 3秒後跳轉
     </div>
 </template>
      
+<script setup>
+import { useRouter } from 'vue-router';
+import Cookies from 'js-cookie';
+
+const router = useRouter();
+function signOut(time) {
+    Cookies.remove('UUID', { path: '/113-1-11'});
+    setTimeout(() => {
+        router.push('/');
+    }, time);
+}
+
+signOut(3000); // 3秒後跳轉
+</script>
+
 <style></style>

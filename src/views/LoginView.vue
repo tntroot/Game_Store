@@ -1,43 +1,3 @@
-<script setup>
-import axios from 'axios';
-import { ref, reactive, toRefs } from 'vue';
-import { useRouter } from 'vue-router';
-import { getAccountAPI, setting } from '../assets/JS/function';
-import Cookies from 'js-cookie';
-
-let router = useRouter();
-
-let loginFrom = ref();
-let loginData = reactive({
-    acc: '',
-    pwd: ''
-})
-let errorText = ref('');
-async function loginCheck(event) {
-    if (!loginFrom.value.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-    } else {
-        let { acc, pwd } = toRefs(loginData);
-        const res = await axios.post(getAccountAPI('login'), {
-            "account": acc.value,
-            "password": pwd.value
-        }, setting).catch((err) => {
-            console.log(`登入失敗，原因為${err}`);
-        })
-
-        if (!res) { return };
-        if (res.data.status == 200) {
-            Cookies.set('UUID', res.data.data, { expires: 7, path: '/113-1-11' });
-            router.push('/');
-        } else {
-            errorText.value = res.data.message;
-        }
-    }
-    loginFrom.value.classList.add('was-validated')
-}
-</script>
-
 <template>
     <div class="container">
         <div class="row">
@@ -90,5 +50,45 @@ async function loginCheck(event) {
         </div>
     </div>
 </template>
+
+<script setup>
+import axios from 'axios';
+import { ref, reactive, toRefs } from 'vue';
+import { useRouter } from 'vue-router';
+import { getAccountAPI, setting } from '../assets/JS/function';
+import Cookies from 'js-cookie';
+
+let router = useRouter();
+
+let loginFrom = ref();
+let loginData = reactive({
+    acc: '',
+    pwd: ''
+})
+let errorText = ref('');
+async function loginCheck(event) {
+    if (!loginFrom.value.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+    } else {
+        let { acc, pwd } = toRefs(loginData);
+        const res = await axios.post(getAccountAPI('login'), {
+            "account": acc.value,
+            "password": pwd.value
+        }, setting).catch((err) => {
+            console.log(`登入失敗，原因為${err}`);
+        })
+
+        if (!res) { return };
+        if (res.data.status == 200) {
+            Cookies.set('UUID', res.data.data, { expires: 7, path: '/113-1-11' });
+            router.push('/');
+        } else {
+            errorText.value = res.data.message;
+        }
+    }
+    loginFrom.value.classList.add('was-validated')
+}
+</script>
 
 <style lang="scss" scoped></style>

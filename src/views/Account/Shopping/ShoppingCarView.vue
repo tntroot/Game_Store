@@ -1,38 +1,3 @@
-<script setup>
-import { RouterLink } from 'vue-router'
-import { ref, computed } from 'vue'
-
-let shopping = ref('');
-shopping.value = [
-    {
-        id: 1,
-        name: '冰與火之舞',
-        price: 123,
-        sale_price: 0
-    },
-    {
-        id: 2,
-        name: '幻塔',
-        price: 123,
-        sale_price: 120
-    },
-    {
-        id: 3,
-        name: 'Minecraft',
-        price: 123,
-        sale_price: 100
-    }
-];
-function deleteShop(id) {
-    shopping.value = shopping.value.filter((item) => item.id !== id);
-}
-
-let allPrice = computed(() => {
-    return shopping.value.reduce((sum, item) => sum + item.sale_price, 0)
-})
-
-// md:tw-w-[12rem] tw-w-1/4 tw-h-[8rem]
-</script>
 <template>
     <div class="container">
         <p class="h2 text-white fw-bolder my-5">你的購物車</p>
@@ -87,5 +52,41 @@ let allPrice = computed(() => {
         </div>
     </div>
 </template>
+
+<script setup>
+import { RouterLink } from 'vue-router'
+import { ref, computed } from 'vue'
+
+let shopping = ref('');
+shopping.value = [
+    {
+        id: 1,
+        name: '冰與火之舞',
+        price: 123,
+        sale_price: 0
+    },
+    {
+        id: 2,
+        name: '幻塔',
+        price: 123,
+        sale_price: 120
+    },
+    {
+        id: 3,
+        name: 'Minecraft',
+        price: 123,
+        sale_price: 100
+    }
+];
+function deleteShop(id) {
+    shopping.value = shopping.value.filter((item) => item.id !== id);
+}
+
+let allPrice = computed(() => {
+    return shopping.value.reduce((sum, item) => sum + item.sale_price, 0)
+})
+
+// md:tw-w-[12rem] tw-w-1/4 tw-h-[8rem]
+</script>
 
 <style lang="scss" scoped></style>

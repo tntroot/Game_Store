@@ -1,48 +1,3 @@
-<script setup>
-import ItemCard from '../components/ItemCard.vue'
-import ModalDiv from '../components/ModalDiv.vue'
-import { ref, onMounted, nextTick } from 'vue'
-import { useRoute } from 'vue-router'
-import { numFormat } from '../assets/JS/function'
-
-let route = useRoute();
-let reoly = ref(false)
-let reolyForm = ref()
-
-function reolyClick() {
-    reoly.value = true
-    nextTick(() => {
-        reolyForm.value.focus()
-    })
-}
-
-let itemCard = ref({})
-async function craeteGameContent() {
-    const url1 = new URL('../assets/JSON/SearchList.json', import.meta.url)
-    let data = await fetch(url1).then((res) => res.json())
-    let data2 = data.search.filter((item) => item.id == route.query.userId)
-    /* 前端圖片轉址，後面用後端船就不須寫這段 */
-    for (let i = 0; i < data2[0].img.length; i++) {
-        data2[0].img[i] = new URL(`../assets/img/${data2[0].img[i]}`, import.meta.url)
-    }
-    numFormat(data2[0])
-    itemCard.value = data2[0]
-}
-craeteGameContent();
-
-onMounted(() => {
-    $(document).ready(function () {
-        $('#summernote').summernote();
-    });
-})
-
-let content = ref('');
-function changeContent(even) {
-    console.log(even);
-}
-
-</script>
-
 <template>
     <div class="container">
         <ItemCard :itemList="itemCard" />
@@ -158,6 +113,51 @@ function changeContent(even) {
         </div>
     </div>
 </template>
+
+<script setup>
+import ItemCard from '../components/ItemCard.vue'
+import ModalDiv from '../components/ModalDiv.vue'
+import { ref, onMounted, nextTick } from 'vue'
+import { useRoute } from 'vue-router'
+import { numFormat } from '../assets/JS/function'
+
+let route = useRoute();
+let reoly = ref(false)
+let reolyForm = ref()
+
+function reolyClick() {
+    reoly.value = true
+    nextTick(() => {
+        reolyForm.value.focus()
+    })
+}
+
+let itemCard = ref({})
+async function craeteGameContent() {
+    const url1 = new URL('../assets/JSON/SearchList.json', import.meta.url)
+    let data = await fetch(url1).then((res) => res.json())
+    let data2 = data.search.filter((item) => item.id == route.query.userId)
+    /* 前端圖片轉址，後面用後端船就不須寫這段 */
+    for (let i = 0; i < data2[0].img.length; i++) {
+        data2[0].img[i] = new URL(`../assets/img/${data2[0].img[i]}`, import.meta.url)
+    }
+    numFormat(data2[0])
+    itemCard.value = data2[0]
+}
+craeteGameContent();
+
+onMounted(() => {
+    $(document).ready(function () {
+        $('#summernote').summernote();
+    });
+})
+
+let content = ref('');
+function changeContent(even) {
+    console.log(even);
+}
+
+</script>
 
 <style lang="scss" scoped>
 .h2,

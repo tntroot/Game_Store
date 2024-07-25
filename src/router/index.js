@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { getAccountAPI, setting } from '../assets/JS/function';
 import { useAccountStore } from '../stores/account';
+
+const HomeView = () => import('../views/HomeView.vue');
 
 const SearchView = () => import('../views/SearchView.vue');
 const ItemView = () => import('../views/ItemView.vue');
@@ -31,7 +32,7 @@ const router = createRouter({
             meta: {
                 title: '夢幻宇宙網',
             },
-			component: HomeView
+			component: HomeView,
 		},
 		{
 			path: '/search',
@@ -73,7 +74,11 @@ const router = createRouter({
                         title: '結帳完成',
                     },
 					component: CheckoutCompleteView
-				}
+				},{
+                    path: '/admin/addGame',
+                    name: 'AddGame',
+                    component: AddGameView
+                }
 			]
 		},
 		{
@@ -100,11 +105,6 @@ const router = createRouter({
             },
             component: SignOutView
         },
-		{
-			path: '/admin/addGame',
-			name: 'AddGame',
-			component: AddGameView
-		}
 	]
 })
 

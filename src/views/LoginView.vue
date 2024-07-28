@@ -56,7 +56,7 @@ import axios from 'axios';
 import { ref, reactive, toRefs } from 'vue';
 import { useRouter } from 'vue-router';
 import { getAccountAPI, setting } from '../assets/JS/function';
-import Cookies from 'js-cookie';
+import { useAccountStore } from '../stores/account';
 
 let router = useRouter();
 
@@ -66,6 +66,7 @@ let loginData = reactive({
     pwd: ''
 })
 let errorText = ref('');
+const accountStore = useAccountStore();
 async function loginCheck(event) {
     if (!loginFrom.value.checkValidity()) {
         event.preventDefault()
@@ -81,7 +82,7 @@ async function loginCheck(event) {
 
         if (!res) { return };
         if (res.data.status == 200) {
-            Cookies.set('UUID', res.data.data, { expires: 7, path: '/113-1-11' });
+            accountStore.tk = res.data.data;
             router.push('/');
         } else {
             errorText.value = res.data.message;

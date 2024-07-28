@@ -95,7 +95,7 @@
                                         <span class="text-light fs-5 me-2">
                                             (ex: 信用卡背面簽名欄位的3位數數字)
                                         </span>
-                                        <img class="" src="../../assets/img/pic_card_back.png" width="100" alt=""
+                                        <img class="" src="@/assets/img/pic_card_back.png" width="100" alt=""
                                             srcset="" />
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@
 </template>
 
 <script setup>
-import BuyGame from '../../components/BuyGame.vue'
+import BuyGame from '@/components/BuyGame.vue'
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { Icon } from '@iconify/vue'

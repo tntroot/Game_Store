@@ -1,5 +1,10 @@
 <template>
-    
+    <div class="container">
+        <AccountHeader />
+        <div class="position-relative">
+            <RouterView />
+        </div>
+    </div>
 </template>
     
 <script setup>

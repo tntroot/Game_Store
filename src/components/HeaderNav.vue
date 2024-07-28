@@ -55,7 +55,9 @@
 
             <div class=" position-absolute end-0 top-100" v-if="accountStore.account">
                 <div class="bg-white" v-show="showAcc">
-                    <button class="btn btn-outline-secondary btn-lg w-100 fw-bold">我的帳號</button>
+                    <RouterLink to="/manageAccount/account" class="btn btn-outline-secondary btn-lg w-100 fw-bold">
+                        我的帳號
+                    </RouterLink>
                     <RouterLink to="/signOut" class="btn btn-outline-secondary btn-lg w-100 fw-bold">
                         登出
                     </RouterLink>

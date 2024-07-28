@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import BuyGame from '../../components/BuyGame.vue';
+import BuyGame from '@/components/BuyGame.vue';
 import { ref } from 'vue'
 
 let shopping = ref('')

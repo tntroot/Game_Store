@@ -189,6 +189,7 @@ onMounted(async () => {
             birthday.value = data.birthday;
             sex.value = data.sex;
         }
+        console.log(getUser.data);
     }
 })
 </script>

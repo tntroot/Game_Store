@@ -54,11 +54,14 @@
             </div>
 
             <div class=" position-absolute end-0 top-100" v-if="accountStore.account">
-                <div class="bg-white" v-show="showAcc">
-                    <RouterLink to="/manageAccount/account" class="btn btn-outline-secondary btn-lg w-100 fw-bold">
+                <div class="bg-white tw-w-[10rem]" v-show="showAcc">
+                    <RouterLink to="/manageAccount/account" class="btn btn-outline-secondary btn-lg fw-bold w-100">
                         我的帳號
                     </RouterLink>
-                    <RouterLink to="/signOut" class="btn btn-outline-secondary btn-lg w-100 fw-bold">
+                    <RouterLink to="/admin/admin" class="btn btn-outline-secondary btn-lg fw-bold w-100" v-if="accountStore.isAccountAdmin == 0">
+                        管理後臺
+                    </RouterLink>
+                    <RouterLink to="/signOut" class="btn btn-outline-secondary btn-lg fw-bold w-100">
                         登出
                     </RouterLink>
                 </div>
@@ -72,8 +75,8 @@ import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { ref, watch } from "vue";
 import { storeToRefs } from 'pinia';
 
-import { useAccountStore } from '../stores/account';
-import { useHeaderStore } from '../stores/header';
+import { useAccountStore } from '@/stores/account';
+import { useHeaderStore } from '@/stores/header';
 
 const headerStore = useHeaderStore();
 const { search, thisRoute   } = storeToRefs(headerStore);
@@ -89,6 +92,9 @@ function account() {
     }else{
         showAcc.value = !showAcc.value
     }
+}
+function admin(){
+    router.push('/admin');
 }
 
 watch(useRoute(), (newValue) => {

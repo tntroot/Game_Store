@@ -9,7 +9,7 @@
     
 <script setup>
     import { RouterView } from 'vue-router';
-    import AccountHeader from "@/components/AccountHeader.vue";
+    import AccountHeader from "@/components/Header/AccountHeader.vue";
 </script>
     
 <style>

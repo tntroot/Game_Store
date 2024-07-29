@@ -15,11 +15,13 @@
      
 <script setup>
 import { useRouter } from 'vue-router';
-import Cookies from 'js-cookie';
+import { useAccountStore } from '@/stores/account';
 
+const accountStore = useAccountStore();
 const router = useRouter();
 function signOut(time) {
-    Cookies.remove('UUID', { path: '/113-1-11'});
+    accountStore.tk = '';
+    accountStore.account = '';
     setTimeout(() => {
         router.push('/');
     }, time);

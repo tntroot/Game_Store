@@ -1,6 +1,6 @@
 <template>
     <div>
-addgame
+asdawdasc3xca
     </div>
 </template>
 

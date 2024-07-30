@@ -29,7 +29,6 @@ const SignOutView = () => import('../views/Account/SignOutView.vue');
 
 // 新增遊戲
 const AdminView = () => import('../views/Admin/AdminView.vue');
-const AddGameView = () => import('../views/Admin/AddGameView.vue');
 
 // 404
 const NotFoundView = () => import('../views/NotFound.vue');
@@ -83,14 +82,7 @@ const router = createRouter({
                 isMember: "account",
             },
             component: CheckoutCompleteView
-        }, {
-            path: '/admin/addGame',
-            name: 'AddGame',
-            meta: {
-                isMember: "account",
-            },
-            component: AddGameView
-        },
+        }, 
         {   // 登入
             path: '/login',
             name: 'Login',
@@ -155,17 +147,12 @@ const router = createRouter({
             meta: {
                 isMember: "account",
                 isAdmin: "admin",
+                title: '後台管理'
             },
             component: AdminView,
         },
         {
-            path: '/admin/addGame',
-            name: 'AddGame',
-            meta: {
-                isMember: "account",
-                isAdmin: "admin",
-            },
-            component: AddGameView
+            path: '/admin/product/',
         },
         {
             path: '/:pathMatch(.*)*',
@@ -174,52 +161,53 @@ const router = createRouter({
         }
     ]
 })
+console.log(router);
 
-router.beforeEach(async (to, from, next) => {
+// router.beforeEach(async (to, from, next) => {
 
-    // 表投更改
-    document.title = `${to.meta.title || '夢幻宇宙網'}`;
+//     // 表投更改
+//     document.title = `${to.meta.title || '夢幻宇宙網'}`;
 
-    const accountStore = useAccountStore();
+//     const accountStore = useAccountStore();
 
-    // 會員、非會員、管理員 標頭 => 0、1、2
-    accountStore.isAccountAdmin = 1;
+//     // 會員、非會員、管理員 標頭 => 0、1、2
+//     accountStore.isAccountAdmin = 1;
 
-    if (to.name != "SignOut") {
+//     if (to.name != "SignOut") {
 
-        let UUID = accountStore.tk;
-        const checkLogin = await axios.post(getAccountAPI('checkAccount'),
-            {
-                "token": `Bearer ${UUID}`
-            }, setting).catch((err) => {
-                console.log(err);
-            });
-        if (checkLogin) {
-            if (checkLogin.data.status == 200) {
-                accountStore.account = checkLogin.data.data.account;
-                // 判別是否管理員頁面
-                if (checkLogin.data.data.permission == 0) {
-                    accountStore.isAccountAdmin = 0;
-                }
-                next();
-            } else {
-                accountStore.account = '';
-                /* 判別是否在會員頁面，若是則跳轉至首頁 */
-                to.meta.isMember == "account" ? next("/login") : next();
-            }
-        } else {
-            accountStore.account = '';
-            /* 判別是否在會員頁面，若是則跳轉至首頁 */
-            to.meta.isMember == "account" ? next("/login") : next();
-        }
-    } else {
-        accountStore.account = '';
+//         let UUID = accountStore.tk;
+//         const checkLogin = await axios.post(getAccountAPI('checkAccount'),
+//             {
+//                 "token": `Bearer ${UUID}`
+//             }, setting).catch((err) => {
+//                 console.log(err);
+//             });
+//         if (checkLogin) {
+//             if (checkLogin.data.status == 200) {
+//                 accountStore.account = checkLogin.data.data.account;
+//                 // 判別是否管理員頁面
+//                 if (checkLogin.data.data.permission == 0) {
+//                     accountStore.isAccountAdmin = 0;
+//                 }
+//                 next();
+//             } else {
+//                 accountStore.account = '';
+//                 /* 判別是否在會員頁面，若是則跳轉至首頁 */
+//                 to.meta.isMember == "account" ? next("/login") : next();
+//             }
+//         } else {
+//             accountStore.account = '';
+//             /* 判別是否在會員頁面，若是則跳轉至首頁 */
+//             to.meta.isMember == "account" ? next("/login") : next();
+//         }
+//     } else {
+//         accountStore.account = '';
 
-        if (to.name == 'SignOut') {
-            accountStore.isAccountAdmin = 2;
-        }
-        next();
-    }
-})
+//         if (to.name == 'SignOut') {
+//             accountStore.isAccountAdmin = 2;
+//         }
+//         next();
+//     }
+// })
 
 export default router

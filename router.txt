@@ -1,98 +1,105 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { getAccountAPI, setting } from '../assets/JS/function';
 import { useAccountStore } from '../stores/account';
 
+// 首頁
+const HomeView = () => import('../views/HomeView.vue');
+
+// 搜尋 + 商品
 const SearchView = () => import('../views/SearchView.vue');
 const ItemView = () => import('../views/ItemView.vue');
 
+// 帳號管理 --> 帳號資訊、購買紀錄
+const ManageAccountView = () => import('../views/Account/ManageAccount.vue');
 const AccountView = () => import('../views/Account/ManageAccount/AccountView.vue');
-const ManageAccountView = () => import('../views/Account/ManageAccount/ManageAccountView.vue');
+const ChangePwd = () => import('../views/Account/ManageAccount/ChangePwd.vue');
+const ShopHistoryView = () => import('../views/Account/ManageAccount/ShopHistoryView.vue');
 
+// 購物車 + 付款
 const ShoppingCarView = () => import('../views/Account/Shopping/ShoppingCarView.vue');
 const CheckoutView = () => import('../views/Account/Shopping/CheckoutView.vue');
 const CheckoutCompleteView = () => import('../views/Account/Shopping/CheckoutCompleteView.vue');
 
+// 註冊 + 登入
 const SignUpView = () => import('../views/SignUpView.vue');
 const LoginView = () => import('../views/LoginView.vue');
 const SignOutView = () => import('../views/Account/SignOutView.vue');
 
-const AddGameView = () => import('../views/Admin/AddGameView.vue');
+// 新增遊戲
+const AdminView = () => import('../views/Admin/AdminView.vue');
+
+// 404
+const NotFoundView = () => import('../views/NotFound.vue');
 
 const router = createRouter({
-	// history: createWebHistory(import.meta.env.BASE_URL),
-	history: createWebHistory("/113-1-11"),
-	routes: [
-		{
-			path: '/',
-			name: 'home',
+    // history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHistory("/113-1-11"),
+    routes: [
+        {  // 首頁
+            path: '/',
+            name: 'home',
             meta: {
                 title: '夢幻宇宙網',
             },
-			component: HomeView
-		},
-		{
-			path: '/search',
-			name: 'Search',
+            component: HomeView,
+        },
+        {  // 搜尋
+            path: '/search',
+            name: 'Search',
             meta: {
                 title: '搜尋',
             },
-			component: SearchView,
-		},
-		{
-			path: '/search/item',
-			name: 'SearchItem',
-			component: ItemView
-		},
-		{
-			path: '/account',
-			name: 'Account',
-			meta: {
-				isMember: "account",
-			},
-			children: [
-				{
-					path: 'shoppingCar',
-                    meta: {
-                        title: '購物車',
-                    },
-					component: ShoppingCarView,
-				},
-				{
-					path: 'checkout',
-                    meta: {
-                        title: '結帳',
-                    },
-					component: CheckoutView
-				},
-				{
-					path: 'checkoutComplete',
-                    meta: {
-                        title: '結帳完成',
-                    },
-					component: CheckoutCompleteView
-				}
-			]
-		},
-		{
-			path: '/login',
-			name: 'Login',
+            component: SearchView,
+        },
+        {  // 搜尋商品
+            path: '/search/item',
+            name: 'SearchItem',
+            component: ItemView
+        },
+        // 帳號 + 購物車
+        {
+            path: '/account/shoppingCar',
+            meta: {
+                title: '購物車',
+                isMember: "account",
+            },
+            component: ShoppingCarView,
+        },
+        {
+            path: '/account/checkout',
+            meta: {
+                title: '結帳',
+                isMember: "account",
+            },
+            component: CheckoutView
+        },
+        {
+            path: '/account/checkoutComplete',
+            meta: {
+                title: '結帳完成',
+                isMember: "account",
+            },
+            component: CheckoutCompleteView
+        }, 
+        {   // 登入
+            path: '/login',
+            name: 'Login',
             meta: {
                 title: '登入',
             },
-			component: LoginView
-		},
-		{
-			path: '/signUp',
-			name: 'SignUp',
+            component: LoginView
+        },
+        {   // 註冊
+            path: '/signUp',
+            name: 'SignUp',
             meta: {
                 title: '註冊',
             },
-			component: SignUpView
-		},
-        {
+            component: SignUpView
+        },
+        {   // 登出
             path: '/signOut',
             name: 'SignOut',
             meta: {
@@ -100,54 +107,58 @@ const router = createRouter({
             },
             component: SignOutView
         },
-		{
-			path: '/admin/addGame',
-			name: 'AddGame',
-			component: AddGameView
-		}
-	]
-})
-
-router.beforeEach( async (to, from, next) => {
-
-    // 表投更改
-    document.title = `${to.meta.title || '夢幻宇宙網'}`;
-
-    const accountStore = useAccountStore();
-    accountStore.signOut = false;
-
-	if (to.name != "SignOut") {
-
-		let UUID = Cookies.get('UUID') ? Cookies.get('UUID') : '';
-		const checkLogin = await axios.post(getAccountAPI('checkAccount'),
+        {   // 管理帳號 --> 帳號、購買記錄
+            path: '/manageAccount',
+            name: 'ManageAccount',
+            meta: {
+                isMember: "account",
+            },
+            component: ManageAccountView,
+            children: [
+                {
+                    path: 'account',
+                    name: 'Account',
+                    meta: {
+                        title: '帳號管理',
+                    },
+                    component: AccountView
+                },
+                {
+                    path: 'changePwd',
+                    name: 'ChangePwd',
+                    meta: {
+                        title: '修改密碼',
+                    },
+                    component: ChangePwd
+                },
+                {
+                    path: 'shopHistory',
+                    name: 'ShopHistory',
+                    meta: {
+                        title: '購買紀錄',
+                    },
+                    component: ShopHistoryView
+                }
+            ]
+        },
         {
-			"token": `Bearer ${UUID}`
-		}, setting).catch((err) => {
-			console.log(err);
-		});
-
-		if(checkLogin){
-			if(checkLogin.data.status == 200){
-				accountStore.account = checkLogin.data.data.account;
-				next();
-			}else{
-                accountStore.account = '';
-                /* 判別是否在會員頁面，若是則跳轉至首頁 */
-				to.meta.isMember == "account" ? next("/login") : next();
-			}
-		}else{
-            accountStore.account = '';
-            /* 判別是否在會員頁面，若是則跳轉至首頁 */
-			to.meta.isMember == "account" ? next("/login") : next();
-		}
-	} else {
-        accountStore.account = '';
-        
-        if(to.name == 'SignOut'){
-            accountStore.signOut = true;
+            path: '/admin/admin',
+            name: 'Admin',
+            meta: {
+                isMember: "account",
+                isAdmin: "admin",
+                title: '後台管理'
+            },
+            component: AdminView,
+        },
+        {
+            path: '/admin/product/',
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            name: 'NotFound',
+            component: NotFoundView
         }
-		next();
-	}
+    ]
 })
-
-export default router
+console.log(router);

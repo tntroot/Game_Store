@@ -1,12 +1,14 @@
 <template>
     <div class="container">
-        <HeaderMassage />
-        13546
+        <HeaderMassage :messageData="messageModify('請選擇要管理的項目')" />
     </div>
 </template>
 
 <script setup>
 import HeaderMassage from '@/components/Admin/HeaderMassage.vue';
+import AdminHeadermessage from '@/hook/AdminHeaderMassage';
+
+const {messageModify } = AdminHeadermessage();
 
 </script>
 

@@ -113,9 +113,16 @@
     </div>
 </template>
 
+<route lang="json5">
+    {
+        "meta":{
+            "title": "商品介紹"
+        }
+    }
+</route>
+
 <script setup>
 import ItemCard from '../components/ItemCard.vue'
-import ModalDiv from '../components/ModalDiv.vue'
 import { ref, onMounted, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import { numFormat } from '../assets/JS/function'

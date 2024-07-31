@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <HeaderMassage :messageData="messageAdd('新增帳戶')" />
+        <HeaderMassage :messageData="messageAdd('新增商品')" />
     </div>
 </template>
 

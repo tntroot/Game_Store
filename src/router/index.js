@@ -13,18 +13,42 @@ for (const route of routes) {
         route.meta = {
             isMember: "account",
         };
+        if (route.children && route.children.length) {
+            route.children = route.children.map(child => {
+                child.meta = {
+                    ...route.meta,
+                }
+                return child;
+            });
+        }
     }
     if (route.path === '/admin') {
         route.meta = {
             isMember: "account",
             isAdmin: "admin",
         };
+        if (route.children && route.children.length) {
+            route.children = route.children.map(child => {
+                child.meta = {
+                    ...route.meta,
+                }
+                return child;
+            });
+        }
     }
   }
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
+    history: createWebHistory("/113-1-11"),
+    routes:[
+        ...routes,
+        {
+            // 404
+            path: '/:pathMatch(.*)*',
+            name: 'NotFound',
+            component: () => import('../views/NotFound.vue')
+        }
+    ],
 })
 console.log(routes);
 
@@ -38,7 +62,7 @@ router.beforeEach(async (to, from, next) => {
     // 會員、非會員、管理員 標頭 => 0、1、2
     accountStore.isAccountAdmin = 1;
 
-    if (to.name != "SignOut") {
+    if (to.path != "/account/signout") {
 
         let UUID = accountStore.tk;
         const checkLogin = await axios.post(getAccountAPI('checkAccount'),
@@ -71,7 +95,7 @@ router.beforeEach(async (to, from, next) => {
         accountStore.account = '';
         accountStore.tk = '';
 
-        if (to.name == 'SignOut') {
+        if (to.path == "/account/signout") {
             accountStore.isAccountAdmin = 2;
         }
         next();

@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
 import VueRouter from 'unplugin-vue-router/vite'
+import AutoImport from 'unplugin-auto-import/vite'
 
 import * as path from 'path';
 
@@ -14,24 +15,20 @@ export default defineConfig({
         VueRouter({
             routesFolder: [
                 {
-                    src: 'src/views',
-                    path: '',
-                    // override globals
-                    exclude: (excluded) => excluded,
-                    filePatterns: (filePatterns) => filePatterns,
-                    extensions: (extensions) => extensions,
+                    src: 'src/views', // 配置路由來源文件
+                    path: '', // 路由前綴
                 },
             ],
-            extensions: ['.vue'],
+            extensions: ['.vue'], 
             filePatterns: ['**/*'],
-            exclude: ["**/node_modules/**", "**/components/**"],
+            exclude: ["**/node_modules/**", "**/components/**"], // 排除
 
-            // where to generate the types
-            dts: './typed-router.d.ts',
-            // how to import routes. can also be a string
+            // 產生的路由文件
+            dts: './src/type/typed-router.d.ts',
+            // 使用異部載入
             importMode: 'async',
 
-            // default language for <route> custom blocks
+            // json5 格式
             routeBlockLang: 'json5',
             extendRoute(route) {
                 // 去掉 name 属性中的 `/` 前缀
@@ -48,6 +45,12 @@ export default defineConfig({
                     isCustomElement: tag => tag.startsWith('swiper-'),
                 }
             }
+        }),
+        AutoImport({
+            imports: ['vue', 'vue-router', 'pinia', {
+                'axios': ['default', 'axios'],
+            }],
+            dts: './src/type/auto-imports.d.ts',
         }),
         vueJsx(),
     ],

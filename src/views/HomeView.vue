@@ -32,7 +32,7 @@
 
 <script setup>
 import SwiperNav from '../components/SwiperNav.vue'
-import { ref, onMounted } from "vue"
+// import { ref, onMounted } from "vue"
 
 let swiperDiv1 = ref();
     let swiperDiv2 = ref();

@@ -32,7 +32,7 @@ declare module 'vue-router/auto-routes' {
     'admin/leaveReply/leaveReplyMsg': RouteRecordInfo<'admin/leaveReply/leaveReplyMsg', '/admin/leaveReply/leaveReplyMsg', Record<never, never>, Record<never, never>>,
     'admin/order/orderMsg': RouteRecordInfo<'admin/order/orderMsg', '/admin/order/orderMsg', Record<never, never>, Record<never, never>>,
     'admin/order/orderShow': RouteRecordInfo<'admin/order/orderShow', '/admin/order/orderShow', Record<never, never>, Record<never, never>>,
-    'admin/product/productMag': RouteRecordInfo<'admin/product/productMag', '/admin/product/productMag', Record<never, never>, Record<never, never>>,
+    'admin/product/productMsg': RouteRecordInfo<'admin/product/productMsg', '/admin/product/productMsg', Record<never, never>, Record<never, never>>,
     'admin/product/productShow': RouteRecordInfo<'admin/product/productShow', '/admin/product/productShow', Record<never, never>, Record<never, never>>,
     'HomeView': RouteRecordInfo<'HomeView', '/HomeView', Record<never, never>, Record<never, never>>,
     'item': RouteRecordInfo<'item', '/item', Record<never, never>, Record<never, never>>,

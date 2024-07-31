@@ -16,7 +16,7 @@ export const useHeaderStore = defineStore("header", () => {
         router.push({ path: '/search', query: Object.assign({}, routeQuery) });
     }
     function shopping() {
-        router.push("/account/shoppingCar");
+        router.push("/account/shopping/shoppingCar");
     }
 
     return { search, searchFu, shopping, thisRoute };

@@ -55,13 +55,13 @@
 
             <div class=" position-absolute end-0 top-100" v-if="accountStore.account">
                 <div class="bg-white tw-w-[10rem]" v-show="showAcc">
-                    <RouterLink to="/manageAccount/account" class="btn btn-outline-secondary btn-lg fw-bold w-100">
+                    <RouterLink to="/account/manageAccount/account" class="btn btn-outline-secondary btn-lg fw-bold w-100">
                         我的帳號
                     </RouterLink>
                     <RouterLink to="/admin/admin" class="btn btn-outline-secondary btn-lg fw-bold w-100" v-if="accountStore.isAccountAdmin == 0">
                         管理後臺
                     </RouterLink>
-                    <RouterLink to="/signOut" class="btn btn-outline-secondary btn-lg fw-bold w-100">
+                    <RouterLink to="/account/signOut" class="btn btn-outline-secondary btn-lg fw-bold w-100">
                         登出
                     </RouterLink>
                 </div>

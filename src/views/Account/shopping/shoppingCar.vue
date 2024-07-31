@@ -32,7 +32,7 @@
                     <div class="text-center text-white">
                         <p class="h3 fw-bolder">總計</p>
                         <p class="h3 fw-bolder">NT$ {{ allPrice }}</p>
-                        <RouterLink to="/account/checkout">
+                        <RouterLink to="/account/shopping/checkout">
                             <button class="btn btn-primary btn-lg fw-bolder my-3" type="submit">確認結帳</button>
                         </RouterLink>
                     </div>

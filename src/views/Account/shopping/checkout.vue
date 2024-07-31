@@ -161,7 +161,7 @@ function checkout(event) {
         event.preventDefault()
         event.stopPropagation()
     } else {
-        router.push('/account/checkoutComplete')
+        router.push('/account/shopping/checkoutComplete')
     }
     form.value.classList.add('was-validated')
 }

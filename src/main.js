@@ -5,7 +5,9 @@ import piniaLoc from 'pinia-plugin-persistedstate'
 import App from './App.vue'
 import router from './router'
 
-import "@/assets/bootstrap/bootstrap.min.css";
+import "./assets/bootstrap/bootstrap.css";
+// import "@/assets/bootstrap/bootstrap.bundle.min.js";
+// import "@/assets/JS/jquery-3.7.1.js"
 const borstrapJS = () => import("@/assets/bootstrap/bootstrap.bundle.min.js");
 const jquery = () => import("@/assets/JS/jquery-3.7.1.js");
 

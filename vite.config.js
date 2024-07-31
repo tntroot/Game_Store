@@ -3,12 +3,45 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
+import VueRouter from 'unplugin-vue-router/vite'
+
 import * as path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
     publicPath: "./",
     plugins: [
+        VueRouter({
+            routesFolder: [
+                {
+                    src: 'src/views',
+                    path: '',
+                    // override globals
+                    exclude: (excluded) => excluded,
+                    filePatterns: (filePatterns) => filePatterns,
+                    extensions: (extensions) => extensions,
+                },
+            ],
+            extensions: ['.vue'],
+            filePatterns: ['**/*'],
+            exclude: ["**/node_modules/**", "**/components/**"],
+
+            // where to generate the types
+            dts: './typed-router.d.ts',
+            // how to import routes. can also be a string
+            importMode: 'async',
+
+            // default language for <route> custom blocks
+            routeBlockLang: 'json5',
+            extendRoute(route) {
+                // 去掉 name 属性中的 `/` 前缀
+                if (route.name.startsWith('/')) {
+                    route.name = route.name.slice(1);
+                }
+                
+                return route;
+            },
+        }),
         vue({
             template: {
                 compilerOptions: {

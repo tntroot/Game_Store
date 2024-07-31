@@ -20,7 +20,7 @@
 							</div>
 							<div class="col-md-6">
 								<p class="h3">{{ getID.name }}</p>
-								<RouterLink to="/account/shoppingCar" >
+								<RouterLink to="/account/shopping/shoppingCar" >
 									<button type="button" class="btn btn-secondary btn-lg w-100" data-bs-dismiss="modal" aria-label="Close">查看購物車</button>
 								</RouterLink>
 							</div>

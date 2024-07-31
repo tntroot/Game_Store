@@ -56,7 +56,7 @@
                             <label for="password" class="form-label d-block fs-5">密碼</label>
                             <input type="password" disabled value="*********" class="form-control d-inline-block tw-w-[70%]"
                                 style="background-color: #c4c4c4;">
-                            <RouterLink to="/manageAccount/changePwd" class="btn btn-danger fw-bold ms-3">修改</RouterLink>
+                            <RouterLink to="/account/manageAccount/changePwd" class="btn btn-danger fw-bold ms-3">修改</RouterLink>
                         </div>
                         <div class="col-md-6">
                             <label for="userPhone" class="form-label fs-5">電話</label>

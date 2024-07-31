@@ -1,6 +1,6 @@
 <template>
     <div class="alert alert-primary" role="alert">
-        {{ massageData.name }}
+       
     </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
     <div class="nav nav-tabs my-5">
-        <RouterLink class="nav-item nav-link fs-3 fw-bolder" :class="[checkPwd ? 'router-link-active' : '']" to="/manageAccount/account">我的帳號</RouterLink>
-        <RouterLink class="nav-item nav-link fs-3 fw-bolder " to="/manageAccount/shopHistory">購買紀錄</RouterLink>
+        <RouterLink class="nav-item nav-link fs-3 fw-bolder" :class="[checkPwd ? 'router-link-active' : '']" to="/account/manageAccount/account">我的帳號</RouterLink>
+        <RouterLink class="nav-item nav-link fs-3 fw-bolder " to="/account/manageAccount/shopHistory">購買紀錄</RouterLink>
     </div>
 </template>
     
@@ -11,7 +11,7 @@
 
     const checkPwd = ref(false);
     watch(useRoute(),(newValue) => {
-        if (newValue.path == '/manageAccount/changePwd') {
+        if (newValue.path == '/account/manageAccount/changePwd') {
             checkPwd.value = true;
         }else{
             checkPwd.value = false;

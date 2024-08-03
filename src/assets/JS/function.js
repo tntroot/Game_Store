@@ -13,8 +13,8 @@ export function getAccountAPI(api){
     return `${dataAPI}/account/${api}.php`;
 }
 
-export function getGameAPI(api){
-    return `${dataAPI}/game/${api}.php`;
+export function adminAPI(path, api){
+    return `${dataAPI}/admin/${path}/${api}.php`;
 }
 
 export const setting = {

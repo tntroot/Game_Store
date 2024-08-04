@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <HeaderMassage :messageData="messageAdd('新增帳戶')" />
+        <HeaderMassage :messageData="messageModify('請選擇要管理的項目')" />
     </div>
 </template>
 
@@ -8,7 +8,7 @@
 import HeaderMassage from '@/components/Admin/HeaderMassage.vue';
 import AdminHeadermessage from '@/hook/AdminHeaderMassage';
 
-const {messageAdd } = AdminHeadermessage();
+const {messageModify } = AdminHeadermessage();
 
 </script>
 

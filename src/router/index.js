@@ -65,7 +65,7 @@ router.beforeEach(async (to, from, next) => {
         to.meta = {
             ...to.meta,
             title: data2[0].name,
-            itemData: data2,
+            itemData: data2,  // 將資料傳進頁面
         }
     }
 

@@ -5,6 +5,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 
 import VueRouter from 'unplugin-vue-router/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
 
 import * as path from 'path';
 
@@ -35,7 +36,6 @@ export default defineConfig({
                 if (route.name.startsWith('/')) {
                     route.name = route.name.slice(1);
                 }
-                
                 return route;
             },
         }),
@@ -48,9 +48,19 @@ export default defineConfig({
         }),
         AutoImport({
             imports: ['vue', 'vue-router', 'pinia', {
-                'axios': ['default', 'axios'],
+                'axios': ['default', 'axios'],             
             }],
             dts: './src/type/auto-imports.d.ts',
+            dirs: [
+                '@/store',       // 自动导入 store 目录中的所有文件
+                '@/assets/JS',   // 自动导入 assets/JS 目录中的所有文件
+            ]
+        }),
+        Components({
+            dts: './src/type/auto-components.d.ts',
+            dirs: [
+                '@/components',  // 自动导入 components 目录中的所有文件
+            ],
         }),
         vueJsx(),
     ],

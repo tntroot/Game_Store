@@ -7,7 +7,6 @@
                 <RouterLink :to="`/admin/account/show${item.account}`" class="btn btn-primary me-2">
                     修改權限
                 </RouterLink>
-                <button type="button" class="btn btn-danger">停用</button>
             </template>
         </ShowTable>
     </div>
@@ -24,7 +23,7 @@ import { RouterLink } from 'vue-router';
 
 const {messageModify } = AdminHeadermessage();
 
-const tb_head = ['名稱', '帳號', '信箱','電話', '權限', '創建日期'];
+const tb_head = ['編號','名稱', '帳號', '信箱','電話', '權限', '創建日期'];
 const tb_body = reactive({});
 
 async function getAccount() {

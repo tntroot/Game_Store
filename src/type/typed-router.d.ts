@@ -26,7 +26,6 @@ declare module 'vue-router/auto-routes' {
     'account/shopping/checkoutComplete': RouteRecordInfo<'account/shopping/checkoutComplete', '/account/shopping/checkoutComplete', Record<never, never>, Record<never, never>>,
     'account/shopping/shoppingCar': RouteRecordInfo<'account/shopping/shoppingCar', '/account/shopping/shoppingCar', Record<never, never>, Record<never, never>>,
     'account/signout': RouteRecordInfo<'account/signout', '/account/signout', Record<never, never>, Record<never, never>>,
-    'admin/account/accountAdd': RouteRecordInfo<'admin/account/accountAdd', '/admin/account/accountAdd', Record<never, never>, Record<never, never>>,
     'admin/account/accountShow': RouteRecordInfo<'admin/account/accountShow', '/admin/account/accountShow', Record<never, never>, Record<never, never>>,
     'admin/account/show[id]': RouteRecordInfo<'admin/account/show[id]', '/admin/account/show:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     'admin/admin': RouteRecordInfo<'admin/admin', '/admin/admin', Record<never, never>, Record<never, never>>,

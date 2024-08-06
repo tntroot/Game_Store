@@ -6,11 +6,11 @@
         </div>
 
         <ShowTable :head="tb_head" :body="tb_body" :isdata="isdata">
-            <!-- <template #btn="{ item }">
-                <RouterLink :to="`/admin/game/show${item.gameID}`" class="btn btn-primary me-2">
-                    修改遊戲
+            <template #btn="{ item }">
+                <RouterLink :to="`/admin/game/editGame${item.gameID}`" class="btn btn-primary me-2">
+                    修改
                 </RouterLink>
-            </template> -->
+            </template>
         </ShowTable>
     </div>
 </template>
@@ -25,7 +25,7 @@ import { adminAPI, setting } from "@/assets/JS/function.js";
 
 const { messageModify } = AdminHeadermessage();
 
-const tb_head = ['編號', '名稱', '圖片', '作者','價格','上市日期'];
+const tb_head = ['編號', '名稱', '圖片', '價格', '特價','上市日期'];
 const tb_body = reactive({});
 const isdata = ref(true);
 

@@ -86,7 +86,7 @@ async function loginCheck(event) {
             router.push('/');
         } else {
             errorText.value = res.data.message;
-        }
+        }     
     }
     loginFrom.value.classList.add('was-validated')
 }

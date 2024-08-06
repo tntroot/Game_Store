@@ -7,7 +7,7 @@
                     <th class="text-center"></th>
                 </tr>
             </thead>
-            <tbody class="table-light" v-if="body">
+            <tbody class="table-light" v-if="isdata">
                 <tr v-for="(item, index) in body.value" :key="index">
                     <td class="text-center" v-for="(item2, index2) in item" :key="index2">{{ item2 }}</td>
                     <td class="text-center">
@@ -17,7 +17,7 @@
             </tbody>
             <tbody class="table-light" v-else>
                 <tr>
-                    <td class="text-center" :colspan="head.length + 1">{{ body.status }}</td>
+                    <td class="text-center" :colspan="head.length + 1">{{ body.value }}</td>
                 </tr>
             </tbody>
         </table>
@@ -25,7 +25,9 @@
 </template>
 
 <script setup>
-const { head, body } = defineProps(['head', 'body']);
+const { head, body, isdata } = defineProps(['head', 'body', 'isdata']);
+console.log(body);
+
 </script>
 
 <style lang="scss" scoped></style>

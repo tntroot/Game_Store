@@ -3,34 +3,34 @@
         <HeaderMassage :messageData="messageModify('帳戶管理')" />
 
         <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-xxl-6 col-lg-8">
                 <form class="row g-3 needs-validation justify-content-center bg-white p-5 fs-4 fw-bold" novalidate @submit.prevent="editAccountPermission">
                     <div class="mb-3 row">
-                        <div class="col-sm-2">暱稱: </div>
-                        <div class="col-sm-10">{{ account.name }}</div>
+                        <div class="col-md-2">暱稱: </div>
+                        <div class="col-md-10">{{ account.name }}</div>
                     </div>
                     <div class="mb-3 row">
-                        <div class="col-sm-2">帳號: </div>
-                        <div class="col-sm-10">{{ account.account }}</div>
+                        <div class="col-md-2">帳號: </div>
+                        <div class="col-md-10">{{ account.account }}</div>
                     </div>
                     <div class="mb-3 row">
-                        <div class="col-sm-2">Email: </div>
-                        <div class="col-sm-10">{{ account.email }}</div>
+                        <div class="col-md-2">Email: </div>
+                        <div class="col-md-10">{{ account.email }}</div>
                     </div>
                     <div class="mb-3 row">
-                        <div class="col-sm-2">性別: </div>
-                        <div class="col-sm-10">{{ account.sex }}</div>
+                        <div class="col-md-2">性別: </div>
+                        <div class="col-md-10">{{ account.sex }}</div>
                     </div>
                     <div class="mb-3 row">
-                        <div class="col-sm-2">生日: </div>
-                        <div class="col-sm-10">{{ account.birthday }}</div>
+                        <div class="col-md-2">生日: </div>
+                        <div class="col-md-10">{{ account.birthday }}</div>
                     </div>
                     <div class="mb-3 row">
-                        <div class="col-sm-2">電話: </div>
-                        <div class="col-sm-10">{{ account.phone }}</div>
+                        <div class="col-md-2">電話: </div>
+                        <div class="col-md-10">{{ account.phone }}</div>
                     </div>
                     <div class="mb-3 row">
-                        <div class="col-sm-2">權限: </div>
+                        <div class="col-md-2">權限: </div>
                         <div class="col-sm-10">
                             <input type="radio" name="member" id="member0" value="0" class="form-check-input me-2" v-model="account.permission">
                             <label for="member0" class="form-check-label me-4 tw-cursor-pointer">管理員</label>
@@ -39,6 +39,7 @@
                         </div>
                     </div>
                     <div class="col text-center">
+                        <router-link to="/admin/account/accountShow" class="btn btn-info btn-lg me-4">返回</router-link>
                         <button type="submit" class="btn btn-primary btn-lg">確認修改</button>
                     </div>
                 </form>
@@ -60,7 +61,7 @@ const route = useRoute();
 const router = useRouter();
 
 function editAccountPermission() {
-    const {account} = toRefs(accountData);
+    // const {account} = toRefs(accountData);
 
     axios.post(adminAPI('account','editAccountPermission'), { "user_id": account.value.user_id, "permission": account.value.permission}, setting).then((res) => {
         if(res.data.status == 200) {

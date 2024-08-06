@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `user_data` (
   `birthday` date DEFAULT NULL,
   `phone` char(12) DEFAULT NULL,
   `permission` tinyint(2) NOT NULL DEFAULT 2 COMMENT '特權',
-  `date` date NOT NULL DEFAULT curdate(),
+  `date` date NOT NULL DEFAULT "0000-00-00",
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `account` (`account`),
   UNIQUE KEY `email` (`email`)
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `game_date` (
   `price` int(6) NOT NULL DEFAULT 0 COMMENT '價格',
   `sale_price` int(6) NOT NULL DEFAULT 0 COMMENT '特價',
   `files` varchar(200) DEFAULT NULL COMMENT '安裝檔',
-  `date` date NOT NULL DEFAULT curdate() COMMENT '上市日期',
+  `date` date NOT NULL DEFAULT "0000-00-00" COMMENT '上市日期',
   PRIMARY KEY (`game_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `game_article_data` (
   `display_card` varchar(100) DEFAULT NULL,
   `directX` char(12) DEFAULT NULL,
   `rom` char(10) DEFAULT NULL,
-  `date` date DEFAULT curdate(),
+  `date` date DEFAULT "0000-00-00",
   KEY `game_id` (`game_id`),
   CONSTRAINT `FK_game_article_data_game_date` FOREIGN KEY (`game_id`) REFERENCES `game_date` (`game_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -128,7 +128,7 @@ INSERT INTO `sale_data` (`id`, `game_id`, `sale`, `stat`, `comment_num`) VALUES
 CREATE TABLE IF NOT EXISTS `shop_cart_data` (
   `game_id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
-  `date` date DEFAULT curdate(),
+  `date` date DEFAULT "0000-00-00",
   KEY `game_id` (`game_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `FK_shop_cart_data_game_date` FOREIGN KEY (`game_id`) REFERENCES `game_date` (`game_id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `shop_his_data` (
   `game_id` bigint(20) NOT NULL DEFAULT 0,
   `user_id` bigint(20) NOT NULL DEFAULT 0,
   `star` tinyint(4) DEFAULT NULL,
-  `date` date NOT NULL DEFAULT curdate(),
+  `date` date NOT NULL DEFAULT "0000-00-00",
   PRIMARY KEY (`id`),
   KEY `FK_shop_his_data_game_date` (`game_id`),
   CONSTRAINT `FK_shop_his_data_game_date` FOREIGN KEY (`game_id`) REFERENCES `game_date` (`game_id`) ON DELETE CASCADE ON UPDATE CASCADE

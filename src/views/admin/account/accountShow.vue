@@ -2,7 +2,7 @@
     <div class="container">
         <HeaderMassage :messageData="messageModify('帳戶管理')" />
 
-        <ShowTable :head="tb_head" :body="tb_body">
+        <ShowTable :head="tb_head" :body="tb_body" :isdata="isdata">
             <template #btn="{ item }">
                 <RouterLink :to="`/admin/account/show${item.account}`" class="btn btn-primary me-2">
                     修改權限
@@ -25,22 +25,32 @@ const {messageModify } = AdminHeadermessage();
 
 const tb_head = ['編號','名稱', '帳號', '信箱','電話', '權限', '創建日期'];
 const tb_body = reactive({});
+const isdata = ref(true);
 
 async function getAccount() {
     await axios.get(adminAPI('account', 'showAccount')).then((res) => {
         let data = res.data.data;
-        // 替換權限
-        let data_map = data.map((item) => {
-            item.permission = item.permission == 0 ? '管理員' : '會員';
-            item.phone = item.phone ? item.phone : '暫無';
-            return item;
-        });
-        tb_body.value = data_map;
+
+        if(res.data.status == 200){
+            // 替換權限
+            let data_map = data.map((item) => {
+                item.permission = item.permission == 0 ? '管理員' : '會員';
+                item.phone = item.phone ? item.phone : '暫無';
+                return item;
+            });
+            isdata.value = true;
+            tb_body.value = data_map;
+        }else{
+            isdata.value = false;
+            tb_body.value = data;
+        }
+        
     }).catch((err) => {
+        isdata.value = false;
+        tb_body.value = '查無資料';
         console.log(err);
-    });
-    console.log(tb_body.value);
-    
+        return; 
+    }); 
 }
 getAccount();
 

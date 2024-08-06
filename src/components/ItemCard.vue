@@ -19,10 +19,6 @@
                     <h1 class="card-title">{{ itemList.name }}</h1>
                     <table class=" itemTable">
                         <tr>
-                            <td>作者：</td>
-                            <td>{{ itemList.author }}</td>
-                        </tr>
-                        <tr>
                             <td>上架時間：</td>
                             <td><small class="text-muted">{{ itemList.update }}</small></td>
                         </tr>

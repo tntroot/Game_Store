@@ -9,8 +9,8 @@
             </RouterLink>
             <div class="collapse navbar-collapse order-5 order-lg-1" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-4">
-                    <RouterLink to="/admin/product/productShow">
-                        <li class="nav-item nav-link">商品管理</li>
+                    <RouterLink to="/admin/game/gameShow">
+                        <li class="nav-item nav-link">遊戲管理</li>
                     </RouterLink>
                     <RouterLink to="/admin/order/orderShow">
                         <li class="nav-item nav-link">訂單管理</li>

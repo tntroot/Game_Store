@@ -24,8 +24,6 @@ export default defineConfig({
             filePatterns: ['**/*'],
             exclude: ["**/node_modules/**", "**/components/**"], // 排除
 
-            // 產生的路由文件
-            dts: './src/type/typed-router.d.ts',
             // 使用異部載入
             importMode: 'async',
 
@@ -50,14 +48,12 @@ export default defineConfig({
             imports: ['vue', 'vue-router', 'pinia', {
                 'axios': ['default', 'axios'],             
             }],
-            dts: './src/type/auto-imports.d.ts',
             dirs: [
                 '@/store',       // 自动导入 store 目录中的所有文件
                 '@/assets/JS',   // 自动导入 assets/JS 目录中的所有文件
             ]
         }),
         Components({
-            dts: './src/type/auto-components.d.ts',
             dirs: [
                 '@/components',  // 自动导入 components 目录中的所有文件
             ],

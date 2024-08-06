@@ -7,7 +7,7 @@
 
         <ShowTable :head="tb_head" :body="tb_body" :isdata="isdata">
             <template #btn="{ item }">
-                <RouterLink :to="`/admin/game/editGame${item.gameID}`" class="btn btn-primary me-2">
+                <RouterLink :to="`/admin/game/editGame${item.game_id}`" class="btn btn-primary me-2">
                     修改
                 </RouterLink>
             </template>

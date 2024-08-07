@@ -5,7 +5,7 @@
         <div class="row justify-content-center  needs-validation">
             <div class="col-8">
                 <form ref="addGameForm" class="row  g-3 justify-content-center bg-white p-5 fs-4 fw-bold"
-                    @submit.prevent="addGame(['game', 'editGame'])" novalidate>
+                    @submit.prevent="editG" novalidate>
                     <div class="mb-3 row">
                         <div class="col-4 req">遊戲名稱: </div>
                         <div class="col-8">
@@ -52,7 +52,7 @@
                     <div class="mb-3 row">
                         <div class="col-4 req">遊戲檔案: </div>
                         <div class="col-8">
-                            <input type="file" accept=".zip, .rar, .7z" class="form-control px-3" required
+                            <input type="file" accept=".zip, .rar, .7z" class="form-control px-3"
                                 @change="changeFile">
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                                     <img :src="item" width="150" height="150" alt="" class="d-inline-block img-fluid">
                                 </swiper-slide>
                             </swiper-container>
-                            <input type="file" accept="image/*" multiple class="form-control px-3 mt-3" required
+                            <input type="file" accept="image/*" multiple class="form-control px-3 mt-3"
                                 @change="changeImg">
                             <span class="text-secondary fs-5">(ex: 第一張為遊戲封面)</span>
                         </div>
@@ -134,7 +134,7 @@ import AdminHeadermessage from '@/hook/AdminHeaderMassage';
 import axios from 'axios';
 import { onMounted, reactive } from 'vue';
 import { useRoute } from 'vue-router';
-import { admin } from '@/assets/JS/function.js';
+import { adminAPI, setting } from '@/assets/JS/function.js';
 
 import useEditGame from '@/hook/useEditGame';
 import useGameType from '@/hook/useGameType';
@@ -145,23 +145,38 @@ const { isspecial, imgPreview, addGameData, changeImg, changeFile, addGameForm, 
 const { gameType, addType, addGameType } = useGameType();
 
 const route = useRoute();
-const gameData = reactive({
-    game: "",
-});
 onMounted( async() => {
     const id = route.params.id;
-    const res = await axios.post(admin('game', 'getGame'), { "game_id": id }, setting).catch((err) => {
+    const res = await axios.post(adminAPI('game', 'getGameContent'), { "game_id": id }, setting).catch((err) => {
         console.log(err);
     })
 
     if(!res) { router.push('/admin/game/gameShow'); };
     if (res.data.status == 200) {
-        gameData.game = res.data.data;
-        imgPreview.value = res.data.data.img;
+        const { name, price, sale_price, type, content, system, cpu, ram, display_card, directX, rom, img } = res.data.data;
+        addGameData.name = name;
+        addGameData.price = price;
+        addGameData.sale_price = sale_price;
+        addGameData.type = type;
+        addGameData.content = content;
+        addGameData.system = system;
+        addGameData.cpu = cpu;
+        addGameData.ram = ram;
+        addGameData.display_card = display_card;
+        addGameData.directX = directX;
+        addGameData.rom = rom;
+
+        imgPreview.value = img;
     }else{
         router.push('/admin/game/gameShow');
     }
 });
+
+function editG(){
+    addGame(['game', 'editGame'], route.params.id)
+    // console.log(addGameData);
+    
+}
 </script>
 
 <style lang="scss" scoped>

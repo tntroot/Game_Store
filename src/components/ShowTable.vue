@@ -9,7 +9,9 @@
             </thead>
             <tbody class="table-light" v-if="isdata">
                 <tr v-for="(item, index) in body.value" :key="index">
-                    <td class="text-center" v-for="(item2, index2) in item" :key="index2">{{ item2 }}</td>
+                    <td class="text-center" v-for="(item2, index2) in item" :key="index2" :width="index2 == 'img' ? '15%' : ''">
+                        <component :is="index2 == 'img' ? ImgPath : 'span'" :data="item2">{{ item2 }}</component>
+                    </td>
                     <td class="text-center">
                         <slot name="btn" :item="item"></slot>
                     </td>
@@ -25,6 +27,7 @@
 </template>
 
 <script setup>
+import ImgPath from '@/components/ImgPath.vue';
 const { head, body, isdata } = defineProps(['head', 'body', 'isdata']);
 console.log(body);
 

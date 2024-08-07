@@ -56,6 +56,21 @@ onMounted( async() => {
 
     setSwiper();
 })
+
+// onMounted(async () => {
+// 	const res = await axios.get(gameAPI("showAllGame")).catch((err) => {
+// 		console.log(err);
+// 	})
+// 	if(!res) { return; }
+// 	console.log(res);
+	
+// 	if (res.data.status == 200) {
+// 		list1.value = res.data.data;
+// 		list2.value = res.data.data;
+// 		list3.value = res.data.data;
+// 		setSwiperAll();
+// 	}
+// })
 </script>
 
 <style lang="scss" scoped>

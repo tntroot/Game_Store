@@ -13,6 +13,14 @@ export function numFormat(num) {
 const dataAPI = "http://localhost/Game_Store";
 
 /**
+ * @param {string} api php 檔名 
+ * @returns {string} 請求後端資料 --> 執行遊戲相關操作
+ */
+export function gameAPI(api){
+    return `${dataAPI}/game/${api}.php`;
+}
+
+/**
  * 請求後端資料 --> 執行帳號相關操作
  * @param {string} api php 檔名
  */

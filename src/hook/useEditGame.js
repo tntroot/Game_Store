@@ -42,7 +42,7 @@ export default function () {
     /** 錯誤訊息 */
     const errorText = ref('');
     /** 新增遊戲 */
-    async function addGame(path) {
+    async function addGame(path, gameId = null) {
         if (!addGameForm.value.checkValidity()) {
             addGameForm.value.reportValidity();
             return;
@@ -61,6 +61,10 @@ export default function () {
             formData.append(key, addGameData[key]);
         }
 
+        if (gameId) {
+            formData.append('id', gameId);
+        }
+
         const res = await axios.post(adminAPI(path[0], path[1]), formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -74,6 +78,8 @@ export default function () {
         } else {
             errorText.value = res.data.message;
         }
+        console.log(res, formData);
+        
     }
 
     return {

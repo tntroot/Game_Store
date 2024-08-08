@@ -54,11 +54,12 @@
 <script setup>
 import axios from 'axios';
 import { ref, reactive, toRefs } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { getAccountAPI, setting } from '../assets/JS/function';
 import { useAccountStore } from '../stores/account';
 
 let router = useRouter();
+let route = useRoute();
 
 let loginFrom = ref();
 let loginData = reactive({
@@ -83,7 +84,8 @@ async function loginCheck(event) {
         if (!res) { return };
         if (res.data.status == 200) {
             accountStore.tk = res.data.data;
-            router.push('/');
+            const url =  route.query.gameId ?  `/item?gameId=${route.query.gameId}` : "/";
+            router.push(url);
         } else {
             errorText.value = res.data.message;
         }     

@@ -4,10 +4,11 @@
         <span>{{ props.btnEvent.isBuy ? '已加入購物車' : '加入購物車' }}</span>
     </button>
 
-	<!-- Modal -->
+	<!-- Modal 登入後 -->
 	<div ref="modal" class="modal fade" tabindex="-1" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
+			<!-- Modal 登入後 -->
+			<div class="modal-content" v-if="account">
 				<div class="modal-header">
 					<p class="modal-title h2" id="cartModalLabel">遊戲已加入到購物車</p>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -28,26 +29,57 @@
 					</div>
 				</div>
 			</div>
+			<!-- Modal 登入前 -->
+			<div class="modal-content" v-else>
+				<div class="modal-body text-center">
+					<p class="modal-title fs-1 fw-bolder" id="cartModalLabel">尚未登入</p>
+					<p class="fs-4 my-2">請先登入後再進行購買</p>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-6">
+								<button type="button" class="btn btn-outline-secondary w-100 fs-5 fw-bold" data-bs-dismiss="modal" aria-label="Close">取消</button>
+							</div>
+							<div class="col-6">
+								<button type="button" class="btn btn-outline-primary w-100 fs-5 fw-bold" data-bs-dismiss="modal" aria-label="Close" 
+									@click="router.push({path: '/login', query: { gameId: route.query.gameId }})">登入</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+
+	
 </template>
 
 <script setup>
 import { ref, nextTick } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { numFormat } from '../assets/JS/function';
+import { useAccountStore } from '@/stores/account';
+import axios from 'axios';
 
 let props = defineProps(['btnEvent']);
+let accountStore = useAccountStore();
+const { tk, account } = storeToRefs(accountStore);
 
 const modal = ref();
 function addShopping() {
-	if (!props.btnEvent.isBuy) {
-        nextTick(() => {
-            const myModal = new bootstrap.Modal(modal.value);
-            myModal.show();
-        })
-	} else {
-		router.push('/account/shoppingCar');
+	// if (!props.btnEvent.isBuy) {
+    //     nextTick(() => {
+    //         const myModal = new bootstrap.Modal(modal.value);
+    //         myModal.show();
+    //     })
+	// } else {
+	// 	router.push('/account/shoppingCar');
+	// }
+
+	let bye = false;
+	if(!bye){
+		const res = axios.post()
 	}
 }
 

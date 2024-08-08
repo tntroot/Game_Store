@@ -45,9 +45,7 @@ export default defineConfig({
             }
         }),
         AutoImport({
-            imports: ['vue', 'vue-router', 'pinia', {
-                'axios': ['default', 'axios'],             
-            }],
+            imports: ['vue', 'vue-router', 'pinia'],
             dirs: [
                 '@/store',       // 自动导入 store 目录中的所有文件
                 '@/assets/JS',   // 自动导入 assets/JS 目录中的所有文件

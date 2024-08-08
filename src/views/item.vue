@@ -4,40 +4,40 @@
         <div class="row">
             <div class="col-12 bg-white rounded-4 p-3">
                 <p class="h2">遊戲內容</p>
-                <div id="Game_Content">
-                    
-                </div>
+                <pre id="Game_Content" class="m-5 tw-break-words tw-text-[22px]" style="white-space: pre-wrap; word-wrap: break-word;" v-html="itemCard.content"></pre>
                 <p class="h2">系統需求</p>
                 <div id="Sys_Require">
                     <div class="row">
-                        <div class="col-md-6" v-for="(item1, index1) in itemCard.sysReq">
-                            <p class="h5 fw-bolder">{{ index1 + ' :' }}</p>
-                            <table>
-                                <tr>
-                                    <td>作業系統：</td>
-                                    <td>{{ item1.Window }}</td>
-                                </tr>
-                                <tr>
-                                    <td>處理器：</td>
-                                    <td>{{ item1.CPU }}</td>
-                                </tr>
-                                <tr>
-                                    <td>記憶體：</td>
-                                    <td>{{ item1.RAM }}</td>
-                                </tr>
-                                <tr>
-                                    <td>顯示卡：</td>
-                                    <td>{{ item1.Display_Card }}</td>
-                                </tr>
-                                <tr>
-                                    <td>DirectX：</td>
-                                    <td>{{ item1.DirectX }}</td>
-                                </tr>
-                                <tr>
-                                    <td>所需空間：</td>
-                                    <td>{{ item1.ROM }}</td>
-                                </tr>
-                            </table>
+                        <div class="col-md-12 px-lg-5">
+                            <p class="h5 fw-bolder">{{ '建議配置' + ' :' }}</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered border-2 border-black mx-lg-5 tw-w-[100%] lg:tw-w-[75%] tw-text-[12px] md:tw-text-[20px]">
+                                    <tr>
+                                        <td>作業系統：</td>
+                                        <td>{{ itemCard.system ? itemCard.system : '無' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>處理器：</td>
+                                        <td>{{ itemCard.cpu ? itemCard.cpu : '無' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>記憶體：</td>
+                                        <td>{{ itemCard.ram  ? itemCard.ram : '無'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>顯示卡：</td>
+                                        <td>{{ itemCard.display_card ? itemCard.display_card : '無' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DirectX：</td>
+                                        <td>{{ itemCard.directX ? itemCard.directX : '無'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>所需空間：</td>
+                                        <td>{{ itemCard.rom ? itemCard.rom : '無'}}</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,8 @@
                                 <form action="" class="mt-2" v-show="reoly" @submit.prevent="">
                                     <div class="d-flex align-items-center">
                                         <img class="rounded-circle" src="../assets/img/account.png" width="50" alt="" />
-                                        <input type="text" class="form-control reply" placeholder="輸入回覆" ref="reolyForm" />
+                                        <input type="text" class="form-control reply" placeholder="輸入回覆"
+                                            ref="reolyForm" />
                                     </div>
                                     <div class="tw-ms-14 mt-2">
                                         <button type="button" class="btn btn-secondary" @click="reoly = false">
@@ -132,10 +133,10 @@ function reolyClick() {
 
 let itemCard = ref({});
 async function craeteGameContent() {
-    if(!route.meta.itemData){return;}
+    if (!route.meta.itemData) { return; }
     const data2 = route.meta.itemData;
-    numFormat(data2[0])
-    itemCard.value = data2[0]
+    numFormat(data2)
+    itemCard.value = data2;
 }
 craeteGameContent();
 
@@ -152,7 +153,6 @@ craeteGameContent();
 
 table {
     tr>td:nth-child(1) {
-        width: 90px;
         table-layout: fixed;
     }
 }

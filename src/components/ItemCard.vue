@@ -20,17 +20,17 @@
                     <table class=" itemTable">
                         <tr>
                             <td>上架時間：</td>
-                            <td><small class="text-muted">{{ itemList.update }}</small></td>
+                            <td><small class="text-muted">{{ itemList.date }}</small></td>
                         </tr>
                         <tr>
                             <td>遊戲標籤：</td>
                             <td>
                                 <div class="d-flex flex-wrap">
                                     <div
-                                        v-for="(item, index) in itemList.gameTag">
+                                        v-for="(item, index) in itemList.type">
                                         <RouterLink to="/">
                                             <span class=" tw-text-blue-600 hover:tw-text-red-600">{{ item }}</span>
-                                            <span v-if="itemList.gameTag.length !== index + 1">、</span>
+                                            <span v-if="itemList.type.length !== index + 1">、</span>
                                         </RouterLink>
                                     </div>
                                 </div>

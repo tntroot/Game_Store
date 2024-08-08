@@ -1,14 +1,14 @@
 <template>
     <div class="card p-0 border-0 mx-2">
         <!-- :to="{part: '/item', query: { userID : thisCard.id }}" -->
-        <RouterLink :to="'/item?userId=' + thisCard.id">
+        <RouterLink :to="'/item?gameId=' + thisCard.game_id">
             <div v-if="salePrice" class="badge sales">
                 特價
             </div>
-            <img :src="thisCard.img[0]" class="card-img-top w-100 tw-h-48" :alt="thisCard.name">
+            <img :src="thisCard.img" class="card-img-top w-100 tw-h-48">
         </RouterLink>
         <div class="card-body">
-            <RouterLink :to="'/item?userId=' + thisCard.id">
+            <RouterLink :to="'/item?gameId=' + thisCard.game_id">
                 <h5 class="card-title fs-5 tw-text-[#3640ac] hover:tw-text-red-600 tw-line-clamp-2">{{ thisCard.name }}</h5>
             </RouterLink>
             <div class="d-flex align-items-center">
@@ -18,8 +18,8 @@
                 <h5 v-if="salePrice" class="text-decoration-line-through">${{ thisCard.price }}</h5>
             </div>
 
-            <p class="tw-text-[gray] mt-2">銷量: {{ thisCard.sales }}</p>
-            <div class="d-flex align-items-center">
+            <!-- <p class="tw-text-[gray] mt-2">銷量: {{ thisCard.sales }}</p> -->
+            <!-- <div class="d-flex align-items-center">
                 <div class="ratings fs-4 me-3">
                     <div>★★★★★</div>
                     <div class="full_star" :style="'width:' + thisCard.rating * 20 + '%'">★★★★★</div>
@@ -28,9 +28,9 @@
                     <Icon icon="icon-park:message-emoji" class="me-1" />
                     <span>{{ " " + thisCard.message }}</span>
                 </div>
-            </div>
+            </div> -->
             <div class="text-center my-2">
-                <ModalDiv v-if="!isSwiper" :btnEvent="{ class: 'btn btn-primary', isBuy: thisCard.isBuy}"></ModalDiv>
+                <ModalDiv v-if="!isSwiper" :btnEvent="{ class: 'btn btn-primary', isBuy: false}"></ModalDiv>
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@ let salePrice = computed(() => {
     return propsThisCard.thisCard.price > propsThisCard.thisCard.sale_price;
 })
 onMounted(() => {
-    propsThisCard.thisCard.img[0] = new URL(`../assets/img/${propsThisCard.thisCard.img[0]}`, import.meta.url);
+    // propsThisCard.thisCard.img[0] = new URL(`../assets/img/${propsThisCard.thisCard.img[0]}`, import.meta.url);
     numFormat(propsThisCard.thisCard);
 })
 </script>

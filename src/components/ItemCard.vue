@@ -28,10 +28,10 @@
                                 <div class="d-flex flex-wrap">
                                     <div
                                         v-for="(item, index) in itemList.type">
-                                        <RouterLink to="/">
+                                        <button @click="searchGame(item)">
                                             <span class=" tw-text-blue-600 hover:tw-text-red-600">{{ item }}</span>
                                             <span v-if="itemList.type.length !== index + 1">、</span>
-                                        </RouterLink>
+                                        </button>
                                     </div>
                                 </div>
                             </td>
@@ -60,12 +60,19 @@
 import { RouterLink } from 'vue-router';
 import ModalDiv from './ModalDiv.vue';
 import { ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 defineProps({
     itemList: {
         type: Object,
     }
 })
+
+const router = useRouter();
+const route = useRoute();
+function searchGame(item) {
+    router.push({ path: 'search', query: {type: item } })
+}
 </script>
 
 <style lang="scss" scoped>

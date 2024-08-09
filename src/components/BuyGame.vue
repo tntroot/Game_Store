@@ -4,15 +4,15 @@
     </h3>
     <div class="px-2">
         <div class="rounded-3 bg-white">
-            <div class="row border-all mx-0" v-for="item in props.shopping" :key="item.id">
+            <div class="row border-all mx-0" v-for="item in props.shopping" :key="item.game_id">
                 <div class="col-md-3 col-4 d-flex-xy-center">
-                    <img class="tw-h-[6rem]" src="@/assets/img/gta/gta_home.jpg" alt="" srcset="" />
+                    <img class="tw-h-[6rem]" :src="item.img" alt="" srcset="" />
                 </div>
                 <div class="col-md-9 col-8">
                     <div class="row h-100">
                         <div class="col-md-9">
                             <p class="md:tw-text-xl tw-font-bold tw-line-clamp-2">
-                                {{ item.name + ' 123 ' + item.name + item.name + item.name + item.name }}
+                                {{ item.name }}
                             </p>
                         </div>
                         <div class="col-md-3 d-flex-xy-center">

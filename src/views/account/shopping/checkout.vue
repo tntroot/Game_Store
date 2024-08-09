@@ -100,7 +100,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 text-center">
-                                    <RouterLink to="/account/shoppingcar">
+                                    <RouterLink to="/account/shopping/shoppingcar">
                                         <button type="button" class="btn btn-secondary btn-lg">
                                             取消付款
                                         </button>
@@ -127,28 +127,14 @@ import BuyGame from '@/components/BuyGame.vue'
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { Icon } from '@iconify/vue'
+import axios from 'axios';
+import { shopingAPI, setting } from '@/assets/JS/function';
+import { useAccountStore } from '@/stores/account';
+import { storeToRefs } from 'pinia';
 
-let shopping = ref('')
-shopping.value = [
-    {
-        id: 1,
-        name: '冰與火之舞',
-        price: 123,
-        sale_price: 0
-    },
-    {
-        id: 2,
-        name: '幻塔',
-        price: 123,
-        sale_price: 120
-    },
-    {
-        id: 3,
-        name: 'Minecraft',
-        price: 123,
-        sale_price: 100
-    }
-]
+let shopping = ref([]);
+const accountStore = useAccountStore();
+const { tk, account } = storeToRefs(accountStore);
 
 // 付款方式
 let payment = ref('VISA')
@@ -170,6 +156,18 @@ function checkout(event) {
 let thisYear = computed(() => {
     let year = new Date().getFullYear()
     return Array.from({ length: 10 }, (_, i) => year + i)
+})
+
+onMounted(async() => {
+    const res = await axios.post(shopingAPI("showCard"), {
+        "token": `Bearer ${tk.value}`,
+    }, setting).catch((err) => {
+        console.log(err);
+    })
+    if (res.data.status == 200) {
+        shopping.value = res.data.data;
+    }
+    console.log(res);
 })
 </script>
 

@@ -28,6 +28,10 @@ export function getAccountAPI(api){
     return `${dataAPI}/account/${api}.php`;
 }
 
+export function shopingAPI(api){
+    return `${dataAPI}/shopping/${api}.php`;
+}
+
 /**
  * 請求後端資料 --> 執行後台相關操作
  * @param {string} api php 檔名

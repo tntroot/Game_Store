@@ -1,7 +1,7 @@
 <template>
 	<button type="button" :class="[props.btnEvent.class === 'btn btn-primary'?'btn btn-primary':props.btnEvent.class]" @click="addShopping()">
         <Icon icon="typcn:shopping-cart" class=" d-inline-block me-2" />
-        <span>{{ props.btnEvent.isBuy ? '已加入購物車' : '加入購物車' }}</span>
+        <span>{{ isBuy ? '已加入購物車' : '加入購物車' }}</span>
     </button>
 
 	<!-- Modal 登入後 -->
@@ -56,52 +56,65 @@
 </template>
 
 <script setup>
-import { ref, nextTick } from 'vue';
+import { ref, nextTick, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { numFormat } from '../assets/JS/function';
+import { gameAPI, shopingAPI, numFormat, setting } from '../assets/JS/function';
 import { useAccountStore } from '@/stores/account';
 import axios from 'axios';
 
 let props = defineProps(['btnEvent']);
+
 let accountStore = useAccountStore();
 const { tk, account } = storeToRefs(accountStore);
 
-const modal = ref();
-function addShopping() {
-	// if (!props.btnEvent.isBuy) {
-    //     nextTick(() => {
-    //         const myModal = new bootstrap.Modal(modal.value);
-    //         myModal.show();
-    //     })
-	// } else {
-	// 	router.push('/account/shoppingCar');
-	// }
+let getID = ref('');
+let route = useRoute(); let router = useRouter();
 
-	let bye = false;
-	if(!bye){
-		const res = axios.post()
+const modal = ref();
+async function addShopping() {
+	if (!isBuy.value) {
+
+		const res = await axios.post(gameAPI("addCard"), {
+			"game_id": route.query.gameId,
+			"token": `Bearer ${tk.value}`,
+		}, setting).catch((err) => {
+			console.log(err);
+		})
+		if (!res) { return; }
+		console.log(res);
+		
+		if (res.data.status == 200) {
+			getID.value = res.data.data;
+			isBuy.value = true;
+			nextTick(() => {
+				const myModal = new bootstrap.Modal(modal.value);
+				myModal.show();
+			})
+		}
+	} else {
+		router.push('/account/shopping/shoppingCar');
 	}
 }
 
-let getID = ref('');
-let route = useRoute();
-let router = useRouter();
-async function getIDNum() {
-    if(!route.query.userId){return};
-    const url1 = new URL('../assets/JSON/SearchList.json', import.meta.url)
-    let data = await fetch(url1).then((res) => res.json())
-    let data2 = data.search.filter((item) => item.id == route.query.userId);
-    data2[0].img = data2[0].img[0];
-    /* 前端圖片轉址，後面用後端船就不須寫這段 */
-    data2[0].img = new URL(`../assets/img/${data2[0].img}`, import.meta.url)
-    numFormat(data2[0])
-    getID.value = data2[0]
-}
-getIDNum();
-
-defineExpose({
-	addShopping,
+const isBuy = ref(false);
+onMounted(async () => {
+	const showGameCard = await axios.post(shopingAPI("showCard"), {
+		"game_id": route.query.gameId,
+		"token": `Bearer ${tk.value}`,
+	}, setting).catch((err) => {
+		console.log(err);
+	})
+	if (!showGameCard) { return; }
+	if (showGameCard.data.status == 200) {
+		isBuy.value = true;
+	}
+	console.log(showGameCard);
+	
 })
+
+// defineExpose({
+// 	addShopping,
+// })
 </script>
 
 <style lang="scss" scoped></style>

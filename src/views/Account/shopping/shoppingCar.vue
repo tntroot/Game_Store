@@ -5,11 +5,10 @@
             <div class="col-xl-9 col-lg-8">
                 <div class=" tw-bg-[#123c66] rounded-4 mb-5" v-for="item in shopping" :key="item.id">
                     <div class="row tw-text-[white]">
-                        <img src="@/assets/img/A_Dance_of_Fire_and_Ice/A Dance of Fire and Ice_home.jpg"
+                        <img :src="item.img"
                             class="col-sm-4" alt="" srcset="" />
                         <div class="tw-font-bold ps-4 py-3 col-sm-8">
-                            <p class="md:tw-text-2xl tw-font-bold tw-line-clamp-2">{{ item.name + " 123 " + item.name +
-                                item.name + item.name + item.name }}</p>
+                            <p class="md:tw-text-2xl tw-font-bold tw-line-clamp-2">{{ item.name }}</p>
                             <div class="d-sm-flex pe-4 align-items-center justify-content-between">
                                 <div class="my-4 d-flex justify-content-center fw-bolder fs-5">
                                     <h3 v-if="item.price > item.sale_price"
@@ -19,7 +18,7 @@
                                         {{ item.sale_price != 0 ? `NT$ ${item.sale_price}` : '免費' }}
                                     </h3>
                                 </div>
-                                <button class="btn btn-danger btn-lg p-3 tw-w-full sm:tw-w-fit " type="button" @click="deleteShop(item.id)">
+                                <button class="btn btn-danger btn-lg p-3 tw-w-full sm:tw-w-fit " type="button" @click="deleteShop(item.game_id)">
                                     <Icon icon="wpf:delete" class=" mx-auto" />
                                 </button>
                             </div>
@@ -55,35 +54,45 @@
 
 <script setup>
 import { RouterLink } from 'vue-router'
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { shopingAPI, setting } from '@/assets/JS/function';
+import { useAccountStore } from '@/stores/account';
+import axios from 'axios';
+import { storeToRefs } from 'pinia';
 
-let shopping = ref('');
-shopping.value = [
-    {
-        id: 1,
-        name: '冰與火之舞',
-        price: 123,
-        sale_price: 0
-    },
-    {
-        id: 2,
-        name: '幻塔',
-        price: 123,
-        sale_price: 120
-    },
-    {
-        id: 3,
-        name: 'Minecraft',
-        price: 123,
-        sale_price: 100
+const shopping = ref('');
+async function deleteShop(id) {
+    // shopping.value = shopping.value.filter((item) => item.id !== id);
+    const res = await axios.post(shopingAPI("delCard"), {
+        "token": `Bearer ${tk.value}`,
+        "game_id": id
+    }, setting).catch((err) => {
+        console.log(err);
+    })
+    console.log(res);
+    
+    if (!res) { return; }
+    if (res.data.status == 200) {
+        shopping.value = res.data.data;
     }
-];
-function deleteShop(id) {
-    shopping.value = shopping.value.filter((item) => item.id !== id);
 }
 
 let allPrice = computed(() => {
     return shopping.value.reduce((sum, item) => sum + item.sale_price, 0)
+})
+
+const accountStore = useAccountStore();
+const { tk, account } = storeToRefs(accountStore);
+onMounted(async () => {
+    const res = await axios.post(shopingAPI("showCard"), {
+        "token": `Bearer ${tk.value}`,
+    }, setting).catch((err) => {
+        console.log(err);
+    })
+    if (res.data.status == 200) {
+        shopping.value = res.data.data;
+    }
+    console.log(res);
 })
 
 // md:tw-w-[12rem] tw-w-1/4 tw-h-[8rem]

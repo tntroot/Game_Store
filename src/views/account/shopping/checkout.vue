@@ -19,21 +19,9 @@
                                 </div>
                                 <div class="col-md-7">
                                     <p class="text-light fs-5 mb-2">也可以點選下方圖標選擇</p>
-                                    <div class=" d-inline-block me-3" :class="[payment === 'VISA'?'paymentBtn':'']">
-                                        <button type="button" class="btn btn-lg btn-light"  @click="payment = 'VISA'">
-                                            <Icon icon="logos:visaelectron" />
-                                        </button>
-                                    </div>
-
-                                    <div class=" d-inline-block me-3" :class="[payment === 'Mastercard'?'paymentBtn':'']">
-                                        <button type="button" class="btn btn-lg btn-light"  @click="payment = 'Mastercard'">
-                                            <Icon icon="logos:mastercard" />
-                                        </button>
-                                    </div>
-
-                                    <div class=" d-inline-block me-3" :class="[payment === 'JCB'?'paymentBtn':'']" >
-                                        <button type="button" class="btn btn-lg btn-light" @click="payment = 'JCB'">
-                                            <Icon icon="logos:jcb" />
+                                    <div class=" d-inline-block me-3" v-for="(item, index) in paymentList" :class="[payment == index ? 'paymentBtn' : '']">
+                                        <button type="button" class="btn btn-lg btn-light" @click="payment = index">
+                                            <Icon :icon="'logos:' + item" />
                                         </button>
                                     </div>
                                 </div>
@@ -67,7 +55,8 @@
                                                 {{ i }}
                                             </option>
                                         </select>
-                                        <span class="input-group-text bg-secondary text-light fw-bolder" id="inputGroupPrepend">
+                                        <span class="input-group-text bg-secondary text-light fw-bolder"
+                                            id="inputGroupPrepend">
                                             年
                                         </span>
                                         <p>　　</p>
@@ -76,7 +65,8 @@
                                                 {{ i }}
                                             </option>
                                         </select>
-                                        <span class="input-group-text bg-secondary text-light fw-bolder" id="inputGroupPrepend">
+                                        <span class="input-group-text bg-secondary text-light fw-bolder"
+                                            id="inputGroupPrepend">
                                             月
                                         </span>
                                     </div>
@@ -124,7 +114,7 @@
 
 <script setup>
 import BuyGame from '@/components/BuyGame.vue'
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { Icon } from '@iconify/vue'
 import axios from 'axios';
@@ -137,17 +127,38 @@ const accountStore = useAccountStore();
 const { tk, account } = storeToRefs(accountStore);
 
 // 付款方式
-let payment = ref('VISA')
+let payment = ref('VISA');
+const paymentList = reactive({
+    'VISA': 'visaelectron',
+    'Mastercard': 'mastercard',
+    'JCB': 'jcb',
+});
 
 // 表單驗證
 let router = useRouter()
 let form = ref()
-function checkout(event) {
+async function checkout(event) {
     if (!form.value.checkValidity()) {
         event.preventDefault()
         event.stopPropagation()
     } else {
-        router.push('/account/shopping/checkoutComplete')
+        const res = await axios.post(shopingAPI("checkout"), {
+            "token": `Bearer ${tk.value}`,
+            "payment": payment.value
+        }, setting).catch((err) => {
+            console.log(err);
+        })
+        if(!res){ return; }
+        if (res.data.status == 200) {
+            router.push({
+                path: '/account/shopping/checkoutComplete',
+                query: {
+                    id: res.data.data
+                }
+            })
+        }
+        console.log(res);
+        
     }
     form.value.classList.add('was-validated')
 }
@@ -158,7 +169,7 @@ let thisYear = computed(() => {
     return Array.from({ length: 10 }, (_, i) => year + i)
 })
 
-onMounted(async() => {
+onMounted(async () => {
     const res = await axios.post(shopingAPI("showCard"), {
         "token": `Bearer ${tk.value}`,
     }, setting).catch((err) => {
@@ -172,8 +183,8 @@ onMounted(async() => {
 </script>
 
 <style lang="scss" scoped>
-    .paymentBtn {
-        border: 4px dotted red;
-        border-radius: 0.2rem;
-    }
+.paymentBtn {
+    border: 4px dotted red;
+    border-radius: 0.2rem;
+}
 </style>

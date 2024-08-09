@@ -47,7 +47,7 @@
         <div class="row mt-5">
             <div class="bg-white p-4 w-100 rounded-4">
                 <p class="h3 text-success">為此遊戲添加評論</p>
-                <div class="px-md-3 col-8 mx-auto" v-if="true">
+                <div class="px-md-3 col-8 mx-auto" v-if="isBuy">
                     <form class="g-3">
                         <div class="d-flex align-items-start my-4">
                             <img class="rounded-circle img-fluid me-2" src="../assets/img/account.png" width="75" alt="" />
@@ -139,10 +139,19 @@
 import ItemCard from '../components/ItemCard.vue'
 import { ref, onMounted, nextTick } from 'vue'
 // import { useRoute } from 'vue-router'
-import { numFormat } from '../assets/JS/function'
+import { gameAPI, numFormat, setting } from '../assets/JS/function'
+import axios from 'axios';
+import { useAccountStore } from '@/stores/account.js';
+import { storeToRefs } from 'pinia';
 
 let route = useRoute();
-let reoly = ref(false)
+/**
+ * 回覆
+ */
+let reoly = ref(false);
+/**  
+ * 回覆
+ */
 let reolyForm = ref();
 
 function reolyClick() {
@@ -160,6 +169,23 @@ async function craeteGameContent() {
     itemCard.value = data2;
 }
 craeteGameContent();
+
+const { tk } = storeToRefs(useAccountStore())
+
+/** 是否購買了遊戲 */
+let isBuy = ref(false);
+onMounted(async() => {
+    const res = await axios.post(gameAPI("isBuyGame"), {
+        "token": `Bearer ${tk.value}`,
+        "game_id": route.query.gameId,
+    }, setting).catch((err) => {
+        console.log(err);
+    })
+    if (!res) { return; }
+    if (res.data.status == 200) {
+        isBuy.value = true;
+    }
+})
 
 </script>
 

@@ -17,26 +17,31 @@
 
 <script setup>
 import BuyGame from '@/components/BuyGame.vue';
-import { ref } from 'vue'
+import axios from 'axios';
+import { onMounted, ref } from 'vue'
+import { shopingAPI, setting } from '@/assets/JS/function';
+import { useRoute } from 'vue-router';
+import { useAccountStore } from '@/stores/account';
+import { storeToRefs } from 'pinia';
 
-let shopping = ref('')
-shopping.value = [
-    {
-        id: 1,
-        name: '冰與火之舞',
-        zip: ''
-    },
-    {
-        id: 2,
-        name: '幻塔',
-        zip: ''
-    },
-    {
-        id: 3,
-        name: 'Minecraft',
-        zip: ''
+let shopping = ref('');
+
+const route = useRoute();
+
+const { tk } = storeToRefs(useAccountStore());
+
+onMounted(async() => {
+    const res = await axios.post(shopingAPI("purchasedItems"), {
+        "token": `Bearer ${tk.value}`,
+        "shopHistId": route.query.id
+    }, setting).catch((err) => {
+        console.log(err);
+    })
+    if (res.data.status == 200) {
+        shopping.value = res.data.data;
     }
-]
+    console.log(res);
+})
 </script>
 
 <style lang="scss" scoped>

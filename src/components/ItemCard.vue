@@ -49,7 +49,7 @@
                             </td>
                         </tr>
                     </table>
-                    <ModalDiv ref="reoly" :btnEvent="{ class: 'btn btn-lg btn-outline-dark mt-3 fw-bolder w-100', isBuy: itemList.isBuy}"></ModalDiv>
+                    <ModalDiv ref="reoly" :btnEvent="{ class: 'btn btn-lg btn-outline-dark mt-3 fw-bolder w-100'}"></ModalDiv>
                 </div>
             </div>
         </div>

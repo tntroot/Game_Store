@@ -75,7 +75,7 @@ async function addShopping() {
 	if (!isBuy.value) {
 
 		const res = await axios.post(gameAPI("addCard"), {
-			"game_id": route.query.gameId,
+			"game_id": route.query.gameId || props.btnEvent.gameId,
 			"token": `Bearer ${tk.value}`,
 		}, setting).catch((err) => {
 			console.log(err);
@@ -86,11 +86,13 @@ async function addShopping() {
 		if (res.data.status == 200) {
 			getID.value = res.data.data;
 			isBuy.value = true;
-			nextTick(() => {
+		}
+        if(res.data.status == 200 || res.data.status == 410){
+            nextTick(() => {
 				const myModal = new bootstrap.Modal(modal.value);
 				myModal.show();
 			})
-		}
+        }
 	} else {
 		router.push('/account/shopping/shoppingCar');
 	}

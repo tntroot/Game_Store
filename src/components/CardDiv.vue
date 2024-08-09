@@ -30,7 +30,7 @@
                 </div>
             </div> -->
             <div class="text-center my-2">
-                <ModalDiv v-if="!isSwiper" :btnEvent="{ class: 'btn btn-primary', isBuy: false}"></ModalDiv>
+                <ModalDiv v-if="!isSwiper" :btnEvent="{ class: 'btn btn-primary', gameId: thisCard.game_id}"></ModalDiv>
             </div>
         </div>
     </div>

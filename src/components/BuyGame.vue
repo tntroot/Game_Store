@@ -16,7 +16,7 @@
                             </p>
                         </div>
                         <div class="col-md-3 d-flex-xy-center">
-                            <button class="btn btn-color px-4" v-if="props.activeView" @click="download">
+                            <button class="btn btn-color px-4" v-if="props.activeView" @click="download(item.files)">
                                 <Icon class="d-inline-block fw-bolder" icon="line-md:download-outline-loop" />
                                 <span class="fw-bolder">下載</span>
                             </button>
@@ -37,15 +37,15 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 
 const props = defineProps(['shopping', 'activeView']);
 let allPrice = computed(() => {
     return props.shopping.reduce((sum, item) => sum + item.sale_price, 0)
 })
 
-function download() {
-    window.open("https://drive.usercontent.google.com/download?id=16OgydLXTIWOOZeFUQIAAbT9kih0PaUED&export=download&authuser=0&confirm=t&uuid=81ca6b2a-16d5-4b89-8bf2-e9004613142e&at=APZUnTUu2jkwglH_ZP7GTAnBNAlw%3A1718560118281");
+function download(files) {
+    window.open(files);
 }
 </script>
 

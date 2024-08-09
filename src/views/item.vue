@@ -46,6 +46,27 @@
 
         <div class="row mt-5">
             <div class="bg-white p-4 w-100 rounded-4">
+                <p class="h3 text-success">為此遊戲添加評論</p>
+                <div class="px-md-3 col-8 mx-auto" v-if="true">
+                    <form class="g-3">
+                        <div class="d-flex align-items-start my-4">
+                            <img class="rounded-circle img-fluid me-2" src="../assets/img/account.png" width="75" alt="" />
+                            <textarea name="" id="" class="form-control tw-h-[120px]" placeholder="輸入評論" required></textarea>
+                        </div>
+                        <div class="text-center ">
+                            <button type="reset" class="btn btn-secondary btn-lg fw-bold me-4">重製</button>
+                            <button type="submit" class="btn btn-primary btn-lg fw-bold">送出</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="px-md-3 col-8 mx-auto text-center py-5" v-else>
+                    <p class="text-danger fs-3 fw-bold mb-3">請先購買遊戲後才能評論</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="bg-white p-4 w-100 rounded-4">
                 <p class="h3">玩家評論</p>
                 <div class="px-md-3">
                     <div class="d-flex align-items-start mt-2">
@@ -122,7 +143,7 @@ import { numFormat } from '../assets/JS/function'
 
 let route = useRoute();
 let reoly = ref(false)
-let reolyForm = ref()
+let reolyForm = ref();
 
 function reolyClick() {
     reoly.value = true
@@ -139,7 +160,6 @@ async function craeteGameContent() {
     itemCard.value = data2;
 }
 craeteGameContent();
-
 
 </script>
 
@@ -168,6 +188,10 @@ table {
         box-shadow: none;
         border-bottom: 2px solid black;
     }
+}
+
+.form-control{
+    border: 2px solid #8f8f8f;
 }
 </style>
 

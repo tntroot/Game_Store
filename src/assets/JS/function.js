@@ -14,9 +14,13 @@ const dataAPI = "http://localhost/Game_Store";
 
 /**
  * @param {string} api php 檔名 
+ * @param {string} path php 路徑資料夾
  * @returns {string} 請求後端資料 --> 執行遊戲相關操作
  */
-export function gameAPI(api){
+export function gameAPI(api, path=""){
+    if(path){
+        return `${dataAPI}/game/${path}/${api}.php`;
+    }
     return `${dataAPI}/game/${api}.php`;
 }
 

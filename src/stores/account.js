@@ -17,7 +17,7 @@ export const useAccountStore = defineStore('account', () => {
 },{
     persist: {
         key: "acctk",
-        paths: ['account', 'tk'],
+        paths: ['account', 'tk', 'isAccountAdmin'],
         storage: localStorage,
     }
 })

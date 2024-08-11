@@ -27,16 +27,16 @@
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">商店</a>
                         <ul class="dropdown-menu py-0" aria-labelledby="navbarDropdown">
-                            <RouterLink :to="`/search?sear`">
+                            <RouterLink :to="{path: '/search', query: {...route.query, type: ''}}">
                                 <li class="dropdown-item" :class="[thisRoute === '' ? 'router-link-active' : '']">全部</li>
                             </RouterLink>
-                            <RouterLink :to="`/search?type=新遊戲`">
+                            <RouterLink :to="{path: '/search', query: {...route.query, type: '新遊戲'}}">
                                 <li class="dropdown-item" :class="[thisRoute === '新遊戲' ? 'router-link-active' : '']">新遊戲</li>
                             </RouterLink>
-                            <RouterLink :to="`/search?type=排行`">
-                                <li class="dropdown-item" :class="[thisRoute === '排行' ? 'router-link-active' : '']">排行</li>
+                            <RouterLink :to="{path: '/search', query: {...route.query, type: '促銷'}}">
+                                <li class="dropdown-item" :class="[thisRoute === '促銷' ? 'router-link-active' : '']">促銷</li>
                             </RouterLink>
-                            <RouterLink :to="`/search?type=免費遊戲`">
+                            <RouterLink :to="{path: '/search', query: {...route.query, type: '免費遊戲'}}">
                                 <li class="dropdown-item" :class="[thisRoute === '免費遊戲' ? 'router-link-active' : '']">免費遊戲</li>
                             </RouterLink>
                         </ul>
@@ -83,6 +83,7 @@ const { search, thisRoute   } = storeToRefs(headerStore);
 const { searchFu, shopping } = headerStore;
 
 const router = useRouter();
+const route = useRoute();
 const accountStore = useAccountStore();
 
 const showAcc = ref(false);

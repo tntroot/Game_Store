@@ -29,10 +29,10 @@ async function buyShopping () {
     if (!res) { return; }
     if (res.data.status == 200) {
         isdata.value = true;
-        tb_body.value.value = res.data.data;
+        tb_body.value = res.data.data;
     }else{
         isdata.value = false;
-        tb_body.value.value = res.data.message;
+        tb_body.value = res.data.message;
     }
     console.log(tb_body.value);
     

@@ -53,23 +53,8 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
 
-    // if(to.path == "/item"){
-    //     const url1 = new URL('../assets/JSON/SearchList.json', import.meta.url)
-    //     let data = await fetch(url1).then((res) => res.json())
-    //     let data2 = data.search.filter((item) => item.id == to.query.userId);
-    //     /* 前端圖片轉址，後面用後端船就不須寫這段 */
-    //     for (let i = 0; i < data2[0].img.length; i++) {
-    //         data2[0].img[i] = new URL(`../assets/img/${data2[0].img[i]}`, import.meta.url)
-    //     }
-    //     to.meta = {
-    //         ...to.meta,
-    //         title: data2[0].name,
-    //         itemData: data2,  // 將資料傳進頁面
-    //     }
-    // }
-    if(to.path == "/item"){
+    if(to.path == "/item" || to.path == "/admin/leaveReply/showMessage"){
         let res = await axios.post(gameAPI("getGameId"), { "game_id": to.query.gameId }, setting).catch((err) => console.log(err))
-        console.log(res);
         const data = res.data.data;
         to.meta = {
             ...to.meta,

@@ -29,7 +29,7 @@ const { messageModify } = AdminHeadermessage();
 const router = useRouter();
 
 const tb_head = ['產品編號', '名稱', '圖片', '價格', '特價','上市日期'];
-const tb_body = reactive({});
+const tb_body = ref({});
 const isdata = ref(true);
 
 onMounted(() => {

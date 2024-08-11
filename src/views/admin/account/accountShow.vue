@@ -16,7 +16,7 @@
 import HeaderMassage from '@/components/Admin/HeaderMassage.vue';
 import AdminHeadermessage from '@/hook/AdminHeaderMassage';
 import ShowTable from '@/components/ShowTable.vue';
-import { onMounted, reactive } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import axios from 'axios';
 import { adminAPI, setting } from "@/assets/JS/function.js";
 import { RouterLink } from 'vue-router';
@@ -24,7 +24,7 @@ import { RouterLink } from 'vue-router';
 const {messageModify } = AdminHeadermessage();
 
 const tb_head = ['編號','名稱', '帳號', '信箱','電話', '權限', '創建日期'];
-const tb_body = reactive({});
+const tb_body = ref({});
 const isdata = ref(true);
 
 async function getAccount() {

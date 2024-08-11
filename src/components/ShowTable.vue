@@ -8,7 +8,7 @@
                 </tr>
             </thead>
             <tbody class="table-light" v-if="isdata">
-                <tr v-for="(item, index) in body.value" :key="index">
+                <tr v-for="(item, index) in body" :key="index">
                     <td class="text-center" v-for="(item2, index2) in item" :key="index2" :width="index2 == 'img' ? '15%' : ''">
                         <component :is="index2 == 'img' ? ImgPath : index2 == 'files' ? Btn : 'span'" :data="item2">{{ item2 }}</component>
                     </td>

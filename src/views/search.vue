@@ -5,8 +5,8 @@
             <div class="col-md-8">
                 <div class="input-group">
                     <input type="text" class="form-control fs-4" placeholder="輸入遊戲名稱" aria-label="輸入遊戲名稱"
-                        aria-describedby="button-addon2" v-model="list.key">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="search">
+                        aria-describedby="button-addon2" v-model="keywords">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="router.push({path: '/search', query: { ...route.query,search: keywords }})">
                         <Icon icon="icon-park:search" class="fs-4" />
                     </button>
                 </div>
@@ -63,7 +63,7 @@
                     <button type="button" class="btn btn-secondary fs-5 w-100" data-bs-dismiss="offcanvas" aria-label="Close">取消</button>
                 </div>
                 <div class="col-6">
-                    <button type="button" class="btn btn-primary fs-5 w-100" data-bs-dismiss="offcanvas" aria-label="Close">搜尋</button>
+                    <button type="button" class="btn btn-primary fs-5 w-100" data-bs-dismiss="offcanvas" aria-label="Close" @click="selectType">搜尋</button>
                 </div>
             </div>
         </div>
@@ -74,45 +74,58 @@
 import { useRoute } from 'vue-router';
 import CardDiv from '../components/CardDiv.vue'
 import { ref, onMounted, watch } from 'vue';
-import { gameAPI, adminAPI } from '@/assets/JS/function';
+import { gameAPI, adminAPI, setting } from '@/assets/JS/function';
 import axios from 'axios';
+import router from '../router';
 
 let route = useRoute();
 let changeList = ref([]);
 function close(index) {
     changeList.value = changeList.value.filter((item) => item != index);
+    router.push({ path: "/search", query: { ...route.query, tags: changeList.value } })
 }
-function resple() {
-    changeList.value = [];
-    Object.values(route.query).forEach((item, index, values) => {
-        if (item) {
-            changeList.value.push(item);
-        }
-    });
-}
+
 watch(route, () => {
-    resple()
+    searchGame()
 }, { deep: true, immediate: false })
 
-/** 遊戲分類 */
-const tagList = ref([]);
-/** 篩選 */
-const offcanvas = ref();
+/** 搜尋遊戲 */
 let list = ref([]);
-onMounted(async () => {
-    // const urlEl = new URL('../assets/JSON/SearchList.json', import.meta.url)
-    // const searchList = await fetch(urlEl).then((res) => res.json())
-    const res = await axios.get(gameAPI("showAllGame")).catch((err) => {
+const keywords = ref("");
+async function searchGame(){
+
+    keywords.value = route.query.search;
+
+    changeList.value = [];
+    changeList.value = typeof route.query.tags == "string" ? [route.query.tags] : route.query.tags;
+
+    const { search, type, tags } = route.query;
+
+    const res = await axios.post(gameAPI("showAllGame")+"?url=search", {
+        "search": search,
+        "type": type,
+        "tags": Array.isArray(tags) ? tags.join(",") : tags
+    }, setting).catch((err) => {
         console.log(err);
     })
     if(!res) { return; }
     
     if (res.data.status == 200) {
         list.value = res.data.data;
-        resple();
     }else{
         list.value = [];
     }
+    console.log(route);
+    
+}
+
+/** 遊戲分類 */
+const tagList = ref([]);
+/** 篩選 */
+const offcanvas = ref();
+onMounted(async () => {
+    
+    searchGame();
 
     const resTag = await axios.get(adminAPI('game', 'showGameType')).catch((err) => {
         console.log(err);
@@ -132,13 +145,21 @@ onMounted(async () => {
     })
 })
 
+/** 選擇的分類 */
 const getChangeType = ref([]);
-function addOrCloss(item) {
+/** 點級分類 -> 加到 getChangeType 
+ * @param {string} item 選擇的分類
+*/
+function addOrCloss(item) {  
     if (getChangeType.value.includes(item)) {
         getChangeType.value = getChangeType.value.filter((item1) => item1 != item);
     } else {
         getChangeType.value.push(item);
     }
+}
+function selectType() {
+    const changeQuery = { ...route.query, tags: getChangeType.value };
+    router.push({ path: "/search", query: changeQuery });
 }
 </script>
 

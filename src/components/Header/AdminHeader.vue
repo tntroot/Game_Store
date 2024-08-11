@@ -12,10 +12,7 @@
                     <RouterLink to="/admin/game/gameShow">
                         <li class="nav-item nav-link">遊戲管理</li>
                     </RouterLink>
-                    <RouterLink to="/admin/order/orderShow">
-                        <li class="nav-item nav-link">訂單管理</li>
-                    </RouterLink>
-                    <RouterLink to="/admin/leaveReply/leaveReplyMsg">
+                    <RouterLink to="/admin/leaveReply/leaveReplyShow">
                         <li class="nav-item nav-link">留言回復</li>
                     </RouterLink>
                     <RouterLink to="/admin/account/accountShow">

@@ -48,28 +48,18 @@ function setSwiperAll() {
 let list1 = ref([]);
 let list2 = ref([]);
 let list3 = ref([]);
-// onMounted( async() => {
-//     const urlEl = new URL('../assets/JSON/ProductList.json', import.meta.url);
-//     const thisListAll = await fetch(urlEl).then((res) => res.json());
-
-//     list1.value = thisListAll.list1;
-//     list2.value = thisListAll.list2;
-//     list3.value = thisListAll.list3;
-
-//     setSwiper();
-// })
 
 onMounted(async () => {
-	const res = await axios.get(gameAPI("showAllGame")).catch((err) => {
+	const res = await axios.get(gameAPI("showAllGame") + "?url=home").catch((err) => {
 		console.log(err);
 	})
 	if(!res) { return; }
 	console.log(res);
 	
 	if (res.data.status == 200) {
-		list1.value = res.data.data;
-		list2.value = res.data.data;
-		list3.value = res.data.data;
+		list1.value = res.data.data.dateDesc;
+		list2.value = res.data.data.sale_Price;
+		list3.value = res.data.data.all;
 		setSwiperAll();
 	}
 })

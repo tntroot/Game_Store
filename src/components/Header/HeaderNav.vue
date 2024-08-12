@@ -41,6 +41,21 @@
                             </RouterLink>
                         </ul>
                     </li>
+                    <li class="nav-item dropdown pb-lg-0 pb-3 px-3">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">成果展</a>
+                        <ul class="dropdown-menu py-0" aria-labelledby="navbarDropdown">
+                            <RouterLink to="/">
+                                <li class="dropdown-item">電子書</li>
+                            </RouterLink>
+                            <RouterLink to="/">
+                                <li class="dropdown-item">簡報</li>
+                            </RouterLink>
+                            <RouterLink to="/">
+                                <li class="dropdown-item">錄影黨</li>
+                            </RouterLink>
+                        </ul>
+                    </li>
                     <li class="nav-item ms-4 ">
                         <div class="d-flex rounded-pill nav-link">
                             <input class="form-control" type="text" placeholder="遊戲名稱" v-model.trim="search"

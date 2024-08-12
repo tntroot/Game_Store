@@ -12,6 +12,8 @@ export function numFormat(num) {
 
 const dataAPI = "http://localhost/Game_Store";
 
+export const uploadAPI = "http://localhost/Game_Store/uploads/img/";
+
 /**
  * @param {string} api php 檔名 
  * @param {string} path php 路徑資料夾

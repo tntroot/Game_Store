@@ -49,7 +49,7 @@ let salePrice = computed(() => {
 })
 onMounted(() => {
     // propsThisCard.thisCard.img[0] = new URL(`../assets/img/${propsThisCard.thisCard.img[0]}`, import.meta.url);
-    numFormat(propsThisCard.thisCard);
+    // numFormat(propsThisCard.thisCard);
 })
 </script>
 

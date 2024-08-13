@@ -32,9 +32,15 @@
                 </div>
             </div>
         </div>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-4">
+        <div v-if="list.length" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-4">
             <div class="col" v-for="(item, index) in list" :key="item.id">
                 <CardDiv :thisCard="item" />
+            </div>
+        </div>
+        <div v-else class="row g-4">
+            <div class="col">
+                <h1 class="h1 fw-bolder text-center text-white">沒有符合篩選條件的遊戲</h1>
+                <p class="h3 fw-bolder text-center text-white">請檢查您的篩選條件、關鍵字是否輸入錯誤</p>
             </div>
         </div>
     </div>

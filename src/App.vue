@@ -3,6 +3,8 @@
     <AdminHeader v-if="admin" />
     <div class="min-vh-100">
         <RouterView></RouterView>
+
+        <TopDiv />
     </div>
     <FooterDiv />
 </template>
@@ -11,7 +13,8 @@
 import { RouterView, RouterLink, useRoute } from 'vue-router'
 import HeaderNav from './components/Header/HeaderNav.vue'
 import AdminHeader from './components/Header/AdminHeader.vue';
-import FooterDiv from './components/FooterDiv.vue'
+import FooterDiv from './components/FooterDiv.vue';
+import TopDiv from './components/TopDiv.vue';
 import {useAccountStore} from './stores/account';
 import { computed } from 'vue';
 

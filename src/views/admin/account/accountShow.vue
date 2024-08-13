@@ -4,7 +4,7 @@
 
         <ShowTable :head="tb_head" :body="tb_body" :isdata="isdata">
             <template #btn="{ item }">
-                <RouterLink :to="`/admin/account/show${item.account}`" class="btn btn-primary me-2">
+                <RouterLink :to="`/admin/account/show${item.account}`" v-if="item.user_id != 1" class="btn btn-primary me-2">
                     修改權限
                 </RouterLink>
             </template>

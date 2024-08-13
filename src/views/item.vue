@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-12 bg-white rounded-4 p-3">
                 <p class="h2">遊戲內容</p>
-                <pre id="Game_Content" class="m-5 tw-text-[22px]"
+                <pre id="Game_Content" class="m-5 md:tw-text-[22px] tw-text-[16px]"
                     style="white-space: pre-wrap; word-wrap: break-word;" v-html="itemCard.content"></pre>
                 <p class="h2">系統需求</p>
                 <div id="Sys_Require">
@@ -49,7 +49,7 @@
         <div class="row mt-5">
             <div class="bg-white p-4 w-100 rounded-4">
                 <p class="h3 text-success">為此遊戲添加評論</p>
-                <div class="px-md-3 col-8 mx-auto" v-if="isBuy">
+                <div class="px-md-3 col-md-8 mx-auto" v-if="isBuy">
                     <form class="g-3" @submit.prevent="addMessage">
                         <div class="d-flex align-items-start my-4">
                             <img class="rounded-circle img-fluid me-2" src="../assets/img/account.png" width="75"

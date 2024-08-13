@@ -19,7 +19,7 @@
             </tbody>
             <tbody class="table-light" v-else>
                 <tr>
-                    <td class="text-center" :colspan="head.length + 1">{{ body.value }}</td>
+                    <td class="text-center" :colspan="head.length + 1">{{ body }}</td>
                 </tr>
             </tbody>
         </table>

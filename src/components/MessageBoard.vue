@@ -6,11 +6,11 @@
                 <div class="d-flex align-items-start mt-2" v-for="(item1, index1) in messageList" :key="item1.id">
                     <img class="rounded-circle" src="../assets/img/account.png" width="50" alt="" />
                     <div class="w-100">
-                        <p class="h4 ps-2 pt-2 fw-bolder">{{ item1.name }}</p>
-                        <pre class="ms-2 tw-text-[22px]" v-html="item1.text"></pre>
+                        <p class="h4 ps-2 pt-2 fw-bolder tw-text-md">{{ item1.name }}</p>
+                        <pre class="ms-2 tw-text-lg" v-html="item1.text"></pre>
                         <div class="d-flex align-items-center">
                             <div class="ms-2">
-                                <p class="text-secondary">{{ item1.created_at }}</p>
+                                <p class="text-secondary tw-text-md">{{ item1.created_at }}</p>
                             </div>
                             <button type="button" class="btn ms-2 btn-outline-secondary" v-if="isBuy"
                                 @click="reolyClick(index1)">
@@ -42,7 +42,7 @@
                             <img class="rounded-circle" src="../assets/img/account.png" width="50" alt="" />
                             <div>
                                 <p class="h4 ps-2 pt-2 fw-bolder">{{ item2.name }}</p>
-                                <pre class="ms-2 tw-text-[22px]" v-html="item2.text"></pre>
+                                <pre class="ms-2 tw-text-lg" v-html="item2.text"></pre>
                                 <div class="d-flex align-items-center">
                                     <div class="ms-2 text-secondary">{{ item2.created_at }}</div>
                                     <button type="button" class="btn ms-2 btn-outline-danger" v-if="showDel"

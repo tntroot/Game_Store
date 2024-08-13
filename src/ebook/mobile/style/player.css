@@ -1277,7 +1277,7 @@
 .audio-player {}
 /* start of skin1 */
 .audio-player.skin1{
-	position : relative,
+	position : relative;
 	background : #7b796f
 }
 
@@ -1398,7 +1398,7 @@
 
 /* start of skin2 */
 .audio-player.skin2{
-	position : relative,
+	position : relative;
 	background : #7b796f
 }
 

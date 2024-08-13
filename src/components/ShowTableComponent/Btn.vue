@@ -1,5 +1,5 @@
 <template>
-    <button class="btn btn-color px-4" @click="download(data)">
+    <button class="btn btn-color px-2 px-lg-4" @click="download(data)">
         <Icon class="d-inline-block fw-bolder" icon="line-md:download-outline-loop" />
         <span class="fw-bolder">下載</span>
     </button>

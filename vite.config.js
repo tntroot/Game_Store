@@ -62,7 +62,6 @@ export default defineConfig({
         alias: {
             //   '@': fileURLToPath(new URL('./src', import.meta.url))
             '@': path.resolve(__dirname, './src'),
-            tinymce: 'tinymce/tinymce',
         },
     },
 
@@ -88,9 +87,6 @@ export default defineConfig({
                 chunkFileNames: 'assets/js/[name]-[hash].js',
                 entryFileNames: 'assets/js/[name]-[hash].js'
             },
-            manualChunks: {
-                tinymce: ['tinymce'],
-              },
         }
     },
     publicDir: 'assets',

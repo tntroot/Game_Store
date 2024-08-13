@@ -11,7 +11,7 @@
                     </button>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mt-3 mt-md-0">
                 <button class="btn btn-secondary fs-4" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                     <Icon icon="mingcute:settings-2-fill"  class="d-inline-block me-2" />

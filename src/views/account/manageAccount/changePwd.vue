@@ -1,7 +1,7 @@
 <template>
     <div class="row justify-content-center">
-        <div class="col-6">
-            <form ref="mAccPwd" class="row g-3 needs-validation bg-secondary tw-rounded-xl p-5" @submit.prevent="mAccPwdCheck"
+        <div class="col-md-6">
+            <form ref="mAccPwd" class="row g-3 needs-validation bg-secondary tw-rounded-xl p-5 mx-2" @submit.prevent="mAccPwdCheck"
                 novalidate>
                 <div class="col-12">
                     <label for="oldPwd" class="form-label fs-5">原密碼</label>

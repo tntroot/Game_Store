@@ -77,10 +77,10 @@
                                 v-model="addGameData.content"></textarea>
                         </div>
                     </div>
-                    <div class="mb-3 row req">
+                    <!-- <div class="mb-3 row req">
                         <div class="col-4 req">遊戲介紹: </div>
                         <TinyMCE />
-                    </div>
+                    </div> -->
                     <div class="mb-3 row">
                         <div class="col-4">遊戲配置: </div>
                         <div class="col-8"></div>
@@ -135,7 +135,6 @@
 <script setup>
 import HeaderMassage from '@/components/Admin/HeaderMassage.vue';
 import AdminHeadermessage from '@/hook/AdminHeaderMassage';
-import TinyMCE from '@/components/TinyMCE.vue';
 
 import useEditGame from '@/hook/useEditGame';
 import useGameType from '@/hook/useGameType';

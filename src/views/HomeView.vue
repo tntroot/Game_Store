@@ -6,26 +6,33 @@
     </p>
   </header>
   <div class="container">
-    <div class="row my-4">
+    <div class="row my-4" v-show="list1.length">
       <h3 class="tw-border-b-4 rounded-3 border-primary mb-4">
         <p class="badge bg-primary rounded-bottom-0 p-3 fs-6">最新遊戲</p>
       </h3>
 
-      <SwiperNav ref="swiperDiv1" v-show="list1 != []" :listAll="list1" :contorl="0" />
+      <SwiperNav ref="swiperDiv1" :listAll="list1" :contorl="0" />
     </div>
-    <div class="row my-4">
+    <div class="row my-4" v-show="list2.length">
       <h3 class="tw-border-b-4 rounded-3 border-danger mb-4">
         <p class="badge bg-danger rounded-bottom-0 p-3 fs-6">促銷遊戲</p>
       </h3>
 
-      <SwiperNav ref="swiperDiv2" v-show="list2 != []" :listAll="list2" :contorl="1" />
+      <SwiperNav ref="swiperDiv2" :listAll="list2" :contorl="1" />
     </div>
-    <div class="row my-4">
+    <div class="row my-4" v-show="list3.length">
       <h3 class="tw-border-b-4 rounded-3 border-info mb-4">
         <p class="badge bg-info rounded-bottom-0 p-3 fs-6">人氣遊戲</p>
       </h3>
 
-      <SwiperNav ref="swiperDiv3" v-show="list3 != []" :listAll="list3" :contorl="2" />
+      <SwiperNav ref="swiperDiv3" :listAll="list3" :contorl="2" />
+    </div>
+  </div>
+  <div class="container" v-if="!list1.length && !list2.length && !list3.length">
+    <div class="row my-4">
+      <div class="col-12">
+      <h1 class="h1 fw-bolder text-center text-white mt-5">暫無遊戲上架</h1>
+      </div>
     </div>
   </div>
 </template>
@@ -37,12 +44,12 @@ import { gameAPI } from '@/assets/JS/function';
 // import { ref, onMounted } from "vue"
 
 let swiperDiv1 = ref();
-    let swiperDiv2 = ref();
-    let swiperDiv3 = ref();
+let swiperDiv2 = ref();
+let swiperDiv3 = ref();
 function setSwiperAll() {
-    swiperDiv1.value.setSwiper(0);
-    swiperDiv2.value.setSwiper(1);
-    swiperDiv3.value.setSwiper(2);
+  swiperDiv1.value.setSwiper(0);
+  swiperDiv2.value.setSwiper(1);
+  swiperDiv3.value.setSwiper(2);
 }
 
 let list1 = ref([]);
@@ -50,18 +57,30 @@ let list2 = ref([]);
 let list3 = ref([]);
 
 onMounted(async () => {
-	const res = await axios.get(gameAPI("showAllGame") + "?url=home").catch((err) => {
-		console.log(err);
-	})
-	if(!res) { return; }
-	console.log(res);
-	
-	if (res.data.status == 200) {
-		list1.value = res.data.data.dateDesc;
-		list2.value = res.data.data.sale_Price;
-		list3.value = res.data.data.all;
-		setSwiperAll();
-	}
+  const res = await axios.get(gameAPI("showAllGame") + "?url=home").catch((err) => {
+    console.log(err);
+  })
+  if (!res) {
+    list1.value = [];
+    list2.value = [];
+    list3.value = [];
+
+    console.log(list1.value, list2.value, list3.value);
+
+    return
+  }
+  console.log(res);
+
+  if (res.data.status == 200) {
+    list1.value = res.data.data.dateDesc;
+    list2.value = res.data.data.sale_Price;
+    list3.value = res.data.data.all;
+    setSwiperAll();
+  } else {
+    list1.value = [];
+    list2.value = [];
+    list3.value = [];
+  }
 })
 </script>
 

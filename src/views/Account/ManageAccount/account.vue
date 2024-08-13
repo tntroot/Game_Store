@@ -1,10 +1,10 @@
 <template>
-    <div class="row justify-content-center">
-        <div class="col-9">
+    <div class="row justify-content-center mx-0 mx-md-2">
+        <div class="col-md-9">
             <form ref="mAcc" class="row g-3 needs-validation bg-secondary tw-rounded-xl p-5" @submit.prevent="mAccCheck"
                 novalidate>
-                <div class="col-md-4"></div>
-                <div class="col-md-8">
+                <div class="col-lg-3 col-xl-4"></div>
+                <div class="col-lg-9 col-xl-8">
                     <div class="row g-4">
                         <div class="col-md-6">
                             <label for="username" class="form-label fs-5">暱稱</label>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="password" class="form-label d-block fs-5">密碼</label>
-                            <input type="password" disabled value="*********" class="form-control d-inline-block tw-w-[70%]"
+                            <input type="password" disabled value="*********" class="form-control d-inline-block w-50"
                                 style="background-color: #c4c4c4;">
                             <RouterLink to="/account/manageAccount/changePwd" class="btn btn-danger fw-bold ms-3">修改</RouterLink>
                         </div>
@@ -81,11 +81,11 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <label for="sex" class="form-label fs-3 fw-bolder">性別：</label>
+                            <label for="sex" class="form-label fs-3 fw-bolder d-md-inline-block d-block">性別：</label>
 
                             <div class="form-check form-check-inline selectRadio" v-for="(item, index) in ['男','女','不透漏']" @click="sex = index">
                                 <input class="form-check-input" type="radio" name="sex" :id="`sexRadio${index+1}`" :value="index" v-model="sex">
-                                <label class="form-label" :for="`sexRadio${index+1}`">{{ item }}</label>
+                                <label class="form-label fs-4" :for="`sexRadio${index+1}`">{{ item }}</label>
                             </div>
                         </div>
                         <div class="col-12 text-center">
@@ -220,7 +220,6 @@ onMounted(async () => {
     .form-label{
         font-weight: bolder;
         color: black;
-        font-size: 1.75rem;
         line-height: 1.75rem;
         cursor: pointer;
         &:hover{

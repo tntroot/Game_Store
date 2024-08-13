@@ -121,10 +121,11 @@
 import { ref, reactive, computed, toRefs } from 'vue';
 import axios from 'axios';
 import { getAccountAPI, setting } from '../assets/JS/function';
-import Cookies from 'js-cookie';
 import { useRouter } from 'vue-router';
+import { useAccountStore } from '../stores/account';
 
 const router = useRouter();
+const accountStore = useAccountStore();
 
 let signUpForm = ref();
 const signUpData = reactive({
@@ -158,7 +159,7 @@ async function signUpCheck(event) {
         console.log(res);
         if (!res) { return; }
         if (res.data.status == 200) {
-            Cookies.set('UUID', res.data.data, { expires: 7, path: '/113-1-11' });
+            accountStore.tk = res.data.data;
             router.push('/');
         } else {
             errorText.value = res.data.message

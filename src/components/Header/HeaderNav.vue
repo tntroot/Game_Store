@@ -1,9 +1,9 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light tw-bg-[#c1b0ffda] p-0 sticky-top">
+    <nav class="navbar navbar-expand-xl navbar-light tw-bg-[#c1b0ffda] p-0 sticky-top">
         <div class="container px-4 px-lg-5 position-relative">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                    class="navbar-toggler-icon"></span></button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <RouterLink to="/" style="background-color: transparent;">
                 <div class="navbar-brand fs-3">夢幻宇宙網</div>
             </RouterLink>
@@ -27,17 +27,21 @@
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">商店</a>
                         <ul class="dropdown-menu py-0" aria-labelledby="navbarDropdown">
-                            <RouterLink :to="{path: '/search', query: {...route.query, type: ''}}">
-                                <li class="dropdown-item" :class="[thisRoute === '' ? 'router-link-active' : '']">全部</li>
+                            <RouterLink :to="{ path: '/search', query: { ...route.query, type: '' } }">
+                                <li class="dropdown-item" :class="[thisRoute === '' ? 'router-link-active' : '']">全部
+                                </li>
                             </RouterLink>
-                            <RouterLink :to="{path: '/search', query: {...route.query, type: '新遊戲'}}">
-                                <li class="dropdown-item" :class="[thisRoute === '新遊戲' ? 'router-link-active' : '']">新遊戲</li>
+                            <RouterLink :to="{ path: '/search', query: { ...route.query, type: '新遊戲' } }">
+                                <li class="dropdown-item" :class="[thisRoute === '新遊戲' ? 'router-link-active' : '']">新遊戲
+                                </li>
                             </RouterLink>
-                            <RouterLink :to="{path: '/search', query: {...route.query, type: '促銷'}}">
-                                <li class="dropdown-item" :class="[thisRoute === '促銷' ? 'router-link-active' : '']">促銷</li>
+                            <RouterLink :to="{ path: '/search', query: { ...route.query, type: '促銷' } }">
+                                <li class="dropdown-item" :class="[thisRoute === '促銷' ? 'router-link-active' : '']">促銷
+                                </li>
                             </RouterLink>
-                            <RouterLink :to="{path: '/search', query: {...route.query, type: '免費遊戲'}}">
-                                <li class="dropdown-item" :class="[thisRoute === '免費遊戲' ? 'router-link-active' : '']">免費遊戲</li>
+                            <RouterLink :to="{ path: '/search', query: { ...route.query, type: '免費遊戲' } }">
+                                <li class="dropdown-item" :class="[thisRoute === '免費遊戲' ? 'router-link-active' : '']">
+                                    免費遊戲</li>
                             </RouterLink>
                         </ul>
                     </li>
@@ -45,15 +49,10 @@
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">成果展</a>
                         <ul class="dropdown-menu py-0" aria-labelledby="navbarDropdown">
-                            <RouterLink to="/">
-                                <li class="dropdown-item">電子書</li>
-                            </RouterLink>
-                            <RouterLink to="/">
-                                <li class="dropdown-item">簡報</li>
-                            </RouterLink>
-                            <RouterLink to="/">
-                                <li class="dropdown-item">錄影黨</li>
-                            </RouterLink>
+                            <li class="dropdown-item tw-cursor-pointer" @click="onFile('ebook')">電子書</li>
+                            <li class="dropdown-item tw-cursor-pointer" @click="onFile('ppt')">簡報</li>
+                            <li class="dropdown-item tw-cursor-pointer" @click="onFile('poster')">A1 海報</li>
+                            <li class="dropdown-item tw-cursor-pointer" @click="onFile('video')">錄影檔</li>
                         </ul>
                     </li>
                     <li class="nav-item ms-4 ">
@@ -70,10 +69,12 @@
 
             <div class=" position-absolute end-0 top-100" v-if="accountStore.account">
                 <div class="bg-white tw-w-[10rem]" v-show="showAcc">
-                    <RouterLink to="/account/manageAccount/account" class="btn btn-outline-secondary btn-lg fw-bold w-100">
+                    <RouterLink to="/account/manageAccount/account"
+                        class="btn btn-outline-secondary btn-lg fw-bold w-100">
                         我的帳號
                     </RouterLink>
-                    <RouterLink to="/admin/admin" class="btn btn-outline-secondary btn-lg fw-bold w-100" v-if="accountStore.isAccountAdmin == 0">
+                    <RouterLink to="/admin/admin" class="btn btn-outline-secondary btn-lg fw-bold w-100"
+                        v-if="accountStore.isAccountAdmin == 0">
                         管理後臺
                     </RouterLink>
                     <RouterLink to="/account/signout" class="btn btn-outline-secondary btn-lg fw-bold w-100">
@@ -94,7 +95,7 @@ import { useAccountStore } from '@/stores/account';
 import { useHeaderStore } from '@/stores/header';
 
 const headerStore = useHeaderStore();
-const { search, thisRoute   } = storeToRefs(headerStore);
+const { search, thisRoute } = storeToRefs(headerStore);
 const { searchFu, shopping } = headerStore;
 
 const router = useRouter();
@@ -105,19 +106,37 @@ const showAcc = ref(false);
 function account() {
     if (!accountStore.account) {
         router.push('/login');
-    }else{
+    } else {
         showAcc.value = !showAcc.value
     }
 }
-function admin(){
+function admin() {
     router.push('/admin');
+}
+
+function onFile(type) {
+    const href = "https://localhost:3000/ebook/index.html";
+    switch (type) {
+        case 'ebook':
+            window.location.href = '/src/ebook/index.html';
+            break;
+        case 'ppt':
+            window.location.href = '#';
+            break;
+        case 'poster':
+            window.location.href = '/src/assets/img/夢幻宇宙網-1.jpg';
+            break;
+        case 'video':
+            window.location.href = '#';
+            break;
+    }
 }
 
 watch(useRoute(), (newValue) => {
     thisRoute.value = newValue.query.type || "";
     search.value = "";
     showAcc.value = false
-},{  immediate: true ,deep: true });
+}, { immediate: true, deep: true });
 
 </script>
 
@@ -162,10 +181,11 @@ watch(useRoute(), (newValue) => {
 }
 
 // 下拉選單設定
-.dropdown-menu{
-    a:nth-child(1)>li{
+.dropdown-menu {
+    a:nth-child(1)>li {
         border-bottom: 1px solid #c4c4c4;
     }
+
     .dropdown-item {
         padding: 0.5rem 0 0.5rem 1rem;
 

@@ -118,16 +118,16 @@ function onFile(type) {
     const href = "https://localhost:3000/ebook/index.html";
     switch (type) {
         case 'ebook':
-            window.location.href = '/src/ebook/index.html';
+            window.location.href = new URL('../../ebook/index.html', import.meta.url);
             break;
         case 'ppt':
-            window.location.href = '#';
+            window.location.href = new URL('../../ebook/專題報告.pdf', import.meta.url);
             break;
         case 'poster':
-            window.location.href = '/src/assets/img/夢幻宇宙網-1.jpg';
+            window.location.href = new URL('../../assets/img/夢幻宇宙網-1.jpg', import.meta.url);
             break;
         case 'video':
-            window.location.href = '#';
+            window.location.href = new URL('../../assets/video/113-1-11.ecm.mp4/index.html', import.meta.url);
             break;
     }
 }

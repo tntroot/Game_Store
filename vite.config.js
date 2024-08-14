@@ -11,7 +11,7 @@ import * as path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    publicPath: "./",
+    publicPath: "/",
     plugins: [
         VueRouter({
             routesFolder: [
@@ -92,5 +92,5 @@ export default defineConfig({
     publicDir: 'assets',
     filenameHashing: false,
 
-    base: "/"
+    base: "./"
 })

@@ -27,7 +27,7 @@ function signOut(time) {
     }, time);
 }
 
-signOut(3000); // 3秒後跳轉
+signOut(1500); // 3秒後跳轉
 </script>
 
 <style></style>

@@ -54,7 +54,8 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
 
     if(to.path == "/item" || to.path == "/admin/leaveReply/showMessage"){
-        let res = await axios.post(gameAPI("getGameId"), { "game_id": to.query.gameId }, setting).catch((err) => console.log(err))
+        let res = await axios.post(gameAPI("getGameId"), { "game_id": to.query.gameId }, setting).catch((error) => console.log(error.response.data))
+        if(!res) {return;} 
         const data = res.data.data;
         to.meta = {
             ...to.meta,

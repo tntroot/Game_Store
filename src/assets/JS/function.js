@@ -10,9 +10,9 @@ export function numFormat(num) {
     }
 }
 
-const dataAPI = "http://site03.web.digital.gov.tw/113-1-11/PHP";
+const dataAPI = "http://localhost/Game_Store";
 
-export const uploadAPI = "http://site03.web.digital.gov.tw/113-1-11/PHP/uploads/img/";
+export const uploadAPI = "http://localhost/Game_Store/uploads/img/";
 
 /**
  * @param {string} api php 檔名 

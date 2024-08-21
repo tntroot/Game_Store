@@ -3,10 +3,10 @@
 結合 Vue3 + PHP 製作購物網站，使用者可以進行觀看、購買、評論，管理者可對網站去做更改商品、更改內容
 
 前端 : Vue 3、Bootstrap5、HTML、CSS
-
 後端 : PHP、MySQL
 
-[後端連結]()
+[後端連結](https://github.com/tntroot/Game_Store_PHP/tree/main)
+
 
 ## Project Setup
 

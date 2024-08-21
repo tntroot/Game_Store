@@ -77,9 +77,7 @@ export default function () {
             router.push('/admin/game/gameShow');
         } else {
             errorText.value = res.data.message;
-        }
-        console.log(res, formData);
-        
+        }   
     }
 
     return {

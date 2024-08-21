@@ -1,7 +1,7 @@
 <template>
 	<button type="button" :class="[props.btnEvent.class === 'btn btn-primary'?'btn btn-primary':props.btnEvent.class]" @click="addShopping()">
         <Icon icon="typcn:shopping-cart" class=" d-inline-block me-2" />
-        <span>{{ isBuy ? '已加入購物車' : '加入購物車' }}</span>
+        <span>{{ isBuy ? addShoppingText2 : addShoppingText }}</span>
     </button>
 
 	<!-- Modal 登入後 -->
@@ -56,11 +56,12 @@
 </template>
 
 <script setup>
-import { ref, nextTick, onMounted } from 'vue';
+import { ref, nextTick, onMounted, watchEffect } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { gameAPI, shopingAPI, numFormat, setting } from '../assets/JS/function';
 import { useAccountStore } from '@/stores/account';
 import axios from 'axios';
+// import * as bootstrap from 'bootstrap';
 
 let props = defineProps(['btnEvent']);
 
@@ -81,7 +82,6 @@ async function addShopping() {
 			console.log(err);
 		})
 		if (!res) { return; }
-		console.log(res);
 		
 		if (res.data.status == 200) {
 			getID.value = res.data.data;
@@ -98,6 +98,25 @@ async function addShopping() {
 	}
 }
 
+const addShoppingText = ref('加入購物車');
+const addShoppingText2 = ref('已加入購物車');
+
+/** 偵測視窗寬度 */
+const windowWidth = ref(window.innerWidth);
+window.addEventListener('resize', () => {
+    windowWidth.value = window.innerWidth;
+})
+watchEffect(() => {
+    if(windowWidth.value < 500){
+        addShoppingText.value = "購買";
+        addShoppingText2.value = "已購買";
+    }else{
+        addShoppingText.value = "加入購物車";
+        addShoppingText2.value = "已加入購物車";
+    }
+})
+
+/** 是否購買了遊戲 */
 const isBuy = ref(false);
 onMounted(async () => {
 	const showGameCard = await axios.post(shopingAPI("showCard"), {
@@ -110,8 +129,6 @@ onMounted(async () => {
 	if (showGameCard.data.status == 200) {
 		isBuy.value = true;
 	}
-	console.log(showGameCard);
-	
 })
 
 // defineExpose({

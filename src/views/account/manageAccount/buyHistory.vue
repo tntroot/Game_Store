@@ -52,9 +52,7 @@ async function buyShopping () {
     }else{
         isdata.value = false;
         tb_body.value = res.data.message;
-    }
-    console.log(tb_body.value);
-    
+    } 
 }
 buyShopping();
 </script>

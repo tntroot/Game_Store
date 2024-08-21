@@ -93,7 +93,6 @@ onMounted(async() => {
             sex: data.sex == 0 ? '男' : data.sex == 1 ? '女' : '不透漏', 
             phone: data.phone ? data.phone : '暫無',
         };
-        console.log(account.value);
     }else{
         router.push('/admin/account/accountShow');
     }

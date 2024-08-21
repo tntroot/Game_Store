@@ -89,7 +89,6 @@
             }, setting).catch(error => {
                 console.log(error);
             });
-            console.log(res.data);
 
             if (!res) { return; }
             if (res.data.status == 200) {
@@ -98,7 +97,7 @@
                 liveToast.value.classList.add('show');
                 setTimeout(() => {
                     liveToast.value.classList.remove('show');
-                    router.push('/manageAccount/account')
+                    router.push('/account/manageAccount/account')
                 }, 3000);
             }else{
                 errorText.value = res.data.message;

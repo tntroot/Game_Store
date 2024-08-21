@@ -156,9 +156,7 @@ async function checkout(event) {
                     id: res.data.data
                 }
             })
-        }
-        console.log(res);
-        
+        }      
     }
     form.value.classList.add('was-validated')
 }
@@ -178,7 +176,6 @@ onMounted(async () => {
     if (res.data.status == 200) {
         shopping.value = res.data.data;
     }
-    console.log(res);
 })
 </script>
 

@@ -156,7 +156,6 @@ async function signUpCheck(event) {
             console.log(`註冊失敗，原因為${err}`)
         })
 
-        console.log(res);
         if (!res) { return; }
         if (res.data.status == 200) {
             accountStore.tk = res.data.data;

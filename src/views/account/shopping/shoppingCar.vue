@@ -69,7 +69,6 @@ async function deleteShop(id) {
     }, setting).catch((err) => {
         console.log(err);
     })
-    console.log(res);
     
     if (!res) { return; }
     if (res.data.status == 200) {
@@ -78,7 +77,7 @@ async function deleteShop(id) {
 }
 
 let allPrice = computed(() => {
-    return shopping.value.reduce((sum, item) => sum + item.sale_price, 0)
+    return shopping.value.reduce((sum, item) => sum + parseInt(item.sale_price), 0)
 })
 
 const accountStore = useAccountStore();
@@ -92,7 +91,6 @@ onMounted(async () => {
     if (res.data.status == 200) {
         shopping.value = res.data.data;
     }
-    console.log(res);
 })
 
 // md:tw-w-[12rem] tw-w-1/4 tw-h-[8rem]

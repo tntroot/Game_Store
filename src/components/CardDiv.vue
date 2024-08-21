@@ -5,14 +5,14 @@
             <div v-if="salePrice" class="badge sales">
                 特價
             </div>
-            <img :src="thisCard.img" class="card-img-top w-100 tw-h-48">
+            <img :src="thisCard.img" class="card-img-top img-fluid w-100 tw-h-32 md:tw-h-40">
         </RouterLink>
         <div class="card-body">
             <RouterLink :to="'/item?gameId=' + thisCard.game_id">
-                <h5 class="card-title fs-5 tw-text-[#3640ac] hover:tw-text-red-600 tw-line-clamp-2">{{ thisCard.name }}</h5>
+                <h5 class="card-title tw-text-[13px] sm:tw-text-xl tw-text-[#3640ac] hover:tw-text-red-600 tw-line-clamp-2">{{ thisCard.name }}</h5>
             </RouterLink>
             <div class="d-flex align-items-center">
-                <h5 class="card-text text-danger fw-bolder fs-5 me-2"> {{ thisCard.sale_price != 0 ? `$
+                <h5 class="card-text text-danger fw-bolder me-2 tw-text-xl"> {{ thisCard.sale_price != 0 ? `$
                     ${thisCard.sale_price}` :
                     '免費' }}</h5>
                 <h5 v-if="salePrice" class="text-decoration-line-through">${{ thisCard.price }}</h5>

@@ -10,16 +10,17 @@ export function numFormat(num) {
     }
 }
 
-const dataAPI = "http://localhost/Game_Store";
+const dataAPI = "http://localhost/Game_Store/";
+// const dataAPI = "http://site03.web.digital.gov.tw/113-1-11/PHP";
 
-export const uploadAPI = "http://localhost/Game_Store/uploads/img/";
+export const uploadAPI = `${dataAPI}/uploads/img/`;
 
 /**
  * @param {string} api php 檔名 
  * @param {string} path php 路徑資料夾
  * @returns {string} 請求後端資料 --> 執行遊戲相關操作
  */
-export function gameAPI(api, path=""){
+export function gameAPI(api, path=""){ 
     if(path){
         return `${dataAPI}/game/${path}/${api}.php`;
     }

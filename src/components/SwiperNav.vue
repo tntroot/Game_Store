@@ -5,8 +5,8 @@
 				<CardDiv :thisCard="item" :isSwiper="true" />
 			</swiper-slide>
 		</swiper-container>
-		<div :id="'prev' + contorl" class="swiper-button-prev"></div>
-		<div :id="'next' + contorl" class="swiper-button-next"></div>
+		<div :id="'prev' + contorl" class="swiper-button-prev" v-show="listAll.length >1"></div>
+		<div :id="'next' + contorl" class="swiper-button-next" v-show="listAll.length >1"></div>
 	</div>
 </template>
 
@@ -25,23 +25,23 @@ function setSwiper(index) {
 		breakpoints: {
 			// 響應式
 			0: {
-				slidesPerView: 1, // 顯示數量
-				slidesPerGroup: 1 // 滑動時移動的格數
-			},
-			450: {
 				slidesPerView: 2, // 顯示數量
 				slidesPerGroup: 1 // 滑動時移動的格數
 			},
-			750: {
-				slidesPerView: 3,
+			550: {
+				slidesPerView: 3, // 顯示數量
+				slidesPerGroup: 1 // 滑動時移動的格數
+			},
+			850: {
+				slidesPerView: 4,
 				slidesPerGroup: 2
 			},
 			1000: {
-				slidesPerView: 4,
+				slidesPerView: 5,
 				slidesPerGroup: 3
 			},
 			1300: {
-				slidesPerView: 5,
+				slidesPerView: 6,
 				slidesPerGroup: 4
 			}
 		},
@@ -69,6 +69,7 @@ defineExpose({
 <style lang="scss" scoped>
 %swiper-button {
 	background: url('../../src/assets/img/emojione--right-arrow.png') no-repeat;
+    opacity: 0.3;
 	background-size: 60px;
 	width: 60px;
 	height: 60px;

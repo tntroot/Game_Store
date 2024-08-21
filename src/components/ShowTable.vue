@@ -30,7 +30,6 @@
 import ImgPath from '@/components/ShowTableComponent/ImgPath.vue';
 import Btn from '@/components/ShowTableComponent/Btn.vue';
 const { head, body, isdata } = defineProps(['head', 'body', 'isdata']);
-console.log(body);
 
 </script>
 

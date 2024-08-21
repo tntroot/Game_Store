@@ -40,7 +40,6 @@ onMounted(async() => {
     if (res.data.status == 200) {
         shopping.value = res.data.data;
     }
-    console.log(res);
 })
 </script>
 

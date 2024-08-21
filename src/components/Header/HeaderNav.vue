@@ -118,10 +118,10 @@ function onFile(type) {
     const href = "https://localhost:3000/ebook/index.html";
     switch (type) {
         case 'ebook':
-            window.location.href = new URL('../../ebook/index.html', import.meta.url);
+            window.location.href = new URL('../../assets/ebook/index.html', import.meta.url);
             break;
         case 'ppt':
-            window.location.href = new URL('../../ebook/專題報告.pdf', import.meta.url);
+            window.location.href = new URL('../../assets/ebook/專題報告.pdf', import.meta.url);
             break;
         case 'poster':
             window.location.href = new URL('../../assets/img/夢幻宇宙網-1.jpg', import.meta.url);

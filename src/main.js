@@ -8,8 +8,8 @@ import router from './router'
 import "./assets/bootstrap/bootstrap.css";
 // import "@/assets/bootstrap/bootstrap.bundle.min.js";
 // import "@/assets/JS/jquery-3.7.1.js"
-const borstrapJS = () => import("@/assets/bootstrap/bootstrap.bundle.min.js");
-const jquery = () => import("@/assets/JS/jquery-3.7.1.js");
+// const borstrapJS = () => import("bootstrap/dist/js/bootstrap.bundle.min.js");
+// const jquery = () => import("jquery/dist/jquery.min.js");
 
 import './assets/SASS/all.scss'
 
@@ -41,7 +41,7 @@ pinia.use(piniaLoc);
 
 app.use(pinia)
 app.use(router)
-app.use(borstrapJS).use(jquery)
+// app.use(borstrapJS).use(jquery)
 app.component('swiper', Swiper).component('SwiperSlide', SwiperSlide).component('Icon', Icon).component('ModalDiv', ModalDiv)
 
 app.mount('#app')

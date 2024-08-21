@@ -65,11 +65,8 @@ onMounted(async () => {
     list2.value = [];
     list3.value = [];
 
-    console.log(list1.value, list2.value, list3.value);
-
     return
   }
-  console.log(res);
 
   if (res.data.status == 200) {
     list1.value = res.data.data.dateDesc;

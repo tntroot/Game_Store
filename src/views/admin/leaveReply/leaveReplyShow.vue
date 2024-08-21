@@ -60,7 +60,6 @@ async function deleteMessage(id) {
         }else{
             alert(res.data.message);
         }
-        console.log(res.data);
     }
 }
 </script>

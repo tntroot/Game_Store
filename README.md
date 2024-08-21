@@ -1,14 +1,12 @@
-# .
+# 夢幻宇宙網
 
-This template should help get you started developing with Vue 3 in Vite.
+結合 Vue3 + PHP 製作購物網站，使用者可以進行觀看、購買、評論，管理者可對網站去做更改商品、更改內容
 
-## Recommended IDE Setup
+前端 : Vue 3、Bootstrap5、HTML、CSS
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+後端 : PHP、MySQL
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+[後端連結]()
 
 ## Project Setup
 

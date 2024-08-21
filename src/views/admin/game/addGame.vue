@@ -81,13 +81,13 @@
                         <div class="col-4 req">遊戲介紹: </div>
                         <TinyMCE />
                     </div> -->
-                    <div class="mb-3 row">
+                    <div class="mb-5 row">
                         <div class="col-4">遊戲配置: </div>
                         <div class="col-8"></div>
                     </div>
                     <div class="mb-3 row">
                         <div class="col-12">
-                            <table class="table table-bordered ms-5 w-50">
+                            <table class="table table-bordered">
                                 <tr>
                                     <td>作業系統：</td>
                                     <td><input type="text" class="form-control px-3" v-model="addGameData.system">

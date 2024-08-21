@@ -10,7 +10,7 @@ export function numFormat(num) {
     }
 }
 
-const dataAPI = "http://localhost/Game_Store/";
+const dataAPI = "http://localhost/Game_Store_PHP";
 // const dataAPI = "http://site03.web.digital.gov.tw/113-1-11/PHP";
 
 export const uploadAPI = `${dataAPI}/uploads/img/`;

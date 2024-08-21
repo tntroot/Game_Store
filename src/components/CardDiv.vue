@@ -45,7 +45,7 @@ import ModalDiv from './ModalDiv.vue';
 
 let propsThisCard = defineProps(['thisCard', 'isSwiper']);
 let salePrice = computed(() => {
-    return propsThisCard.thisCard.price > propsThisCard.thisCard.sale_price;
+    return parseInt(propsThisCard.thisCard.price) > parseInt(propsThisCard.thisCard.sale_price);
 })
 onMounted(() => {
     // propsThisCard.thisCard.img[0] = new URL(`../assets/img/${propsThisCard.thisCard.img[0]}`, import.meta.url);

@@ -83,7 +83,7 @@
                     </div>
                     <div class="mb-3 row">
                         <div class="col-12">
-                            <table class="table table-bordered ms-5 w-50">
+                            <table class="table table-bordered d-table-cell">
                                 <tr>
                                     <td>作業系統：</td>
                                     <td><input type="text" class="form-control px-3" v-model="addGameData.system">

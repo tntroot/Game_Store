@@ -56,7 +56,7 @@
 </template>
 
 <script setup>
-import { ref, nextTick, onMounted, watchEffect } from 'vue';
+import { ref, nextTick, onMounted, watchEffect, onUnmounted, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { gameAPI, shopingAPI, numFormat, setting } from '../assets/JS/function';
 import { useAccountStore } from '@/stores/account';
@@ -118,17 +118,28 @@ watchEffect(() => {
 
 /** 是否購買了遊戲 */
 const isBuy = ref(false);
-onMounted(async () => {
+async function isBuyGame() {
 	const showGameCard = await axios.post(shopingAPI("showCard"), {
-		"game_id": route.query.gameId,
+		"game_id": route.query.gameId || props.btnEvent.gameId,
 		"token": `Bearer ${tk.value}`,
 	}, setting).catch((err) => {
 		console.log(err);
 	})
+    console.log(showGameCard.data);
+    
 	if (!showGameCard) { return; }
 	if (showGameCard.data.status == 200) {
 		isBuy.value = true;
-	}
+	}else{
+        isBuy.value = false;
+    }
+}
+onMounted(()=>{
+    isBuyGame();
+})
+
+defineExpose({
+    isBuyGame,
 })
 
 // defineExpose({

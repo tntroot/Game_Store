@@ -7,7 +7,7 @@
             <RouterLink to="/" style="background-color: transparent;">
                 <div class="navbar-brand fs-3">夢幻宇宙網</div>
             </RouterLink>
-            <div class=" order-1 order-lg-5 position-relative">
+            <div class=" order-1 order-xl-5 position-relative">
                 <button class=" btn-shop-account" @click="account">
                     <Icon icon="ic:round-account-circle" />
                 </button>
@@ -15,7 +15,7 @@
                     <Icon icon="icon-park:shopping-cart" />
                 </button>
             </div>
-            <div class="collapse navbar-collapse order-5 order-lg-1" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse order-5 order-xl-1" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-4">
                     <RouterLink to="/">
                         <li class="nav-item nav-link px-3">首頁</li>

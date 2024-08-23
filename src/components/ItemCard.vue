@@ -49,7 +49,7 @@
                             </td>
                         </tr>
                     </table>
-                    <ModalDiv ref="reoly" :btnEvent="{ class: 'btn btn-lg btn-outline-dark mt-3 fw-bolder w-100'}"></ModalDiv>
+                    <ModalDiv ref="reoly" :btnEvent="{ class: 'btn btn-lg btn-outline-dark mt-3 fw-bolder w-100', gameId: itemList.game_id}"></ModalDiv>
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@ defineProps({
 const router = useRouter();
 const route = useRoute();
 function searchGame(item) {
-    router.push({ path: 'search', query: {type: item } })
+    router.push({ path: 'search', query: {tags: item } })
 }
 </script>
 
